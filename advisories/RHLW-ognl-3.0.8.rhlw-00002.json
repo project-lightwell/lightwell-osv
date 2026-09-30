@@ -1,0 +1,95 @@
+{
+  "schema_version": "1.9.0",
+  "id": "RHLW-ognl-3.0.8.rhlw-00002",
+  "published": "2026-09-30T12:38:29Z",
+  "modified": "2026-09-30T12:38:29Z",
+  "severity": [
+    {
+      "type": "CVSS_V3",
+      "score": "CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L"
+    }
+  ],
+  "references": [
+    {
+      "url": "https://lists.apache.org/thread.html/940b4c3fef002461b89a050935337056d4a036a65ef68e0bbd4621ef%40%3Cdev.struts.apache.org%3E",
+      "type": "WEB"
+    },
+    {
+      "url": "http://struts.apache.org/docs/s2-034.html",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2016-3093",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-383p-xqxx-rrmp",
+      "type": "ADVISORY"
+    }
+  ],
+  "summary": "Lightwell Security Advisory: ognl 3.0.8.rhlw-00002",
+  "details": "Red Hat Lightwell has released ognl:ognl 3.0.8.rhlw-00002 with a backported security fix.\n\nCVE-2016-3093: Apache Struts 2.0.0 through 2.3.24.1 does not properly cache method references when used with OGNL before 3.0.12, which allows remote attackers to cause a denial of service (block access to a web site) via unspecified vectors.\n\nThis patched artifact is a drop-in replacement for ognl:ognl 3.0.8 from Maven Central.",
+  "upstream": [
+    "CVE-2016-3093",
+    "GHSA-383p-xqxx-rrmp"
+  ],
+  "affected": [
+    {
+      "package": {
+        "ecosystem": "Maven",
+        "name": "ognl:ognl",
+        "purl": "pkg:maven/ognl/ognl"
+      },
+      "versions": [
+        "3.0.8"
+      ],
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "3.0.8.rhlw-00002"
+            }
+          ]
+        }
+      ],
+      "database_specific": {
+        "lightwell": {
+          "source": "lightwell-pipeline",
+          "backport_base_version": "3.0.8",
+          "remediated_version": "3.0.8.rhlw-00002",
+          "repository_url": "https://packages.redhat.com/lightwell/java/remediated/"
+        }
+      }
+    },
+    {
+      "package": {
+        "ecosystem": "Red Hat Lightwell:Maven",
+        "name": "ognl:ognl"
+      },
+      "versions": [],
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "3.0.8.rhlw-00002"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "credits": [
+    {
+      "name": "Red Hat Lightwell",
+      "type": "REMEDIATION_DEVELOPER"
+    }
+  ]
+}

@@ -1,0 +1,165 @@
+{
+  "schema_version": "1.9.0",
+  "id": "RHLW-io.quarkus.http-4.1.8.rhlw-00005",
+  "published": "2026-09-28T20:37:17Z",
+  "modified": "2026-09-28T20:37:17Z",
+  "severity": [
+    {
+      "type": "CVSS_V3",
+      "score": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:N"
+    }
+  ],
+  "references": [
+    {
+      "url": "https://access.redhat.com/downloads/content/package-browser/",
+      "type": "WEB"
+    },
+    {
+      "url": "https://access.redhat.com/jbossnetwork/restricted/listSoftware.html",
+      "type": "WEB"
+    },
+    {
+      "url": "https://access.redhat.com/errata/RHSA-2025:0900",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://access.redhat.com/errata/RHSA-2025:3018",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://access.redhat.com/errata/RHSA-2025:8761",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://access.redhat.com/security/cve/CVE-2024-12397",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/CVEProject/cvelistV5/tree/main/cves/2024/12xxx/CVE-2024-12397.json",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-12397",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/quarkusio/quarkus-http",
+      "type": "PACKAGE"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-cxrx-q234-m22m",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://access.redhat.com/errata/RHSA-2024:4392",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://access.redhat.com/errata/RHSA-2024:5143",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://access.redhat.com/errata/RHSA-2024:5144",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://access.redhat.com/errata/RHSA-2024:5145",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://access.redhat.com/errata/RHSA-2024:5147",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://access.redhat.com/errata/RHSA-2024:6437",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://access.redhat.com/security/cve/CVE-2024-3653",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/CVEProject/cvelistV5/tree/main/cves/2024/3xxx/CVE-2024-3653.json",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-3653",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/undertow-io/undertow",
+      "type": "PACKAGE"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-ch7q-gpff-h9hp",
+      "type": "ADVISORY"
+    }
+  ],
+  "summary": "Lightwell Security Advisory: quarkus-http-core 4.1.8.rhlw-00005",
+  "details": "Red Hat Lightwell has released io.quarkus.http:quarkus-http-core 4.1.8.rhlw-00005 with backported fixes for CVE-2024-12397 and CVE-2024-3653.\n\nCVE-2024-12397: Io.quarkus.http/quarkus-http-core: quarkus http cookie smuggling\n\nCVE-2024-3653: Undertow: learningpushhandler can lead to remote memory dos attacks\n\nThis patched artifact is a drop-in replacement for io.quarkus.http:quarkus-http-core 4.1.8 from Maven Central.",
+  "upstream": [
+    "CVE-2024-12397",
+    "CVE-2024-3653",
+    "GHSA-cxrx-q234-m22m",
+    "GHSA-ch7q-gpff-h9hp"
+  ],
+  "affected": [
+    {
+      "package": {
+        "ecosystem": "Maven",
+        "name": "io.quarkus.http:quarkus-http-core",
+        "purl": "pkg:maven/io.quarkus.http/quarkus-http-core"
+      },
+      "versions": [
+        "4.1.8"
+      ],
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "4.1.8.rhlw-00005"
+            }
+          ]
+        }
+      ],
+      "database_specific": {
+        "lightwell": {
+          "source": "lightwell-pipeline",
+          "backport_base_version": "4.1.8",
+          "remediated_version": "4.1.8.rhlw-00005",
+          "repository_url": "https://packages.redhat.com/lightwell/java/remediated/"
+        }
+      }
+    },
+    {
+      "package": {
+        "ecosystem": "Red Hat Lightwell:Maven",
+        "name": "io.quarkus.http:quarkus-http-core"
+      },
+      "versions": [],
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "4.1.8.rhlw-00005"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "credits": [
+    {
+      "name": "Red Hat Lightwell",
+      "type": "REMEDIATION_DEVELOPER"
+    }
+  ]
+}
