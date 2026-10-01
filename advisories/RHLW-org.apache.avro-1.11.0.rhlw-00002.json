@@ -1,0 +1,121 @@
+{
+  "schema_version": "1.9.0",
+  "id": "RHLW-org.apache.avro-1.11.0.rhlw-00002",
+  "published": "2026-09-17T11:51:50Z",
+  "modified": "2026-09-17T11:51:50Z",
+  "severity": [
+    {
+      "type": "CVSS_V4",
+      "score": "CVSS:4.0/AV:N/AC:L/AT:P/PR:N/UI:N/VC:H/VI:H/VA:H/SC:N/SI:N/SA:N"
+    },
+    {
+      "type": "CVSS_V3",
+      "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:L"
+    }
+  ],
+  "references": [
+    {
+      "url": "https://github.com/CVEProject/cvelistV5/tree/main/cves/2023/39xxx/CVE-2023-39410.json",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://lists.apache.org/thread/q142wj99cwdd0jo5lvdoxzoymlqyjdds",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2023-39410",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-rhrv-645h-fjfh",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2",
+      "type": "WEB"
+    },
+    {
+      "url": "https://github.com/CVEProject/cvelistV5/tree/main/cves/2024/47xxx/CVE-2024-47561.json",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://lists.apache.org/thread/c2v7mhqnmq0jmbwxqq3r5jbj1xg43h5x",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-47561",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-r7pg-v2c8-mfg3",
+      "type": "ADVISORY"
+    }
+  ],
+  "summary": "Lightwell Security Advisory: avro 1.11.0.rhlw-00002",
+  "details": "Red Hat Lightwell has released org.apache.avro:avro 1.11.0.rhlw-00002 with backported fixes for CVE-2023-39410 and CVE-2024-47561.\n\nCVE-2023-39410: Apache Avro Java SDK: Memory when deserializing untrusted data in Avro Java SDK\n\nCVE-2024-47561: Apache Avro Java SDK: Arbitrary Code Execution when reading Avro schema (Java SDK)\n\nThis patched artifact is a drop-in replacement for org.apache.avro:avro 1.11.0 from Maven Central.",
+  "upstream": [
+    "CVE-2023-39410",
+    "CVE-2024-47561",
+    "GHSA-rhrv-645h-fjfh",
+    "GHSA-r7pg-v2c8-mfg3"
+  ],
+  "affected": [
+    {
+      "package": {
+        "ecosystem": "Maven",
+        "name": "org.apache.avro:avro",
+        "purl": "pkg:maven/org.apache.avro/avro"
+      },
+      "versions": [
+        "1.11.0"
+      ],
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "1.11.0.rhlw-00002"
+            }
+          ]
+        }
+      ],
+      "database_specific": {
+        "lightwell": {
+          "source": "lightwell-pipeline",
+          "backport_base_version": "1.11.0",
+          "remediated_version": "1.11.0.rhlw-00002",
+          "repository_url": "https://packages.redhat.com/lightwell/java/remediated/"
+        }
+      }
+    },
+    {
+      "package": {
+        "ecosystem": "Red Hat Lightwell:Maven",
+        "name": "org.apache.avro:avro"
+      },
+      "versions": [],
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "1.11.0.rhlw-00002"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "credits": [
+    {
+      "name": "Red Hat Lightwell",
+      "type": "REMEDIATION_DEVELOPER"
+    }
+  ]
+}

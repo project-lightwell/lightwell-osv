@@ -1,0 +1,99 @@
+{
+  "schema_version": "1.9.0",
+  "id": "RHLW-org.apache.commons-3.17.0.rhlw-00011",
+  "published": "2026-09-15T21:04:37Z",
+  "modified": "2026-09-15T21:04:37Z",
+  "severity": [
+    {
+      "type": "CVSS_V3",
+      "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L"
+    }
+  ],
+  "references": [
+    {
+      "url": "https://repo.maven.apache.org/maven2",
+      "type": "WEB"
+    },
+    {
+      "url": "https://github.com/CVEProject/cvelistV5/tree/main/cves/2025/48xxx/CVE-2025-48924.json",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://lists.apache.org/thread/bgv0lpswokgol11tloxnjfzdl7yrc1g1",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-48924",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-j288-q9x7-2f5v",
+      "type": "ADVISORY"
+    }
+  ],
+  "summary": "Lightwell Security Advisory: commons-lang3 3.17.0.rhlw-00011",
+  "details": "Red Hat Lightwell has released org.apache.commons:commons-lang3 3.17.0.rhlw-00011 with a backported security fix.\n\nCVE-2025-48924: Apache Commons Lang, Apache Commons Lang: ClassUtils.getClass(...) can throw a StackOverflowError on very long inputs\n\nThis patched artifact is a drop-in replacement for org.apache.commons:commons-lang3 3.17.0 from Maven Central.",
+  "upstream": [
+    "CVE-2025-48924",
+    "GHSA-j288-q9x7-2f5v"
+  ],
+  "affected": [
+    {
+      "package": {
+        "ecosystem": "Maven",
+        "name": "org.apache.commons:commons-lang3",
+        "purl": "pkg:maven/org.apache.commons/commons-lang3"
+      },
+      "versions": [
+        "3.17.0"
+      ],
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "3.17.0.rhlw-00011"
+            }
+          ]
+        }
+      ],
+      "database_specific": {
+        "lightwell": {
+          "source": "lightwell-pipeline",
+          "backport_base_version": "3.17.0",
+          "remediated_version": "3.17.0.rhlw-00011",
+          "repository_url": "https://packages.redhat.com/lightwell/java/remediated/"
+        }
+      }
+    },
+    {
+      "package": {
+        "ecosystem": "Red Hat Lightwell:Maven",
+        "name": "org.apache.commons:commons-lang3"
+      },
+      "versions": [],
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "3.17.0.rhlw-00011"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "credits": [
+    {
+      "name": "Red Hat Lightwell",
+      "type": "REMEDIATION_DEVELOPER"
+    }
+  ]
+}

@@ -1,0 +1,417 @@
+{
+  "schema_version": "1.9.0",
+  "id": "RHLW-com.fasterxml.jackson.core-2.17.3.rhlw-00013",
+  "published": "2026-09-23T15:56:22Z",
+  "modified": "2026-09-23T15:56:22Z",
+  "severity": [
+    {
+      "type": "CVSS_V3",
+      "score": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:L/I:L/A:L"
+    }
+  ],
+  "references": [
+    {
+      "url": "https://repo.maven.apache.org/maven2",
+      "type": "WEB"
+    },
+    {
+      "url": "https://github.com/CVEProject/cvelistV5/tree/main/cves/2026/83xxx/CVE-2026-83557.json",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/FasterXML/jackson-databind/security/advisories/GHSA-gx83-3vf8-gh7j",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-83557",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/FasterXML/jackson-databind/issues/6156",
+      "type": "REPORT"
+    },
+    {
+      "url": "https://github.com/FasterXML/jackson-databind/commit/eb3b7fc0f9c0d27f471550ac3316b17d1987388f",
+      "type": "FIX"
+    },
+    {
+      "url": "https://github.com/FasterXML/jackson-databind/pull/6155",
+      "type": "FIX"
+    },
+    {
+      "url": "https://github.com/FasterXML/jackson-databind",
+      "type": "PACKAGE"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-gx83-3vf8-gh7j",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/CVEProject/cvelistV5/tree/main/cves/2026/54xxx/CVE-2026-54512.json",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/FasterXML/jackson-databind/security/advisories/GHSA-j3rv-43j4-c7qm",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-54512",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/FasterXML/jackson-databind/issues/5988",
+      "type": "REPORT"
+    },
+    {
+      "url": "https://github.com/FasterXML/jackson-databind/commit/434d6c511de7fdd9872f29157aafb6162d12d8d5",
+      "type": "FIX"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-j3rv-43j4-c7qm",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/CVEProject/cvelistV5/tree/main/cves/2026/54xxx/CVE-2026-54515.json",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/FasterXML/jackson-databind/security/advisories/GHSA-5jmj-h7xm-6q6v",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-54515",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/FasterXML/jackson-databind/issues/5962",
+      "type": "REPORT"
+    },
+    {
+      "url": "https://github.com/FasterXML/jackson-databind/issues/5964",
+      "type": "REPORT"
+    },
+    {
+      "url": "https://github.com/FasterXML/jackson-databind/commit/0e1b0b211f7a53baa62ba2f4c9bd006c7bf4d5fa",
+      "type": "FIX"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-5jmj-h7xm-6q6v",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/CVEProject/cvelistV5/tree/main/cves/2026/19xxx/CVE-2026-19032.json",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/FasterXML/jackson-databind/security/advisories/GHSA-wjgm-6hv5-3cvf",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19032",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/FasterXML/jackson-databind/commit/cc6756b61ed90b6b9227f670e0408d5d9bd48551",
+      "type": "FIX"
+    },
+    {
+      "url": "https://github.com/FasterXML/jackson-databind/commit/ce26eda3481cd796f76ba4c53ffe1da23b53f166",
+      "type": "FIX"
+    },
+    {
+      "url": "https://github.com/FasterXML/jackson-databind/commit/d94bb632becfe0ba96926b9909ab06d1f87aad6d",
+      "type": "FIX"
+    },
+    {
+      "url": "https://github.com/FasterXML/jackson-databind/pull/6129",
+      "type": "FIX"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-wjgm-6hv5-3cvf",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/CVEProject/cvelistV5/tree/main/cves/2026/77xxx/CVE-2026-77310.json",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/FasterXML/jackson-databind/security/advisories/GHSA-vvgp-rfg2-7rr6",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-77310",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-vvgp-rfg2-7rr6",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/CVEProject/cvelistV5/tree/main/cves/2026/54xxx/CVE-2026-54514.json",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/FasterXML/jackson-databind/security/advisories/GHSA-hgj6-7826-r7m5",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-54514",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/FasterXML/jackson-databind/commit/1f5a1037b1e9e05920e755cb35f198bcd46667e4",
+      "type": "FIX"
+    },
+    {
+      "url": "https://github.com/FasterXML/jackson-databind/pull/5951",
+      "type": "FIX"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-hgj6-7826-r7m5",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/CVEProject/cvelistV5/tree/main/cves/2026/59xxx/CVE-2026-59888.json",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/FasterXML/jackson-databind/security/advisories/GHSA-3pjw-73gf-8qr5",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-59888",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/FasterXML/jackson-databind/commit/baa2cdf5ca2b2717fbb88d91955d69d8651df3e4",
+      "type": "FIX"
+    },
+    {
+      "url": "https://github.com/FasterXML/jackson-databind/commit/c7c678360624da5bc7eed2152789fa522880db9d",
+      "type": "FIX"
+    },
+    {
+      "url": "https://github.com/FasterXML/jackson-databind/pull/5974",
+      "type": "FIX"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-3pjw-73gf-8qr5",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://security.access.redhat.com/data/csaf/v2/vex/2026/cve-2026-54513.json",
+      "type": "WEB"
+    },
+    {
+      "url": "https://access.redhat.com/errata/RHSA-2026:36839",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://access.redhat.com/errata/RHSA-2026:40895",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://access.redhat.com/errata/RHSA-2026:41951",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://access.redhat.com/errata/RHSA-2026:43218",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://access.redhat.com/errata/RHSA-2026:43400",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://access.redhat.com/errata/RHSA-2026:44061",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://access.redhat.com/errata/RHSA-2026:44062",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://access.redhat.com/errata/RHSA-2026:44063",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://access.redhat.com/errata/RHSA-2026:44064",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://access.redhat.com/errata/RHSA-2026:44065",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://access.redhat.com/errata/RHSA-2026:44066",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://access.redhat.com/errata/RHSA-2026:44271",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://access.redhat.com/errata/RHSA-2026:48095",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://access.redhat.com/errata/RHSA-2026:48151",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://access.redhat.com/errata/RHSA-2026:50846",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://access.redhat.com/errata/RHSA-2026:50847",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://access.redhat.com/errata/RHSA-2026:50848",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://access.redhat.com/errata/RHSA-2026:50849",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://access.redhat.com/errata/RHSA-2026:54435",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://access.redhat.com/errata/RHSA-2026:54622",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://access.redhat.com/errata/RHSA-2026:62260",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://access.redhat.com/errata/RHSA-2026:66488",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://access.redhat.com/errata/RHSA-2026:66545",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://access.redhat.com/security/cve/CVE-2026-54513",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/CVEProject/cvelistV5/tree/main/cves/2026/54xxx/CVE-2026-54513.json",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/FasterXML/jackson-databind/security/advisories/GHSA-rmj7-2vxq-3g9f",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-54513",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/FasterXML/jackson-databind/issues/5981",
+      "type": "REPORT"
+    },
+    {
+      "url": "https://github.com/FasterXML/jackson-databind/issues/5983",
+      "type": "REPORT"
+    },
+    {
+      "url": "https://github.com/FasterXML/jackson-databind/commit/01d1692c8d0ed03e51a0e3c4f8a9e6908e4931e5",
+      "type": "FIX"
+    },
+    {
+      "url": "https://github.com/FasterXML/jackson-databind/commit/24529da29fdf46ff94ca38de9ebf31cd188f5e8e",
+      "type": "FIX"
+    },
+    {
+      "url": "https://github.com/FasterXML/jackson-databind/pull/5984",
+      "type": "FIX"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-rmj7-2vxq-3g9f",
+      "type": "ADVISORY"
+    }
+  ],
+  "summary": "Lightwell Security Advisory: jackson-databind 2.17.3.rhlw-00013",
+  "details": "Red Hat Lightwell has released com.fasterxml.jackson.core:jackson-databind 2.17.3.rhlw-00013 with backported fixes for CVE-2026-83557, CVE-2026-54512, CVE-2026-54515, CVE-2026-19032, CVE-2026-77310, CVE-2026-54514, CVE-2026-59888, and CVE-2026-54513.\n\nCVE-2026-83557: jackson-databind omits java.lang.Comparable from DefaultBaseTypeLimitingValidator's unsafe base types\n\nCVE-2026-54512: jackson-databind: PolymorphicTypeValidator bypass via generic type parameters allows arbitrary class instantiation\n\nCVE-2026-54515: jackson-databind: Case-insensitive deserialization bypasses per-property @JsonIgnoreProperties\n\nCVE-2026-19032: jackson-databind resolves attacker-controlled URI schemes when deserializing java.nio.file.Path\n\nCVE-2026-77310: jackson-databind: Eager DNS resolution (SSRF) still present in InetAddress deserialization (Incomplete fix for CVE-2026-54514)\n\nCVE-2026-54514: jackson-databind: InetSocketAddress deserialization triggers eager DNS resolution (SSRF)\n\nCVE-2026-59888: jackson-databind: @JsonIgnore on a Record property is bypassed with a PropertyNamingStrategy\n\nCVE-2026-54513: jackson-databind: Array subtype allowlist bypass in BasicPolymorphicTypeValidator (allowIfSubTypeIsArray)\n\nThis patched artifact is a drop-in replacement for com.fasterxml.jackson.core:jackson-databind 2.17.3 from Maven Central.",
+  "upstream": [
+    "CVE-2026-83557",
+    "CVE-2026-54512",
+    "CVE-2026-54515",
+    "CVE-2026-19032",
+    "CVE-2026-77310",
+    "CVE-2026-54514",
+    "CVE-2026-59888",
+    "CVE-2026-54513",
+    "GHSA-gx83-3vf8-gh7j",
+    "GHSA-j3rv-43j4-c7qm",
+    "GHSA-5jmj-h7xm-6q6v",
+    "GHSA-wjgm-6hv5-3cvf",
+    "GHSA-vvgp-rfg2-7rr6",
+    "GHSA-hgj6-7826-r7m5",
+    "GHSA-3pjw-73gf-8qr5",
+    "GHSA-rmj7-2vxq-3g9f"
+  ],
+  "affected": [
+    {
+      "package": {
+        "ecosystem": "Maven",
+        "name": "com.fasterxml.jackson.core:jackson-databind",
+        "purl": "pkg:maven/com.fasterxml.jackson.core/jackson-databind"
+      },
+      "versions": [
+        "2.17.3"
+      ],
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "2.17.3.rhlw-00013"
+            }
+          ]
+        }
+      ],
+      "database_specific": {
+        "lightwell": {
+          "source": "lightwell-pipeline",
+          "backport_base_version": "2.17.3",
+          "remediated_version": "2.17.3.rhlw-00013",
+          "repository_url": "https://packages.redhat.com/lightwell/java/remediated/"
+        }
+      }
+    },
+    {
+      "package": {
+        "ecosystem": "Red Hat Lightwell:Maven",
+        "name": "com.fasterxml.jackson.core:jackson-databind"
+      },
+      "versions": [],
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "2.17.3.rhlw-00013"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "credits": [
+    {
+      "name": "Red Hat Lightwell",
+      "type": "REMEDIATION_DEVELOPER"
+    }
+  ]
+}

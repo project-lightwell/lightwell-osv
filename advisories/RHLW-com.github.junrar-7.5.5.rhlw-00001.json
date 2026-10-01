@@ -1,0 +1,111 @@
+{
+  "schema_version": "1.9.0",
+  "id": "RHLW-com.github.junrar-7.5.5.rhlw-00001",
+  "published": "2026-09-17T11:29:44Z",
+  "modified": "2026-09-17T11:29:44Z",
+  "severity": [
+    {
+      "type": "CVSS_V3",
+      "score": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:H/A:N"
+    }
+  ],
+  "references": [
+    {
+      "url": "https://github.com/junrar/junrar/releases/tag/v7.5.10",
+      "type": "WEB"
+    },
+    {
+      "url": "https://security.access.redhat.com/data/csaf/v2/vex/2026/cve-2026-41245.json",
+      "type": "WEB"
+    },
+    {
+      "url": "https://access.redhat.com/security/cve/CVE-2026-41245",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/CVEProject/cvelistV5/tree/main/cves/2026/41xxx/CVE-2026-41245.json",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/junrar/junrar/security/advisories/GHSA-hf5p-q87m-crj7",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-41245",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/junrar/junrar/commit/d77e9a83eb721cd51f9c23d7869d0e6ad7f952d7",
+      "type": "FIX"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-hf5p-q87m-crj7",
+      "type": "ADVISORY"
+    }
+  ],
+  "summary": "Lightwell Security Advisory: junrar 7.5.5.rhlw-00001",
+  "details": "Red Hat Lightwell has released com.github.junrar:junrar 7.5.5.rhlw-00001 with a backported security fix.\n\nCVE-2026-41245: Junrar: Path Traversal (Zip-Slip) via Sibling Directory Name Prefix\n\nThis patched artifact is a drop-in replacement for com.github.junrar:junrar 7.5.5 from Maven Central.",
+  "upstream": [
+    "CVE-2026-41245",
+    "GHSA-hf5p-q87m-crj7"
+  ],
+  "affected": [
+    {
+      "package": {
+        "ecosystem": "Maven",
+        "name": "com.github.junrar:junrar",
+        "purl": "pkg:maven/com.github.junrar/junrar"
+      },
+      "versions": [
+        "7.5.5"
+      ],
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "7.5.5.rhlw-00001"
+            }
+          ]
+        }
+      ],
+      "database_specific": {
+        "lightwell": {
+          "source": "lightwell-pipeline",
+          "backport_base_version": "7.5.5",
+          "remediated_version": "7.5.5.rhlw-00001",
+          "repository_url": "https://packages.redhat.com/lightwell/java/remediated/"
+        }
+      }
+    },
+    {
+      "package": {
+        "ecosystem": "Red Hat Lightwell:Maven",
+        "name": "com.github.junrar:junrar"
+      },
+      "versions": [],
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "7.5.5.rhlw-00001"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "credits": [
+    {
+      "name": "Red Hat Lightwell",
+      "type": "REMEDIATION_DEVELOPER"
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "schema_version": "1.9.0",
+  "id": "RHLW-com.sun.mail-1.6.7.rhlw-00001",
+  "published": "2026-09-09T18:42:50Z",
+  "modified": "2026-09-09T18:42:50Z",
+  "severity": [
+    {
+      "type": "CVSS_V4",
+      "score": "CVSS:4.0/AV:N/AC:H/AT:N/PR:L/UI:N/VC:N/VI:H/VA:N/SC:N/SI:L/SA:N"
+    },
+    {
+      "type": "CVSS_V3",
+      "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:H/A:N"
+    }
+  ],
+  "references": [
+    {
+      "url": "https://github.com/CVEProject/cvelistV5/tree/main/cves/2025/7xxx/CVE-2025-7962.json",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-7962",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-9342-92gg-6v29",
+      "type": "ADVISORY"
+    }
+  ],
+  "summary": "Lightwell Security Advisory: jakarta.mail 1.6.7.rhlw-00001",
+  "details": "Red Hat Lightwell has released com.sun.mail:jakarta.mail 1.6.7.rhlw-00001 with a backported security fix.\n\nCVE-2025-7962: In Jakarta Mail versions prior to 2.0.2 it is possible to perform an SMTP Injection by utilizing the\u00a0\\r and \\n UTF-8 characters to separate different messages.\n\nThis patched artifact is a drop-in replacement for com.sun.mail:jakarta.mail 1.6.7 from Maven Central.",
+  "upstream": [
+    "CVE-2025-7962",
+    "GHSA-9342-92gg-6v29"
+  ],
+  "affected": [
+    {
+      "package": {
+        "ecosystem": "Maven",
+        "name": "com.sun.mail:jakarta.mail",
+        "purl": "pkg:maven/com.sun.mail/jakarta.mail"
+      },
+      "versions": [
+        "1.6.7"
+      ],
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "1.6.7.rhlw-00001"
+            }
+          ]
+        }
+      ],
+      "database_specific": {
+        "lightwell": {
+          "source": "lightwell-pipeline",
+          "backport_base_version": "1.6.7",
+          "remediated_version": "1.6.7.rhlw-00001",
+          "repository_url": "https://packages.redhat.com/lightwell/java/remediated/"
+        }
+      }
+    },
+    {
+      "package": {
+        "ecosystem": "Red Hat Lightwell:Maven",
+        "name": "com.sun.mail:jakarta.mail"
+      },
+      "versions": [],
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "1.6.7.rhlw-00001"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "credits": [
+    {
+      "name": "Red Hat Lightwell",
+      "type": "REMEDIATION_DEVELOPER"
+    }
+  ]
+}

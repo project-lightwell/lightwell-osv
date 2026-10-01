@@ -1,0 +1,99 @@
+{
+  "schema_version": "1.9.0",
+  "id": "RHLW-org.jsoup-1.15.1.rhlw-00001",
+  "published": "2026-07-29T13:00:26Z",
+  "modified": "2026-07-29T13:00:26Z",
+  "severity": [
+    {
+      "type": "CVSS_V3",
+      "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N"
+    }
+  ],
+  "references": [
+    {
+      "url": "https://github.com/jhy/jsoup/releases/tag/jsoup-1.15.3",
+      "type": "WEB"
+    },
+    {
+      "url": "https://github.com/CVEProject/cvelistV5/tree/main/cves/2022/36xxx/CVE-2022-36033.json",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/jhy/jsoup/security/advisories/GHSA-gp7f-rwcx-9369",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2022-36033",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-gp7f-rwcx-9369",
+      "type": "ADVISORY"
+    }
+  ],
+  "summary": "Lightwell Security Advisory: jsoup 1.15.1.rhlw-00001",
+  "details": "Red Hat Lightwell has released org.jsoup:jsoup 1.15.1.rhlw-00001 with a backported security fix.\n\nCVE-2022-36033: jsoup may not sanitize Cross-Site Scripting (XSS) attempts if SafeList.preserveRelativeLinks is enabled\n\nThis patched artifact is a drop-in replacement for org.jsoup:jsoup 1.15.1 from Maven Central.",
+  "upstream": [
+    "CVE-2022-36033",
+    "GHSA-gp7f-rwcx-9369"
+  ],
+  "affected": [
+    {
+      "package": {
+        "ecosystem": "Maven",
+        "name": "org.jsoup:jsoup",
+        "purl": "pkg:maven/org.jsoup/jsoup"
+      },
+      "versions": [
+        "1.15.1"
+      ],
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "1.15.1.rhlw-00001"
+            }
+          ]
+        }
+      ],
+      "database_specific": {
+        "lightwell": {
+          "source": "lightwell-pipeline",
+          "backport_base_version": "1.15.1",
+          "remediated_version": "1.15.1.rhlw-00001",
+          "repository_url": "https://packages.redhat.com/lightwell/java/remediated/"
+        }
+      }
+    },
+    {
+      "package": {
+        "ecosystem": "Red Hat Lightwell:Maven",
+        "name": "org.jsoup:jsoup"
+      },
+      "versions": [],
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "1.15.1.rhlw-00001"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "credits": [
+    {
+      "name": "Red Hat Lightwell",
+      "type": "REMEDIATION_DEVELOPER"
+    }
+  ]
+}
