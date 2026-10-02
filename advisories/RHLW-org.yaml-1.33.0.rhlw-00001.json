@@ -1,0 +1,78 @@
+{
+  "schema_version": "1.9.0",
+  "id": "RHLW-org.yaml-1.33.0.rhlw-00001",
+  "published": "2026-10-01T00:00:00Z",
+  "modified": "2026-10-01T00:00:00Z",
+  "severity": [
+    {
+      "type": "CVSS_V3",
+      "score": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:L"
+    }
+  ],
+  "references": [],
+  "summary": "Lightwell Security Advisory: snakeyaml 1.33.0.rhlw-00001",
+  "details": "Red Hat Lightwell has released org.yaml:snakeyaml 1.33.0.rhlw-00001 with a backported security fix.\n\nCVE-2022-1471: SnakeYaml's Constructor() class does not restrict types which can be instantiated during deserialization.\u00a0Deserializing yaml content provided by an attacker can lead to remote code execution. We recommend using SnakeYaml's SafeConsturctor when parsing untrusted content to restrict deserialization. We recommend upgrading to version 2.0 and beyond.\n\nThis patched artifact is a drop-in replacement for org.yaml:snakeyaml 1.33.0 from Maven Central.",
+  "upstream": [
+    "CVE-2022-1471",
+    "GHSA-mjmj-j48q-9wg2"
+  ],
+  "affected": [
+    {
+      "package": {
+        "ecosystem": "Maven",
+        "name": "org.yaml:snakeyaml",
+        "purl": "pkg:maven/org.yaml/snakeyaml"
+      },
+      "versions": [
+        "1.33.0"
+      ],
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "1.33.0.rhlw-00001"
+            }
+          ]
+        }
+      ],
+      "database_specific": {
+        "lightwell": {
+          "source": "lightwell-pipeline",
+          "backport_base_version": "1.33.0",
+          "remediated_version": "1.33.0.rhlw-00001",
+          "repository_url": "https://packages.redhat.com/lightwell/java/remediated/"
+        }
+      }
+    },
+    {
+      "package": {
+        "ecosystem": "Red Hat Lightwell:Maven",
+        "name": "org.yaml:snakeyaml"
+      },
+      "versions": [],
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "1.33.0.rhlw-00001"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "credits": [
+    {
+      "name": "Red Hat Lightwell",
+      "type": "REMEDIATION_DEVELOPER"
+    }
+  ]
+}

@@ -1,0 +1,84 @@
+{
+  "schema_version": "1.9.0",
+  "id": "RHLW-org.apache.ant-1.8.2.rhlw-00006",
+  "published": "2026-10-01T00:00:00Z",
+  "modified": "2026-10-01T00:00:00Z",
+  "severity": [
+    {
+      "type": "CVSS_V3",
+      "score": "CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:H/I:H/A:N"
+    },
+    {
+      "type": "CVSS_V3",
+      "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:H/A:N"
+    }
+  ],
+  "references": [],
+  "summary": "Lightwell Security Advisory: ant 1.8.2.rhlw-00006",
+  "details": "Red Hat Lightwell has released org.apache.ant:ant 1.8.2.rhlw-00006 with backported fixes for CVE-2020-11979 and CVE-2020-1945.\n\nCVE-2020-11979: As mitigation for CVE-2020-1945 Apache Ant 1.10.8 changed the permissions of temporary files it created so that only the current user was allowed to access them. Unfortunately the fixcrlf task deleted the temporary file and created a new one without said protection, effectively nullifying the effort. This would still allow an attacker to inject modified source files into the build process.\n\nCVE-2020-1945: Apache Ant 1.1 to 1.9.14 and 1.10.0 to 1.10.7 uses the default temporary directory identified by the Java system property java.io.tmpdir for several tasks and may thus leak sensitive information. The fixcrlf and replaceregexp tasks also copy files from the temporary directory back into the build tree allowing an attacker to inject modified source files into the build process.\n\nThis patched artifact is a drop-in replacement for org.apache.ant:ant 1.8.2 from Maven Central.",
+  "upstream": [
+    "CVE-2020-11979",
+    "CVE-2020-1945",
+    "GHSA-4p6w-m9wc-c9c9",
+    "GHSA-f62v-xpxf-3v68"
+  ],
+  "affected": [
+    {
+      "package": {
+        "ecosystem": "Maven",
+        "name": "org.apache.ant:ant",
+        "purl": "pkg:maven/org.apache.ant/ant"
+      },
+      "versions": [
+        "1.8.2"
+      ],
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "1.8.2.rhlw-00006"
+            }
+          ]
+        }
+      ],
+      "database_specific": {
+        "lightwell": {
+          "source": "lightwell-pipeline",
+          "backport_base_version": "1.8.2",
+          "remediated_version": "1.8.2.rhlw-00006",
+          "repository_url": "https://packages.redhat.com/lightwell/java/remediated/"
+        }
+      }
+    },
+    {
+      "package": {
+        "ecosystem": "Red Hat Lightwell:Maven",
+        "name": "org.apache.ant:ant"
+      },
+      "versions": [],
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "1.8.2.rhlw-00006"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "credits": [
+    {
+      "name": "Red Hat Lightwell",
+      "type": "REMEDIATION_DEVELOPER"
+    }
+  ]
+}

@@ -1,0 +1,99 @@
+{
+  "schema_version": "1.9.0",
+  "id": "RHLW-io.airlift-2.0.2.rhlw-00001",
+  "published": "2026-10-01T00:00:00Z",
+  "modified": "2026-10-01T00:00:00Z",
+  "severity": [
+    {
+      "type": "CVSS_V3",
+      "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N"
+    }
+  ],
+  "references": [
+    {
+      "url": "https://github.com/CVEProject/cvelistV5/tree/main/cves/2025/67xxx/CVE-2025-67721.json",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/airlift/aircompressor/security/advisories/GHSA-vx9q-rhv9-3jvg",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-67721",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/airlift/aircompressor/commit/f2b489b398779b40c1ee29ddb11d7edef54ddc15",
+      "type": "FIX"
+    },
+    {
+      "url": "https://github.com/airlift/aircompressor/commit/ff12c4d5757c9d6d1de3d39a10402f1f84f9b765",
+      "type": "FIX"
+    }
+  ],
+  "summary": "Lightwell Security Advisory: aircompressor 2.0.2.rhlw-00001",
+  "details": "Red Hat Lightwell has released io.airlift:aircompressor 2.0.2.rhlw-00001 with a backported security fix.\n\nCVE-2025-67721: Aircompressor is a library with ports of the Snappy, LZO, LZ4, and Zstandard compression algorithms to Java. In versions 3.3 and below, incorrect handling of malformed data in Java-based decompressor implementations for Snappy and LZ4 allow remote attackers to read previous buffer contents via crafted compressed input. With certain crafted compressed inputs, elements from the output buffer can end up in the uncompressed output, potentially leaking sensitive data. This is relevant for applications that reuse the same output buffer to uncompress multiple inputs. This can be the case of a web server that allocates a fix-sized buffer for performance purposes. There is similar vulnerability in GHSA-cmp6-m4wj-q63q. This issue is fixed in version 3.4.\n\nThis patched artifact is a drop-in replacement for io.airlift:aircompressor 2.0.2 from Maven Central.",
+  "upstream": [
+    "CVE-2025-67721",
+    "GHSA-vx9q-rhv9-3jvg"
+  ],
+  "affected": [
+    {
+      "package": {
+        "ecosystem": "Maven",
+        "name": "io.airlift:aircompressor",
+        "purl": "pkg:maven/io.airlift/aircompressor"
+      },
+      "versions": [
+        "2.0.2"
+      ],
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "2.0.2.rhlw-00001"
+            }
+          ]
+        }
+      ],
+      "database_specific": {
+        "lightwell": {
+          "source": "lightwell-pipeline",
+          "backport_base_version": "2.0.2",
+          "remediated_version": "2.0.2.rhlw-00001",
+          "repository_url": "https://packages.redhat.com/lightwell/java/remediated/"
+        }
+      }
+    },
+    {
+      "package": {
+        "ecosystem": "Red Hat Lightwell:Maven",
+        "name": "io.airlift:aircompressor"
+      },
+      "versions": [],
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "2.0.2.rhlw-00001"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "credits": [
+    {
+      "name": "Red Hat Lightwell",
+      "type": "REMEDIATION_DEVELOPER"
+    }
+  ]
+}

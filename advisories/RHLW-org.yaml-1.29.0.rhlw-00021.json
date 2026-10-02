@@ -1,0 +1,102 @@
+{
+  "schema_version": "1.9.0",
+  "id": "RHLW-org.yaml-1.29.0.rhlw-00021",
+  "published": "2026-10-01T00:00:00Z",
+  "modified": "2026-10-01T00:00:00Z",
+  "severity": [
+    {
+      "type": "CVSS_V3",
+      "score": "CVSS:3.1/AV:N/AC:H/PR:L/UI:R/S:C/C:N/I:N/A:H"
+    },
+    {
+      "type": "CVSS_V3",
+      "score": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H"
+    },
+    {
+      "type": "CVSS_V3",
+      "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+    },
+    {
+      "type": "CVSS_V3",
+      "score": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:L"
+    }
+  ],
+  "references": [],
+  "summary": "Lightwell Security Advisory: snakeyaml 1.29.0.rhlw-00021",
+  "details": "Red Hat Lightwell has released org.yaml:snakeyaml 1.29.0.rhlw-00021 with backported fixes for CVE-2022-1471, CVE-2022-25857, CVE-2022-38749, CVE-2022-38750, CVE-2022-38751, CVE-2022-38752, and CVE-2022-41854.\n\nCVE-2022-1471: SnakeYaml's Constructor() class does not restrict types which can be instantiated during deserialization.\u00a0Deserializing yaml content provided by an attacker can lead to remote code execution. We recommend using SnakeYaml's SafeConsturctor when parsing untrusted content to restrict deserialization. We recommend upgrading to version 2.0 and beyond.\n\nCVE-2022-25857: The package org.yaml:snakeyaml from 0 and before 1.31 are vulnerable to Denial of Service (DoS) due missing to nested depth limitation for collections.\n\nCVE-2022-38749: Using snakeYAML to parse untrusted YAML files may be vulnerable to Denial of Service attacks (DOS). If the parser is running on user supplied input, an attacker may supply content that causes the parser to crash by stackoverflow.\n\nCVE-2022-38750: Using snakeYAML to parse untrusted YAML files may be vulnerable to Denial of Service attacks (DOS). If the parser is running on user supplied input, an attacker may supply content that causes the parser to crash by stackoverflow.\n\nCVE-2022-38751: Using snakeYAML to parse untrusted YAML files may be vulnerable to Denial of Service attacks (DOS). If the parser is running on user supplied input, an attacker may supply content that causes the parser to crash by stackoverflow.\n\nCVE-2022-38752: Using snakeYAML to parse untrusted YAML files may be vulnerable to Denial of Service attacks (DOS). If the parser is running on user supplied input, an attacker may supply content that causes the parser to crash by stack-overflow.\n\nCVE-2022-41854: Those using Snakeyaml to parse untrusted YAML files may be vulnerable to Denial of Service attacks (DOS). If the parser is running on user supplied input, an attacker may supply content that causes the parser to crash by stack overflow. This effect may support a denial of service attack.\n\nThis patched artifact is a drop-in replacement for org.yaml:snakeyaml 1.29.0 from Maven Central.",
+  "upstream": [
+    "CVE-2022-1471",
+    "CVE-2022-25857",
+    "CVE-2022-38749",
+    "CVE-2022-38750",
+    "CVE-2022-38751",
+    "CVE-2022-38752",
+    "CVE-2022-41854",
+    "GHSA-3mc7-4q67-w48m",
+    "GHSA-98wm-3w3q-mw94",
+    "GHSA-9w3m-gqgf-c4p9",
+    "GHSA-c4r9-r8fh-9vj2",
+    "GHSA-hhhw-99gj-p3c3",
+    "GHSA-mjmj-j48q-9wg2",
+    "GHSA-w37g-rhq8-7m4j"
+  ],
+  "affected": [
+    {
+      "package": {
+        "ecosystem": "Maven",
+        "name": "org.yaml:snakeyaml",
+        "purl": "pkg:maven/org.yaml/snakeyaml"
+      },
+      "versions": [
+        "1.29.0"
+      ],
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "1.29.0.rhlw-00021"
+            }
+          ]
+        }
+      ],
+      "database_specific": {
+        "lightwell": {
+          "source": "lightwell-pipeline",
+          "backport_base_version": "1.29.0",
+          "remediated_version": "1.29.0.rhlw-00021",
+          "repository_url": "https://packages.redhat.com/lightwell/java/remediated/"
+        }
+      }
+    },
+    {
+      "package": {
+        "ecosystem": "Red Hat Lightwell:Maven",
+        "name": "org.yaml:snakeyaml"
+      },
+      "versions": [],
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "1.29.0.rhlw-00021"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "credits": [
+    {
+      "name": "Red Hat Lightwell",
+      "type": "REMEDIATION_DEVELOPER"
+    }
+  ]
+}

@@ -1,0 +1,78 @@
+{
+  "schema_version": "1.9.0",
+  "id": "RHLW-com.nimbusds-9.7.0.rhlw-00002",
+  "published": "2026-10-01T00:00:00Z",
+  "modified": "2026-10-01T00:00:00Z",
+  "severity": [
+    {
+      "type": "CVSS_V3",
+      "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+    }
+  ],
+  "references": [],
+  "summary": "Lightwell Security Advisory: nimbus-jose-jwt 9.7.0.rhlw-00002",
+  "details": "Red Hat Lightwell has released com.nimbusds:nimbus-jose-jwt 9.7.0.rhlw-00002 with a backported security fix.\n\nCVE-2023-52428: In Connect2id Nimbus JOSE+JWT before 9.37.2, an attacker can cause a denial of service (resource consumption) via a large JWE p2c header value (aka iteration count) for the PasswordBasedDecrypter (PBKDF2) component.\n\nThis patched artifact is a drop-in replacement for com.nimbusds:nimbus-jose-jwt 9.7.0 from Maven Central.",
+  "upstream": [
+    "CVE-2023-52428",
+    "GHSA-gvpg-vgmx-xg6w"
+  ],
+  "affected": [
+    {
+      "package": {
+        "ecosystem": "Maven",
+        "name": "com.nimbusds:nimbus-jose-jwt",
+        "purl": "pkg:maven/com.nimbusds/nimbus-jose-jwt"
+      },
+      "versions": [
+        "9.7.0"
+      ],
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "9.7.0.rhlw-00002"
+            }
+          ]
+        }
+      ],
+      "database_specific": {
+        "lightwell": {
+          "source": "lightwell-pipeline",
+          "backport_base_version": "9.7.0",
+          "remediated_version": "9.7.0.rhlw-00002",
+          "repository_url": "https://packages.redhat.com/lightwell/java/remediated/"
+        }
+      }
+    },
+    {
+      "package": {
+        "ecosystem": "Red Hat Lightwell:Maven",
+        "name": "com.nimbusds:nimbus-jose-jwt"
+      },
+      "versions": [],
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "9.7.0.rhlw-00002"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "credits": [
+    {
+      "name": "Red Hat Lightwell",
+      "type": "REMEDIATION_DEVELOPER"
+    }
+  ]
+}

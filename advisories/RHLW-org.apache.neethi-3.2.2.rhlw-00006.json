@@ -1,0 +1,79 @@
+{
+  "schema_version": "1.9.0",
+  "id": "RHLW-org.apache.neethi-3.2.2.rhlw-00006",
+  "published": "2026-10-01T00:00:00Z",
+  "modified": "2026-10-01T00:00:00Z",
+  "severity": [
+    {
+      "type": "CVSS_V3",
+      "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+    }
+  ],
+  "references": [],
+  "summary": "Lightwell Security Advisory: neethi 3.2.2.rhlw-00006",
+  "details": "Red Hat Lightwell has released org.apache.neethi:neethi 3.2.2.rhlw-00006 with backported fixes for CVE-2026-66142, CVE-2026-66143, and CVE-2026-66144.\n\nCVE-2026-66142: Apache Neethi is vulnerable to uncontrolled recursion when parsing policies that lack policy Ids or with deeply nested structures, which may lead to a denial of service attack when parsing policies due to runtime memory exhaustion. Users are recommended to upgrade to version 3.2.3, which fixes this issue.\n\nCVE-2026-66143: It is possible to bypass the\u00a0maximum number of normalized policy alternatives that was introduced in Apache Neethi 3.2.2 via certain crafted policies, which may lead to a denial of service attack via resource consumption.\u00a0Users are recommended to upgrade to version 3.2.3, which fixes this issue.\n\nCVE-2026-66144: Although remote policy references are not retrieved during policy normalization, if they are manually retrieved via the API it can cause a denial of service attack if a huge policy is retrieved. Users are recommended to upgrade to version 3.2.3, which fixes this issue by imposing a default maximum size on data read from remote policy references.\n\nThis patched artifact is a drop-in replacement for org.apache.neethi:neethi 3.2.2 from Maven Central.",
+  "upstream": [
+    "CVE-2026-66142",
+    "CVE-2026-66143",
+    "CVE-2026-66144"
+  ],
+  "affected": [
+    {
+      "package": {
+        "ecosystem": "Maven",
+        "name": "org.apache.neethi:neethi",
+        "purl": "pkg:maven/org.apache.neethi/neethi"
+      },
+      "versions": [
+        "3.2.2"
+      ],
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "3.2.2.rhlw-00006"
+            }
+          ]
+        }
+      ],
+      "database_specific": {
+        "lightwell": {
+          "source": "lightwell-pipeline",
+          "backport_base_version": "3.2.2",
+          "remediated_version": "3.2.2.rhlw-00006",
+          "repository_url": "https://packages.redhat.com/lightwell/java/remediated/"
+        }
+      }
+    },
+    {
+      "package": {
+        "ecosystem": "Red Hat Lightwell:Maven",
+        "name": "org.apache.neethi:neethi"
+      },
+      "versions": [],
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "3.2.2.rhlw-00006"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "credits": [
+    {
+      "name": "Red Hat Lightwell",
+      "type": "REMEDIATION_DEVELOPER"
+    }
+  ]
+}

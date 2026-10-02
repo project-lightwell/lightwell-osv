@@ -1,0 +1,78 @@
+{
+  "schema_version": "1.9.0",
+  "id": "RHLW-net.minidev-2.5.1.rhlw-00001",
+  "published": "2026-10-01T00:00:00Z",
+  "modified": "2026-10-01T00:00:00Z",
+  "severity": [
+    {
+      "type": "CVSS_V3",
+      "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+    }
+  ],
+  "references": [],
+  "summary": "Lightwell Security Advisory: json-smart 2.5.1.rhlw-00001",
+  "details": "Red Hat Lightwell has released net.minidev:json-smart 2.5.1.rhlw-00001 with a backported security fix.\n\nCVE-2024-57699: A security issue was found in Netplex Json-smart 2.5.0 through 2.5.1. When loading a specially crafted JSON input, containing a large number of \u2019{\u2019, a stack exhaustion can be trigger, which could allow an attacker to cause a Denial of Service (DoS). This issue exists because of an incomplete fix for CVE-2023-1370.\n\nThis patched artifact is a drop-in replacement for net.minidev:json-smart 2.5.1 from Maven Central.",
+  "upstream": [
+    "CVE-2024-57699",
+    "GHSA-pq2g-wx69-c263"
+  ],
+  "affected": [
+    {
+      "package": {
+        "ecosystem": "Maven",
+        "name": "net.minidev:json-smart",
+        "purl": "pkg:maven/net.minidev/json-smart"
+      },
+      "versions": [
+        "2.5.1"
+      ],
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "2.5.1.rhlw-00001"
+            }
+          ]
+        }
+      ],
+      "database_specific": {
+        "lightwell": {
+          "source": "lightwell-pipeline",
+          "backport_base_version": "2.5.1",
+          "remediated_version": "2.5.1.rhlw-00001",
+          "repository_url": "https://packages.redhat.com/lightwell/java/remediated/"
+        }
+      }
+    },
+    {
+      "package": {
+        "ecosystem": "Red Hat Lightwell:Maven",
+        "name": "net.minidev:json-smart"
+      },
+      "versions": [],
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "2.5.1.rhlw-00001"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "credits": [
+    {
+      "name": "Red Hat Lightwell",
+      "type": "REMEDIATION_DEVELOPER"
+    }
+  ]
+}

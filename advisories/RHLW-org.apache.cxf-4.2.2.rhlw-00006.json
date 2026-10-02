@@ -1,0 +1,92 @@
+{
+  "schema_version": "1.9.0",
+  "id": "RHLW-org.apache.cxf-4.2.2.rhlw-00006",
+  "published": "2026-10-01T00:00:00Z",
+  "modified": "2026-10-01T00:00:00Z",
+  "severity": [
+    {
+      "type": "CVSS_V3",
+      "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N"
+    },
+    {
+      "type": "CVSS_V3",
+      "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H"
+    },
+    {
+      "type": "CVSS_V3",
+      "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:N"
+    },
+    {
+      "type": "CVSS_V3",
+      "score": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H"
+    }
+  ],
+  "references": [],
+  "summary": "Lightwell Security Advisory: cxf-rt-rs-security-oauth2 4.2.2.rhlw-00006",
+  "details": "Red Hat Lightwell has released org.apache.cxf:cxf-rt-rs-security-oauth2 4.2.2.rhlw-00006 with backported fixes for CVE-2026-57818, CVE-2026-63687, CVE-2026-68079, and CVE-2026-68481.\n\nCVE-2026-57818: A race condition in JCacheCodeDataProvider allows an attacker to redeem a single authorization code multiple times via concurrent requests, resulting in the issuance of multiple distinct, valid access tokens. Users are recommended to upgrade to versions 4.2.3, 4.1.8 or 3.6.12, which fix this issue.\n\nCVE-2026-63687: Apache CXF's JwtRequestCodeFilter copies all claims from a signed request JWT into the authorization parameter map without excluding security-sensitive parameters. A client that can produce a validly-signed request JWT (e.g., one whose client_secret is known or compromised) can thereby substitute the code_challenge, code_challenge_method, nonce, and state values that were set in the outer HTTP request, undermining PKCE integrity and OpenID Connect replay protection. Users are recommended to upgrade to versions 4.2.3 or 4.1.8 or 3.6.12, which fix this issue.\n\nCVE-2026-68079: In Apache CXF's DefaultEncryptingCodeDataProvider,\u00a0a captured authorization code can be redeemed an unlimited number of times due to a flaw in the implementation of the\u00a0removeCodeGrant functionality. This violates the RFC requirement that\u00a0\"The authorization code MUST NOT be used more than once.\" Users are recommended to upgrade to versions 4.2.3 or 4.1.8 or 3.6.12, which fix this issue.\n\nCVE-2026-68481: In Apache CXF's DefaultEncryptingOAuthDataProvider, revoked access tokens still decrypt successfully, and TokenIntrospectionService reports active:true. The same applies to refresh tokens. This violates the RFC stipulations that 'The authorization server MUST invalidate the token.' and 'introspection of a revoked token MUST return {\"active\":false}'. Users are recommended to upgrade to versions 4.2.3 or 4.1.8 or 3.6.12, which fix this issue.\n\nThis patched artifact is a drop-in replacement for org.apache.cxf:cxf-rt-rs-security-oauth2 4.2.2 from Maven Central.",
+  "upstream": [
+    "CVE-2026-57818",
+    "CVE-2026-63687",
+    "CVE-2026-68079",
+    "CVE-2026-68481"
+  ],
+  "affected": [
+    {
+      "package": {
+        "ecosystem": "Maven",
+        "name": "org.apache.cxf:cxf-rt-rs-security-oauth2",
+        "purl": "pkg:maven/org.apache.cxf/cxf-rt-rs-security-oauth2"
+      },
+      "versions": [
+        "4.2.2"
+      ],
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "4.2.2.rhlw-00006"
+            }
+          ]
+        }
+      ],
+      "database_specific": {
+        "lightwell": {
+          "source": "lightwell-pipeline",
+          "backport_base_version": "4.2.2",
+          "remediated_version": "4.2.2.rhlw-00006",
+          "repository_url": "https://packages.redhat.com/lightwell/java/remediated/"
+        }
+      }
+    },
+    {
+      "package": {
+        "ecosystem": "Red Hat Lightwell:Maven",
+        "name": "org.apache.cxf:cxf-rt-rs-security-oauth2"
+      },
+      "versions": [],
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "4.2.2.rhlw-00006"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "credits": [
+    {
+      "name": "Red Hat Lightwell",
+      "type": "REMEDIATION_DEVELOPER"
+    }
+  ]
+}
