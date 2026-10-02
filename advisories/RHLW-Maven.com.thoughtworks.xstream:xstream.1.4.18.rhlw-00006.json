@@ -1,0 +1,135 @@
+{
+  "schema_version": "1.9.0",
+  "id": "RHLW-Maven.com.thoughtworks.xstream:xstream.1.4.18.rhlw-00006",
+  "published": "2026-09-24T16:39:11Z",
+  "modified": "2026-09-24T16:39:11Z",
+  "severity": [
+    {
+      "type": "CVSS_V3",
+      "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+    }
+  ],
+  "references": [
+    {
+      "url": "https://github.com/x-stream/xstream/commit/e8e88621ba1c85ac3b8620337dd672e0c0c3a846",
+      "type": "FIX"
+    },
+    {
+      "url": "https://github.com/x-stream/xstream/security/advisories/GHSA-rmr5-cpv2-vgjf",
+      "type": "EVIDENCE"
+    },
+    {
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2021-43859",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-rmr5-cpv2-vgjf",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/CVEProject/cvelistV5/tree/main/cves/2022/41xxx/CVE-2022-41966.json",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/x-stream/xstream/security/advisories/GHSA-j563-grx4-pjpv",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2022-41966",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-j563-grx4-pjpv",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/CVEProject/cvelistV5/tree/main/cves/2024/47xxx/CVE-2024-47072.json",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/x-stream/xstream/security/advisories/GHSA-hfq9-hggm-c56q",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-47072",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/x-stream/xstream/commit/bb838ce2269cac47433e31c77b2b236466e9f266",
+      "type": "FIX"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-hfq9-hggm-c56q",
+      "type": "ADVISORY"
+    }
+  ],
+  "summary": "Lightwell Security Advisory: xstream 1.4.18.rhlw-00006",
+  "details": "Red Hat Lightwell has released com.thoughtworks.xstream:xstream 1.4.18.rhlw-00006 with backported fixes for CVE-2021-43859, CVE-2022-41966, and CVE-2024-47072.\n\nCVE-2021-43859: XStream is an open source java library to serialize objects to XML and back again. Versions prior to 1.4.19 may allow a remote attacker to allocate 100% CPU time on the target system depending on CPU type or parallel execution of such a payload resulting in a denial of service only by manipulating the processed input stream. XStream 1.4.19 monitors and accumulates the time it takes to add elements to collections and throws an exception if a set threshold is exceeded. Users are advised to upgrade as soon as possible. Users unable to upgrade may set the NO_REFERENCE mode to prevent recursion. See GHSA-rmr5-cpv2-vgjf for further details on a workaround if an upgrade is not possible.\n\nCVE-2022-41966: XStream Denial of Service via stack overflow \n\nCVE-2024-47072: XStream is vulnerable to a Denial of Service attack due to stack overflow from a manipulated binary input stream\n\nThis patched artifact is a drop-in replacement for com.thoughtworks.xstream:xstream 1.4.18 from Maven Central.",
+  "upstream": [
+    "CVE-2021-43859",
+    "CVE-2022-41966",
+    "CVE-2024-47072",
+    "GHSA-rmr5-cpv2-vgjf",
+    "GHSA-j563-grx4-pjpv",
+    "GHSA-hfq9-hggm-c56q"
+  ],
+  "affected": [
+    {
+      "package": {
+        "ecosystem": "Maven",
+        "name": "com.thoughtworks.xstream:xstream",
+        "purl": "pkg:maven/com.thoughtworks.xstream/xstream"
+      },
+      "versions": [
+        "1.4.18"
+      ],
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "1.4.18.rhlw-00006"
+            }
+          ]
+        }
+      ],
+      "database_specific": {
+        "lightwell": {
+          "source": "lightwell-pipeline",
+          "backport_base_version": "1.4.18",
+          "remediated_version": "1.4.18.rhlw-00006",
+          "repository_url": "https://packages.redhat.com/lightwell/java/remediated/"
+        }
+      }
+    },
+    {
+      "package": {
+        "ecosystem": "Red Hat Lightwell:Maven",
+        "name": "com.thoughtworks.xstream:xstream"
+      },
+      "versions": [],
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "1.4.18.rhlw-00006"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "credits": [
+    {
+      "name": "Red Hat Lightwell",
+      "type": "REMEDIATION_DEVELOPER"
+    }
+  ]
+}

@@ -1,0 +1,100 @@
+{
+  "schema_version": "1.9.0",
+  "id": "RHLW-Maven.org.springframework.security:spring-security-web.5.7.11.rhlw-00006",
+  "published": "2026-07-14T12:47:06Z",
+  "modified": "2026-07-14T12:47:06Z",
+  "severity": [
+    {
+      "type": "CVSS_V3",
+      "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:N"
+    }
+  ],
+  "references": [
+    {
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-38821",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://spring.io/security/cve-2026-22732",
+      "type": "WEB"
+    },
+    {
+      "url": "https://github.com/CVEProject/cvelistV5/tree/main/cves/2026/22xxx/CVE-2026-22732.json",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-22732",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-mf92-479x-3373",
+      "type": "ADVISORY"
+    }
+  ],
+  "summary": "Lightwell Security Advisory: spring-security-web 5.7.11.rhlw-00006",
+  "details": "Red Hat Lightwell has released org.springframework.security:spring-security-web 5.7.11.rhlw-00006 with backported fixes for CVE-2024-38821 and CVE-2026-22732.\n\nCVE-2024-38821: Spring WebFlux applications that have Spring Security authorization rules on static resources can be bypassed under certain circumstances.\n\nFor this to impact an application, all of the following must be true:\n\n  *  It must be a WebFlux application\n  *  It must be using Spring's static resources support\n  *  It must have a non-permitAll authorization rule applied to the static resources support\n\nCVE-2026-22732: Under Some Conditions Spring Security HTTP Headers Are not Written\n\nThis patched artifact is a drop-in replacement for org.springframework.security:spring-security-web 5.7.11 from Maven Central.",
+  "upstream": [
+    "CVE-2024-38821",
+    "CVE-2026-22732",
+    "GHSA-mf92-479x-3373"
+  ],
+  "affected": [
+    {
+      "package": {
+        "ecosystem": "Maven",
+        "name": "org.springframework.security:spring-security-web",
+        "purl": "pkg:maven/org.springframework.security/spring-security-web"
+      },
+      "versions": [
+        "5.7.11"
+      ],
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "5.7.11.rhlw-00006"
+            }
+          ]
+        }
+      ],
+      "database_specific": {
+        "lightwell": {
+          "source": "lightwell-pipeline",
+          "backport_base_version": "5.7.11",
+          "remediated_version": "5.7.11.rhlw-00006",
+          "repository_url": "https://packages.redhat.com/lightwell/java/remediated/"
+        }
+      }
+    },
+    {
+      "package": {
+        "ecosystem": "Red Hat Lightwell:Maven",
+        "name": "org.springframework.security:spring-security-web"
+      },
+      "versions": [],
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "5.7.11.rhlw-00006"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "credits": [
+    {
+      "name": "Red Hat Lightwell",
+      "type": "REMEDIATION_DEVELOPER"
+    }
+  ]
+}

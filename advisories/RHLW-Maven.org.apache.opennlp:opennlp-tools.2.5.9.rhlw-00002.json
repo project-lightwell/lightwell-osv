@@ -1,0 +1,94 @@
+{
+  "schema_version": "1.9.0",
+  "id": "RHLW-Maven.org.apache.opennlp:opennlp-tools.2.5.9.rhlw-00002",
+  "published": "2026-09-29T09:39:13Z",
+  "modified": "2026-09-29T09:39:13Z",
+  "severity": [
+    {
+      "type": "CVSS_V3",
+      "score": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:L/I:L/A:L"
+    }
+  ],
+  "references": [
+    {
+      "url": "https://repo.maven.apache.org/maven2/",
+      "type": "WEB"
+    },
+    {
+      "url": "https://github.com/CVEProject/cvelistV5/tree/main/cves/2026/63xxx/CVE-2026-63317.json",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://lists.apache.org/thread/myr446n8t3gv8gq8wbpxm41olx16d8yj",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-63317",
+      "type": "ADVISORY"
+    }
+  ],
+  "summary": "Lightwell Security Advisory: opennlp-tools 2.5.9.rhlw-00002",
+  "details": "Red Hat Lightwell has released org.apache.opennlp:opennlp-tools 2.5.9.rhlw-00002 with a backported security fix.\n\nCVE-2026-63317: Apache OpenNLP: Arbitrary Class Instantiation in GeneratorFactory via Feature Descriptor XML\n\nThis patched artifact is a drop-in replacement for org.apache.opennlp:opennlp-tools 2.5.9 from Maven Central.",
+  "upstream": [
+    "CVE-2026-63317"
+  ],
+  "affected": [
+    {
+      "package": {
+        "ecosystem": "Maven",
+        "name": "org.apache.opennlp:opennlp-tools",
+        "purl": "pkg:maven/org.apache.opennlp/opennlp-tools"
+      },
+      "versions": [
+        "2.5.9"
+      ],
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "2.5.9.rhlw-00002"
+            }
+          ]
+        }
+      ],
+      "database_specific": {
+        "lightwell": {
+          "source": "lightwell-pipeline",
+          "backport_base_version": "2.5.9",
+          "remediated_version": "2.5.9.rhlw-00002",
+          "repository_url": "https://packages.redhat.com/lightwell/java/remediated/"
+        }
+      }
+    },
+    {
+      "package": {
+        "ecosystem": "Red Hat Lightwell:Maven",
+        "name": "org.apache.opennlp:opennlp-tools"
+      },
+      "versions": [],
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "2.5.9.rhlw-00002"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "credits": [
+    {
+      "name": "Red Hat Lightwell",
+      "type": "REMEDIATION_DEVELOPER"
+    }
+  ]
+}

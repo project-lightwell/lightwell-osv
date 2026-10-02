@@ -1,0 +1,90 @@
+{
+  "schema_version": "1.9.0",
+  "id": "RHLW-Maven.org.thymeleaf:thymeleaf.3.0.15.RELEASE-rhlw-00003",
+  "published": "2026-09-15T20:33:40Z",
+  "modified": "2026-09-15T20:33:40Z",
+  "severity": [],
+  "references": [
+    {
+      "url": "https://github.com/CVEProject/cvelistV5/tree/main/cves/2023/38xxx/CVE-2023-38286.json",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2023-38286",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/p1n93r/SpringBootAdmin-thymeleaf-SSTI",
+      "type": "PACKAGE"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-7gj7-224w-vpr3",
+      "type": "ADVISORY"
+    }
+  ],
+  "summary": "Lightwell Security Advisory: thymeleaf 3.0.15.RELEASE-rhlw-00003",
+  "details": "Red Hat Lightwell has released org.thymeleaf:thymeleaf 3.0.15.RELEASE-rhlw-00003 with a backported security fix.\n\nCVE-2023-38286: Thymeleaf through 3.1.1.RELEASE, as used in spring-boot-admin (aka Spring Boot Admin) through 3.1.1 and other products, allows sandbox bypass via crafted HTML. This may be relevant for SSTI (Server Side Template Injection) and code execution in spring-boot-admin if MailNotifier is enabled and there is write access to environment variables via the UI.\n\nThis patched artifact is a drop-in replacement for org.thymeleaf:thymeleaf 3.0.15.RELEASE from Maven Central.",
+  "upstream": [
+    "CVE-2023-38286",
+    "GHSA-7gj7-224w-vpr3"
+  ],
+  "affected": [
+    {
+      "package": {
+        "ecosystem": "Maven",
+        "name": "org.thymeleaf:thymeleaf",
+        "purl": "pkg:maven/org.thymeleaf/thymeleaf"
+      },
+      "versions": [
+        "3.0.15.RELEASE"
+      ],
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "3.0.15.RELEASE-rhlw-00003"
+            }
+          ]
+        }
+      ],
+      "database_specific": {
+        "lightwell": {
+          "source": "lightwell-pipeline",
+          "backport_base_version": "3.0.15.RELEASE",
+          "remediated_version": "3.0.15.RELEASE-rhlw-00003",
+          "repository_url": "https://packages.redhat.com/lightwell/java/remediated/"
+        }
+      }
+    },
+    {
+      "package": {
+        "ecosystem": "Red Hat Lightwell:Maven",
+        "name": "org.thymeleaf:thymeleaf"
+      },
+      "versions": [],
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "3.0.15.RELEASE-rhlw-00003"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "credits": [
+    {
+      "name": "Red Hat Lightwell",
+      "type": "REMEDIATION_DEVELOPER"
+    }
+  ]
+}

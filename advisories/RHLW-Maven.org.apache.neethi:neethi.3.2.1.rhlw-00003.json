@@ -1,0 +1,99 @@
+{
+  "schema_version": "1.9.0",
+  "id": "RHLW-Maven.org.apache.neethi:neethi.3.2.1.rhlw-00003",
+  "published": "2026-09-15T20:40:02Z",
+  "modified": "2026-09-15T20:40:02Z",
+  "severity": [
+    {
+      "type": "CVSS_V3",
+      "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+    }
+  ],
+  "references": [
+    {
+      "url": "https://repo.maven.apache.org/maven2",
+      "type": "WEB"
+    },
+    {
+      "url": "https://github.com/CVEProject/cvelistV5/tree/main/cves/2026/42xxx/CVE-2026-42402.json",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://lists.apache.org/thread/p826j0phhmr9f83wzpmys1y0bdfrr2q4",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-42402",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-g36m-9g3m-2vmp",
+      "type": "ADVISORY"
+    }
+  ],
+  "summary": "Lightwell Security Advisory: neethi 3.2.1.rhlw-00003",
+  "details": "Red Hat Lightwell has released org.apache.neethi:neethi 3.2.1.rhlw-00003 with a backported security fix.\n\nCVE-2026-42402: Apache Neethi: Policy Normalization Unbounded Resource Allocation DoS\n\nThis patched artifact is a drop-in replacement for org.apache.neethi:neethi 3.2.1 from Maven Central.",
+  "upstream": [
+    "CVE-2026-42402",
+    "GHSA-g36m-9g3m-2vmp"
+  ],
+  "affected": [
+    {
+      "package": {
+        "ecosystem": "Maven",
+        "name": "org.apache.neethi:neethi",
+        "purl": "pkg:maven/org.apache.neethi/neethi"
+      },
+      "versions": [
+        "3.2.1"
+      ],
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "3.2.1.rhlw-00003"
+            }
+          ]
+        }
+      ],
+      "database_specific": {
+        "lightwell": {
+          "source": "lightwell-pipeline",
+          "backport_base_version": "3.2.1",
+          "remediated_version": "3.2.1.rhlw-00003",
+          "repository_url": "https://packages.redhat.com/lightwell/java/remediated/"
+        }
+      }
+    },
+    {
+      "package": {
+        "ecosystem": "Red Hat Lightwell:Maven",
+        "name": "org.apache.neethi:neethi"
+      },
+      "versions": [],
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "3.2.1.rhlw-00003"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "credits": [
+    {
+      "name": "Red Hat Lightwell",
+      "type": "REMEDIATION_DEVELOPER"
+    }
+  ]
+}
