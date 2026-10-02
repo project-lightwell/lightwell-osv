@@ -1,0 +1,78 @@
+{
+  "schema_version": "1.9.0",
+  "id": "RHLW-org.codehaus.plexus-4.0.1.rhlw-00001",
+  "published": "2026-10-01T00:00:00Z",
+  "modified": "2026-10-01T00:00:00Z",
+  "severity": [
+    {
+      "type": "CVSS_V3",
+      "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H"
+    }
+  ],
+  "references": [],
+  "summary": "Lightwell Security Advisory: plexus-utils 4.0.1.rhlw-00001",
+  "details": "Red Hat Lightwell has released org.codehaus.plexus:plexus-utils 4.0.1.rhlw-00001 with a backported security fix.\n\nCVE-2025-67030: Directory Traversal vulnerability in the extractFile method of org.codehaus.plexus.util.Expand in plexus-utils before 6d780b3378829318ba5c2d29547e0012d5b29642. This allows an attacker to execute arbitrary code\n\nThis patched artifact is a drop-in replacement for org.codehaus.plexus:plexus-utils 4.0.1 from Maven Central.",
+  "upstream": [
+    "CVE-2025-67030",
+    "GHSA-6fmv-xxpf-w3cw"
+  ],
+  "affected": [
+    {
+      "package": {
+        "ecosystem": "Maven",
+        "name": "org.codehaus.plexus:plexus-utils",
+        "purl": "pkg:maven/org.codehaus.plexus/plexus-utils"
+      },
+      "versions": [
+        "4.0.1"
+      ],
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "4.0.1.rhlw-00001"
+            }
+          ]
+        }
+      ],
+      "database_specific": {
+        "lightwell": {
+          "source": "lightwell-pipeline",
+          "backport_base_version": "4.0.1",
+          "remediated_version": "4.0.1.rhlw-00001",
+          "repository_url": "https://packages.redhat.com/lightwell/java/remediated/"
+        }
+      }
+    },
+    {
+      "package": {
+        "ecosystem": "Red Hat Lightwell:Maven",
+        "name": "org.codehaus.plexus:plexus-utils"
+      },
+      "versions": [],
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "4.0.1.rhlw-00001"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "credits": [
+    {
+      "name": "Red Hat Lightwell",
+      "type": "REMEDIATION_DEVELOPER"
+    }
+  ]
+}

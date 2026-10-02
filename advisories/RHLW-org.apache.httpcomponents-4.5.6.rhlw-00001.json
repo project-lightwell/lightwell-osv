@@ -1,0 +1,78 @@
+{
+  "schema_version": "1.9.0",
+  "id": "RHLW-org.apache.httpcomponents-4.5.6.rhlw-00001",
+  "published": "2026-10-01T00:00:00Z",
+  "modified": "2026-10-01T00:00:00Z",
+  "severity": [
+    {
+      "type": "CVSS_V3",
+      "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:L/A:N"
+    }
+  ],
+  "references": [],
+  "summary": "Lightwell Security Advisory: httpclient 4.5.6.rhlw-00001",
+  "details": "Red Hat Lightwell has released org.apache.httpcomponents:httpclient 4.5.6.rhlw-00001 with a backported security fix.\n\nCVE-2020-13956: Apache HttpClient versions prior to version 4.5.13 and 5.0.3 can misinterpret malformed authority component in request URIs passed to the library as java.net.URI object and pick the wrong target host for request execution.\n\nThis patched artifact is a drop-in replacement for org.apache.httpcomponents:httpclient 4.5.6 from Maven Central.",
+  "upstream": [
+    "CVE-2020-13956",
+    "GHSA-7r82-7xv7-xcpj"
+  ],
+  "affected": [
+    {
+      "package": {
+        "ecosystem": "Maven",
+        "name": "org.apache.httpcomponents:httpclient",
+        "purl": "pkg:maven/org.apache.httpcomponents/httpclient"
+      },
+      "versions": [
+        "4.5.6"
+      ],
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "4.5.6.rhlw-00001"
+            }
+          ]
+        }
+      ],
+      "database_specific": {
+        "lightwell": {
+          "source": "lightwell-pipeline",
+          "backport_base_version": "4.5.6",
+          "remediated_version": "4.5.6.rhlw-00001",
+          "repository_url": "https://packages.redhat.com/lightwell/java/remediated/"
+        }
+      }
+    },
+    {
+      "package": {
+        "ecosystem": "Red Hat Lightwell:Maven",
+        "name": "org.apache.httpcomponents:httpclient"
+      },
+      "versions": [],
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "4.5.6.rhlw-00001"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "credits": [
+    {
+      "name": "Red Hat Lightwell",
+      "type": "REMEDIATION_DEVELOPER"
+    }
+  ]
+}

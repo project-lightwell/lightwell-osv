@@ -1,0 +1,78 @@
+{
+  "schema_version": "1.9.0",
+  "id": "RHLW-io.github.classgraph-4.8.36.rhlw-00001",
+  "published": "2026-10-01T00:00:00Z",
+  "modified": "2026-10-01T00:00:00Z",
+  "severity": [
+    {
+      "type": "CVSS_V3",
+      "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N"
+    }
+  ],
+  "references": [],
+  "summary": "Lightwell Security Advisory: classgraph 4.8.36.rhlw-00001",
+  "details": "Red Hat Lightwell has released io.github.classgraph:classgraph 4.8.36.rhlw-00001 with a backported security fix.\n\nCVE-2021-47621: ClassGraph before 4.8.112 was not resistant to XML eXternal Entity (XXE) attacks.\n\nThis patched artifact is a drop-in replacement for io.github.classgraph:classgraph 4.8.36 from Maven Central.",
+  "upstream": [
+    "CVE-2021-47621",
+    "GHSA-v2xm-76pq-phcf"
+  ],
+  "affected": [
+    {
+      "package": {
+        "ecosystem": "Maven",
+        "name": "io.github.classgraph:classgraph",
+        "purl": "pkg:maven/io.github.classgraph/classgraph"
+      },
+      "versions": [
+        "4.8.36"
+      ],
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "4.8.36.rhlw-00001"
+            }
+          ]
+        }
+      ],
+      "database_specific": {
+        "lightwell": {
+          "source": "lightwell-pipeline",
+          "backport_base_version": "4.8.36",
+          "remediated_version": "4.8.36.rhlw-00001",
+          "repository_url": "https://packages.redhat.com/lightwell/java/remediated/"
+        }
+      }
+    },
+    {
+      "package": {
+        "ecosystem": "Red Hat Lightwell:Maven",
+        "name": "io.github.classgraph:classgraph"
+      },
+      "versions": [],
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "4.8.36.rhlw-00001"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "credits": [
+    {
+      "name": "Red Hat Lightwell",
+      "type": "REMEDIATION_DEVELOPER"
+    }
+  ]
+}
