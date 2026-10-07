@@ -1,0 +1,78 @@
+{
+  "schema_version": "1.9.0",
+  "id": "RHLW-2026-91a888529dd87fbc",
+  "published": "2026-09-15T20:48:32Z",
+  "modified": "2026-09-15T20:48:32Z",
+  "severity": [
+    {
+      "type": "CVSS_V3",
+      "score": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:L/I:H/A:H"
+    }
+  ],
+  "references": [
+    {
+      "url": "https://github.com/google/gson/pull/1991/commits",
+      "type": "WEB"
+    },
+    {
+      "url": "https://github.com/CVEProject/cvelistV5/tree/main/cves/2022/25xxx/CVE-2022-25647.json",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2022-25647",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/google/gson/pull/1991",
+      "type": "FIX"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-4jrv-ppp4-jm57",
+      "type": "ADVISORY"
+    }
+  ],
+  "summary": "Lightwell Security Advisory: gson 2.8.6.rhlw-00002",
+  "details": "Red Hat Lightwell has released com.google.code.gson:gson 2.8.6.rhlw-00002 with a backported security fix.\n\nCVE-2022-25647: Deserialization of Untrusted Data\n\nThis patched artifact is a drop-in replacement for com.google.code.gson:gson 2.8.6 from Maven Central.",
+  "upstream": [
+    "CVE-2022-25647",
+    "GHSA-4jrv-ppp4-jm57"
+  ],
+  "affected": [
+    {
+      "package": {
+        "ecosystem": "Red Hat Lightwell:Maven",
+        "name": "com.google.code.gson:gson",
+        "purl": "pkg:maven/com.google.code.gson/gson"
+      },
+      "versions": [
+        "2.8.6"
+      ],
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "2.8.6.rhlw-00002"
+            }
+          ]
+        }
+      ],
+      "database_specific": {
+        "lightwell": {
+          "backport_base_version": "2.8.6",
+          "remediated_version": "2.8.6.rhlw-00002",
+          "repository_url": "https://packages.redhat.com/lightwell/java/remediated/"
+        }
+      }
+    }
+  ],
+  "credits": [
+    {
+      "name": "Red Hat Lightwell",
+      "type": "REMEDIATION_DEVELOPER"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "schema_version": "1.9.0",
+  "id": "RHLW-2026-21709a248f2eeb7d",
+  "published": "2026-09-22T14:38:24Z",
+  "modified": "2026-09-22T14:38:24Z",
+  "severity": [],
+  "references": [
+    {
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19880",
+      "type": "ADVISORY"
+    }
+  ],
+  "summary": "Lightwell Security Advisory: logback-classic 1.6.1.rhlw-00001",
+  "details": "Red Hat Lightwell has released ch.qos.logback:logback-classic 1.6.1.rhlw-00001 with a backported security fix.\n\nThis patched artifact is a drop-in replacement for ch.qos.logback:logback-classic 1.6.1 from Maven Central.",
+  "upstream": [
+    "CVE-2026-19880"
+  ],
+  "affected": [
+    {
+      "package": {
+        "ecosystem": "Red Hat Lightwell:Maven",
+        "name": "ch.qos.logback:logback-classic",
+        "purl": "pkg:maven/ch.qos.logback/logback-classic"
+      },
+      "versions": [
+        "1.6.1"
+      ],
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "1.6.1.rhlw-00001"
+            }
+          ]
+        }
+      ],
+      "database_specific": {
+        "lightwell": {
+          "backport_base_version": "1.6.1",
+          "remediated_version": "1.6.1.rhlw-00001",
+          "repository_url": "https://packages.redhat.com/lightwell/java/remediated/"
+        }
+      }
+    }
+  ],
+  "credits": [
+    {
+      "name": "Red Hat Lightwell",
+      "type": "REMEDIATION_DEVELOPER"
+    }
+  ]
+}
