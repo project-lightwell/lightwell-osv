@@ -1,0 +1,82 @@
+{
+  "schema_version": "1.9.0",
+  "id": "RHLW-2026-a9a544137749200c",
+  "published": "2026-10-08T19:45:30Z",
+  "modified": "2026-10-08T19:45:30Z",
+  "severity": [
+    {
+      "type": "CVSS_V4",
+      "score": "CVSS:4.0/AV:N/AC:L/AT:P/PR:N/UI:N/VC:L/VI:N/VA:N/SC:N/SI:N/SA:N"
+    }
+  ],
+  "references": [
+    {
+      "url": "https://github.com/CVEProject/cvelistV5/tree/main/cves/2025/67xxx/CVE-2025-67721.json",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/airlift/aircompressor/security/advisories/GHSA-vx9q-rhv9-3jvg",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-67721",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/airlift/aircompressor/commit/f2b489b398779b40c1ee29ddb11d7edef54ddc15",
+      "type": "FIX"
+    },
+    {
+      "url": "https://github.com/airlift/aircompressor/commit/ff12c4d5757c9d6d1de3d39a10402f1f84f9b765",
+      "type": "FIX"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-vx9q-rhv9-3jvg",
+      "type": "ADVISORY"
+    }
+  ],
+  "summary": "Lightwell Security Advisory: aircompressor 2.0.2.rhlw-00001",
+  "details": "Red Hat Lightwell has released io.airlift:aircompressor 2.0.2.rhlw-00001 with a backported security fix.\n\nCVE-2025-67721: Aircompressor's Snappy and LZ4 Java-based decompressor implementation can leak information from reused output buffer\n\nThis patched artifact is a drop-in replacement for io.airlift:aircompressor 2.0.2 from Maven Central.",
+  "upstream": [
+    "CVE-2025-67721",
+    "GHSA-vx9q-rhv9-3jvg"
+  ],
+  "affected": [
+    {
+      "package": {
+        "ecosystem": "Red Hat Lightwell:Maven",
+        "name": "io.airlift:aircompressor",
+        "purl": "pkg:maven/io.airlift/aircompressor"
+      },
+      "versions": [
+        "2.0.2"
+      ],
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "2.0.2.rhlw-00001"
+            }
+          ]
+        }
+      ],
+      "database_specific": {
+        "lightwell": {
+          "backport_base_version": "2.0.2",
+          "remediated_version": "2.0.2.rhlw-00001",
+          "repository_url": "https://packages.redhat.com/lightwell/java/remediated/"
+        }
+      }
+    }
+  ],
+  "credits": [
+    {
+      "name": "Red Hat Lightwell",
+      "type": "REMEDIATION_DEVELOPER"
+    }
+  ]
+}

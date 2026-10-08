@@ -1,0 +1,82 @@
+{
+  "schema_version": "1.9.0",
+  "id": "RHLW-2026-7036555a81c446f8",
+  "published": "2026-10-08T19:45:36Z",
+  "modified": "2026-10-08T19:45:36Z",
+  "severity": [
+    {
+      "type": "CVSS_V3",
+      "score": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:C/C:N/I:H/A:N"
+    }
+  ],
+  "references": [
+    {
+      "url": "https://github.com/netty/netty/releases/tag/netty-4.1.135.Final",
+      "type": "WEB"
+    },
+    {
+      "url": "https://github.com/netty/netty/releases/tag/netty-4.2.15.Final",
+      "type": "WEB"
+    },
+    {
+      "url": "https://github.com/CVEProject/cvelistV5/tree/main/cves/2026/45xxx/CVE-2026-45673.json",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/netty/netty/security/advisories/GHSA-xmv7-r254-6q78",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-45673",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-xmv7-r254-6q78",
+      "type": "ADVISORY"
+    }
+  ],
+  "summary": "Lightwell Security Advisory: netty-buffer 4.1.132.Final-rhlw-00002",
+  "details": "Red Hat Lightwell has released io.netty:netty-buffer 4.1.132.Final-rhlw-00002 with a backported security fix.\n\nCVE-2026-45673: Netty: DNS Cache Poisoning due to Predictable PRNG and Default Static Source Port\n\nThis patched artifact is a drop-in replacement for io.netty:netty-buffer 4.1.132.Final from Maven Central.",
+  "upstream": [
+    "CVE-2026-45673",
+    "GHSA-xmv7-r254-6q78"
+  ],
+  "affected": [
+    {
+      "package": {
+        "ecosystem": "Red Hat Lightwell:Maven",
+        "name": "io.netty:netty-buffer",
+        "purl": "pkg:maven/io.netty/netty-buffer"
+      },
+      "versions": [
+        "4.1.132.Final"
+      ],
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "4.1.132.Final-rhlw-00002"
+            }
+          ]
+        }
+      ],
+      "database_specific": {
+        "lightwell": {
+          "backport_base_version": "4.1.132.Final",
+          "remediated_version": "4.1.132.Final-rhlw-00002",
+          "repository_url": "https://packages.redhat.com/lightwell/java/remediated/"
+        }
+      }
+    }
+  ],
+  "credits": [
+    {
+      "name": "Red Hat Lightwell",
+      "type": "REMEDIATION_DEVELOPER"
+    }
+  ]
+}

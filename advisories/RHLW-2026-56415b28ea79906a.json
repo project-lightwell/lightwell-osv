@@ -1,0 +1,74 @@
+{
+  "schema_version": "1.9.0",
+  "id": "RHLW-2026-56415b28ea79906a",
+  "published": "2026-10-08T19:45:09Z",
+  "modified": "2026-10-08T19:45:09Z",
+  "severity": [
+    {
+      "type": "CVSS_V3",
+      "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+    }
+  ],
+  "references": [
+    {
+      "url": "https://github.com/FasterXML/jackson-dataformats-binary/commit/de072d314af8f5f269c8abec6930652af67bc8e6",
+      "type": "FIX"
+    },
+    {
+      "url": "https://github.com/FasterXML/jackson-dataformats-binary/issues/186",
+      "type": "REPORT"
+    },
+    {
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2020-28491",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-xmc8-26q4-qjhx",
+      "type": "ADVISORY"
+    }
+  ],
+  "summary": "Lightwell Security Advisory: jackson-dataformat-cbor 2.9.10.rhlw-00001",
+  "details": "Red Hat Lightwell has released com.fasterxml.jackson.dataformat:jackson-dataformat-cbor 2.9.10.rhlw-00001 with a backported security fix.\n\nCVE-2020-28491: This affects the package com.fasterxml.jackson.dataformat:jackson-dataformat-cbor from 0 and before 2.11.4, from 2.12.0-rc1 and before 2.12.1. Unchecked allocation of byte buffer can cause a java.lang.OutOfMemoryError exception.\n\nThis patched artifact is a drop-in replacement for com.fasterxml.jackson.dataformat:jackson-dataformat-cbor 2.9.10 from Maven Central.",
+  "upstream": [
+    "CVE-2020-28491",
+    "GHSA-xmc8-26q4-qjhx"
+  ],
+  "affected": [
+    {
+      "package": {
+        "ecosystem": "Red Hat Lightwell:Maven",
+        "name": "com.fasterxml.jackson.dataformat:jackson-dataformat-cbor",
+        "purl": "pkg:maven/com.fasterxml.jackson.dataformat/jackson-dataformat-cbor"
+      },
+      "versions": [
+        "2.9.10"
+      ],
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "2.9.10.rhlw-00001"
+            }
+          ]
+        }
+      ],
+      "database_specific": {
+        "lightwell": {
+          "backport_base_version": "2.9.10",
+          "remediated_version": "2.9.10.rhlw-00001",
+          "repository_url": "https://packages.redhat.com/lightwell/java/remediated/"
+        }
+      }
+    }
+  ],
+  "credits": [
+    {
+      "name": "Red Hat Lightwell",
+      "type": "REMEDIATION_DEVELOPER"
+    }
+  ]
+}

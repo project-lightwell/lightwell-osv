@@ -1,0 +1,56 @@
+{
+  "schema_version": "1.9.0",
+  "id": "RHLW-2026-779e7aa7bc83a4c5",
+  "published": "2026-10-08T19:46:23Z",
+  "modified": "2026-10-08T19:46:23Z",
+  "severity": [],
+  "references": [
+    {
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-22257",
+      "type": "ADVISORY"
+    }
+  ],
+  "summary": "Lightwell Security Advisory: spring-security-aspects 5.7.11.rhlw-00006",
+  "details": "Red Hat Lightwell has released org.springframework.security:spring-security-aspects 5.7.11.rhlw-00006 with a backported security fix.\n\nThis patched artifact is a drop-in replacement for org.springframework.security:spring-security-aspects 5.7.11 from Maven Central.",
+  "upstream": [
+    "CVE-2024-22257"
+  ],
+  "affected": [
+    {
+      "package": {
+        "ecosystem": "Red Hat Lightwell:Maven",
+        "name": "org.springframework.security:spring-security-aspects",
+        "purl": "pkg:maven/org.springframework.security/spring-security-aspects"
+      },
+      "versions": [
+        "5.7.11"
+      ],
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "5.7.11.rhlw-00006"
+            }
+          ]
+        }
+      ],
+      "database_specific": {
+        "lightwell": {
+          "backport_base_version": "5.7.11",
+          "remediated_version": "5.7.11.rhlw-00006",
+          "repository_url": "https://packages.redhat.com/lightwell/java/remediated/"
+        }
+      }
+    }
+  ],
+  "credits": [
+    {
+      "name": "Red Hat Lightwell",
+      "type": "REMEDIATION_DEVELOPER"
+    }
+  ]
+}
