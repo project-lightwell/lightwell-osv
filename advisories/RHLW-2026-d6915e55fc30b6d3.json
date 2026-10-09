@@ -1,0 +1,78 @@
+{
+  "schema_version": "1.9.0",
+  "id": "RHLW-2026-d6915e55fc30b6d3",
+  "published": "2026-10-09T20:37:21Z",
+  "modified": "2026-10-09T20:37:21Z",
+  "severity": [
+    {
+      "type": "CVSS_V3",
+      "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:N"
+    }
+  ],
+  "references": [
+    {
+      "url": "https://repo.maven.apache.org/maven2",
+      "type": "WEB"
+    },
+    {
+      "url": "https://github.com/CVEProject/cvelistV5/tree/main/cves/2026/50xxx/CVE-2026-50634.json",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://lists.apache.org/thread/9nfwh9d3m4kznxrk1mz98hl0jml18k0p",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-50634",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-33j8-j763-4fv5",
+      "type": "ADVISORY"
+    }
+  ],
+  "summary": "Lightwell Security Advisory: cxf-rt-rs-security-jose-jaxrs 3.6.9.rhlw-00004",
+  "details": "Red Hat Lightwell has released org.apache.cxf:cxf-rt-rs-security-jose-jaxrs 3.6.9.rhlw-00004 with a backported security fix.\n\nCVE-2026-50634: Apache CXF: WS JSON request filter trusts metadata from an unvalidated first signature entry\n\nThis patched artifact is a drop-in replacement for org.apache.cxf:cxf-rt-rs-security-jose-jaxrs 3.6.9 from Maven Central.",
+  "upstream": [
+    "CVE-2026-50634",
+    "GHSA-33j8-j763-4fv5"
+  ],
+  "affected": [
+    {
+      "package": {
+        "ecosystem": "Red Hat Lightwell:Maven",
+        "name": "org.apache.cxf:cxf-rt-rs-security-jose-jaxrs",
+        "purl": "pkg:maven/org.apache.cxf/cxf-rt-rs-security-jose-jaxrs"
+      },
+      "versions": [
+        "3.6.9"
+      ],
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "3.6.9.rhlw-00004"
+            }
+          ]
+        }
+      ],
+      "database_specific": {
+        "lightwell": {
+          "backport_base_version": "3.6.9",
+          "remediated_version": "3.6.9.rhlw-00004",
+          "repository_url": "https://packages.redhat.com/lightwell/java/remediated/"
+        }
+      }
+    }
+  ],
+  "credits": [
+    {
+      "name": "Red Hat Lightwell",
+      "type": "REMEDIATION_DEVELOPER"
+    }
+  ]
+}

@@ -1,0 +1,61 @@
+{
+  "schema_version": "1.9.0",
+  "id": "RHLW-2026-1a877cbb560c4c5b",
+  "published": "2026-10-09T20:39:21Z",
+  "modified": "2026-10-09T20:39:21Z",
+  "severity": [],
+  "references": [
+    {
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-77185",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-93994",
+      "type": "ADVISORY"
+    }
+  ],
+  "summary": "Lightwell Security Advisory: sshd-core 2.19.0.rhlw-00003",
+  "details": "Red Hat Lightwell has released org.apache.sshd:sshd-core 2.19.0.rhlw-00003 with backported fixes for CVE-2026-77185 and CVE-2026-93994.\n\nThis patched artifact is a drop-in replacement for org.apache.sshd:sshd-core 2.19.0 from Maven Central.",
+  "upstream": [
+    "CVE-2026-77185",
+    "CVE-2026-93994"
+  ],
+  "affected": [
+    {
+      "package": {
+        "ecosystem": "Red Hat Lightwell:Maven",
+        "name": "org.apache.sshd:sshd-core",
+        "purl": "pkg:maven/org.apache.sshd/sshd-core"
+      },
+      "versions": [
+        "2.19.0"
+      ],
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "2.19.0.rhlw-00003"
+            }
+          ]
+        }
+      ],
+      "database_specific": {
+        "lightwell": {
+          "backport_base_version": "2.19.0",
+          "remediated_version": "2.19.0.rhlw-00003",
+          "repository_url": "https://packages.redhat.com/lightwell/java/remediated/"
+        }
+      }
+    }
+  ],
+  "credits": [
+    {
+      "name": "Red Hat Lightwell",
+      "type": "REMEDIATION_DEVELOPER"
+    }
+  ]
+}

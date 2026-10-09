@@ -1,0 +1,178 @@
+{
+  "schema_version": "1.9.0",
+  "id": "RHLW-2026-c317e2781ff17b2f",
+  "published": "2026-10-09T20:39:28Z",
+  "modified": "2026-10-09T20:39:28Z",
+  "severity": [
+    {
+      "type": "CVSS_V3",
+      "score": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:N"
+    }
+  ],
+  "references": [
+    {
+      "url": "https://repo.maven.apache.org/maven2",
+      "type": "WEB"
+    },
+    {
+      "url": "https://security.access.redhat.com/data/csaf/v2/vex/2026/cve-2026-2332.json",
+      "type": "WEB"
+    },
+    {
+      "url": "https://access.redhat.com/errata/RHSA-2026:10175",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://access.redhat.com/errata/RHSA-2026:14272",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://access.redhat.com/errata/RHSA-2026:17668",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://access.redhat.com/errata/RHSA-2026:20568",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://access.redhat.com/errata/RHSA-2026:21773",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://access.redhat.com/errata/RHSA-2026:22453",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://access.redhat.com/errata/RHSA-2026:25089",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://access.redhat.com/errata/RHSA-2026:50221",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://access.redhat.com/errata/RHSA-2026:50222",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://access.redhat.com/errata/RHSA-2026:50223",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://access.redhat.com/errata/RHSA-2026:50263",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://access.redhat.com/errata/RHSA-2026:60239",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://access.redhat.com/errata/RHSA-2026:60246",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://access.redhat.com/errata/RHSA-2026:60247",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://access.redhat.com/errata/RHSA-2026:60248",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://access.redhat.com/errata/RHSA-2026:60249",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://access.redhat.com/errata/RHSA-2026:60250",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://access.redhat.com/errata/RHSA-2026:60251",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://access.redhat.com/errata/RHSA-2026:60252",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://access.redhat.com/errata/RHSA-2026:60254",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://access.redhat.com/errata/RHSA-2026:60256",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://access.redhat.com/errata/RHSA-2026:60259",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://access.redhat.com/security/cve/CVE-2026-2332",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/CVEProject/cvelistV5/tree/main/cves/2026/2xxx/CVE-2026-2332.json",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/jetty/jetty.project/security/advisories/GHSA-355h-qmc2-wpwf",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-2332",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/jetty/jetty.project",
+      "type": "PACKAGE"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-355h-qmc2-wpwf",
+      "type": "ADVISORY"
+    }
+  ],
+  "summary": "Lightwell Security Advisory: jetty-http 12.0.32.rhlw-00002",
+  "details": "Red Hat Lightwell has released org.eclipse.jetty:jetty-http 12.0.32.rhlw-00002 with a backported security fix.\n\nCVE-2026-2332: HTTP Request Smuggling via Chunked Extension Quoted-String Parsing\n\nThis patched artifact is a drop-in replacement for org.eclipse.jetty:jetty-http 12.0.32 from Maven Central.",
+  "upstream": [
+    "CVE-2026-2332",
+    "GHSA-355h-qmc2-wpwf"
+  ],
+  "affected": [
+    {
+      "package": {
+        "ecosystem": "Red Hat Lightwell:Maven",
+        "name": "org.eclipse.jetty:jetty-http",
+        "purl": "pkg:maven/org.eclipse.jetty/jetty-http"
+      },
+      "versions": [
+        "12.0.32"
+      ],
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "12.0.32.rhlw-00002"
+            }
+          ]
+        }
+      ],
+      "database_specific": {
+        "lightwell": {
+          "backport_base_version": "12.0.32",
+          "remediated_version": "12.0.32.rhlw-00002",
+          "repository_url": "https://packages.redhat.com/lightwell/java/remediated/"
+        }
+      }
+    }
+  ],
+  "credits": [
+    {
+      "name": "Red Hat Lightwell",
+      "type": "REMEDIATION_DEVELOPER"
+    }
+  ]
+}

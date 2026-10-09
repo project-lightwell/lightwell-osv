@@ -1,0 +1,112 @@
+{
+  "schema_version": "1.9.0",
+  "id": "RHLW-2026-0d3f7f98aec77c5a",
+  "published": "2026-10-09T20:38:00Z",
+  "modified": "2026-10-09T20:38:00Z",
+  "severity": [
+    {
+      "type": "CVSS_V3",
+      "score": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H"
+    }
+  ],
+  "references": [
+    {
+      "url": "https://repo.maven.apache.org/maven2",
+      "type": "WEB"
+    },
+    {
+      "url": "https://github.com/CVEProject/cvelistV5/tree/main/cves/2026/57xxx/CVE-2026-57818.json",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://lists.apache.org/thread/7q08mz8bcbosp25wok7gr537zlp15mfz",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-57818",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/CVEProject/cvelistV5/tree/main/cves/2026/61xxx/CVE-2026-61466.json",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://lists.apache.org/thread/2l1r16g79tpxd7fzrzr2q9oscwrjgljs",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-61466",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/CVEProject/cvelistV5/tree/main/cves/2026/63xxx/CVE-2026-63687.json",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://lists.apache.org/thread/drcq4chmt0btx86f17o47j17r378hzpw",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-63687",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/CVEProject/cvelistV5/tree/main/cves/2026/68xxx/CVE-2026-68079.json",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://lists.apache.org/thread/6m06gdqz4rxhy9g90qz9lyqx2gqmf13o",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-68079",
+      "type": "ADVISORY"
+    }
+  ],
+  "summary": "Lightwell Security Advisory: cxf-rt-rs-security-oauth2 4.2.2.rhlw-00008",
+  "details": "Red Hat Lightwell has released org.apache.cxf:cxf-rt-rs-security-oauth2 4.2.2.rhlw-00008 with backported fixes for CVE-2026-57818, CVE-2026-61466, CVE-2026-63687, and CVE-2026-68079.\n\nCVE-2026-57818: Apache CXF: OAuth2 Authorization Code Replay via TOCTOU in JCacheCodeDataProvider\n\nCVE-2026-61466: Apache CXF: OAuth2 Dynamic Client Registration Scope Self-Escalation\n\nCVE-2026-63687: Apache CXF: JwtRequestCodeFilter silently overrides outer PKCE and nonce parameters\n\nCVE-2026-68079: Apache CXF: DefaultEncryptingCodeDataProvider allows unlimited authorization code replay\n\nThis patched artifact is a drop-in replacement for org.apache.cxf:cxf-rt-rs-security-oauth2 4.2.2 from Maven Central.",
+  "upstream": [
+    "CVE-2026-57818",
+    "CVE-2026-61466",
+    "CVE-2026-63687",
+    "CVE-2026-68079"
+  ],
+  "affected": [
+    {
+      "package": {
+        "ecosystem": "Red Hat Lightwell:Maven",
+        "name": "org.apache.cxf:cxf-rt-rs-security-oauth2",
+        "purl": "pkg:maven/org.apache.cxf/cxf-rt-rs-security-oauth2"
+      },
+      "versions": [
+        "4.2.2"
+      ],
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "4.2.2.rhlw-00008"
+            }
+          ]
+        }
+      ],
+      "database_specific": {
+        "lightwell": {
+          "backport_base_version": "4.2.2",
+          "remediated_version": "4.2.2.rhlw-00008",
+          "repository_url": "https://packages.redhat.com/lightwell/java/remediated/"
+        }
+      }
+    }
+  ],
+  "credits": [
+    {
+      "name": "Red Hat Lightwell",
+      "type": "REMEDIATION_DEVELOPER"
+    }
+  ]
+}

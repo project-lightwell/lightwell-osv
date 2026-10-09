@@ -1,0 +1,78 @@
+{
+  "schema_version": "1.9.0",
+  "id": "RHLW-2026-db9821225e2b5dff",
+  "published": "2026-10-09T20:38:36Z",
+  "modified": "2026-10-09T20:38:36Z",
+  "severity": [
+    {
+      "type": "CVSS_V3",
+      "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N"
+    }
+  ],
+  "references": [
+    {
+      "url": "https://repo.maven.apache.org/maven2",
+      "type": "WEB"
+    },
+    {
+      "url": "https://github.com/CVEProject/cvelistV5/tree/main/cves/2026/44xxx/CVE-2026-44618.json",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://lists.apache.org/thread/c7vb015f8ljmjl44030mn0yfq71f7sd7",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-44618",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-vmm5-fjgx-2jhp",
+      "type": "ADVISORY"
+    }
+  ],
+  "summary": "Lightwell Security Advisory: cxf-rt-ws-transfer 3.6.9.rhlw-00004",
+  "details": "Red Hat Lightwell has released org.apache.cxf:cxf-rt-ws-transfer 3.6.9.rhlw-00004 with a backported security fix.\n\nCVE-2026-44618: Apache CXF: XXE vulnerability in WS-Transfer functionality\n\nThis patched artifact is a drop-in replacement for org.apache.cxf:cxf-rt-ws-transfer 3.6.9 from Maven Central.",
+  "upstream": [
+    "CVE-2026-44618",
+    "GHSA-vmm5-fjgx-2jhp"
+  ],
+  "affected": [
+    {
+      "package": {
+        "ecosystem": "Red Hat Lightwell:Maven",
+        "name": "org.apache.cxf:cxf-rt-ws-transfer",
+        "purl": "pkg:maven/org.apache.cxf/cxf-rt-ws-transfer"
+      },
+      "versions": [
+        "3.6.9"
+      ],
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "3.6.9.rhlw-00004"
+            }
+          ]
+        }
+      ],
+      "database_specific": {
+        "lightwell": {
+          "backport_base_version": "3.6.9",
+          "remediated_version": "3.6.9.rhlw-00004",
+          "repository_url": "https://packages.redhat.com/lightwell/java/remediated/"
+        }
+      }
+    }
+  ],
+  "credits": [
+    {
+      "name": "Red Hat Lightwell",
+      "type": "REMEDIATION_DEVELOPER"
+    }
+  ]
+}

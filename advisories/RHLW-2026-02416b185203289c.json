@@ -1,0 +1,226 @@
+{
+  "schema_version": "1.9.0",
+  "id": "RHLW-2026-02416b185203289c",
+  "published": "2026-10-09T20:36:08Z",
+  "modified": "2026-10-09T20:36:08Z",
+  "severity": [
+    {
+      "type": "CVSS_V3",
+      "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:H/A:N"
+    }
+  ],
+  "references": [
+    {
+      "url": "https://security.access.redhat.com/data/csaf/v2/vex/2026/cve-2026-42579.json",
+      "type": "WEB"
+    },
+    {
+      "url": "https://access.redhat.com/errata/RHSA-2026:23808",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://access.redhat.com/errata/RHSA-2026:24502",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://access.redhat.com/errata/RHSA-2026:25123",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://access.redhat.com/errata/RHSA-2026:28010",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://access.redhat.com/errata/RHSA-2026:36820",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://access.redhat.com/errata/RHSA-2026:37390",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://access.redhat.com/errata/RHSA-2026:49700",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://access.redhat.com/errata/RHSA-2026:49701",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://access.redhat.com/errata/RHSA-2026:53644",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://access.redhat.com/errata/RHSA-2026:53645",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://access.redhat.com/errata/RHSA-2026:53646",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://access.redhat.com/errata/RHSA-2026:54435",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://access.redhat.com/errata/RHSA-2026:65126",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://access.redhat.com/security/cve/CVE-2026-42579",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/CVEProject/cvelistV5/tree/main/cves/2026/42xxx/CVE-2026-42579.json",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/netty/netty/security/advisories/GHSA-cm33-6792-r9fm",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-42579",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-cm33-6792-r9fm",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/netty/netty/releases/tag/netty-4.1.135.Final",
+      "type": "WEB"
+    },
+    {
+      "url": "https://github.com/netty/netty/releases/tag/netty-4.2.15.Final",
+      "type": "WEB"
+    },
+    {
+      "url": "https://security.access.redhat.com/data/csaf/v2/vex/2026/cve-2026-45674.json",
+      "type": "WEB"
+    },
+    {
+      "url": "https://access.redhat.com/errata/RHSA-2026:26017",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://access.redhat.com/errata/RHSA-2026:26018",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://access.redhat.com/errata/RHSA-2026:26586",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://access.redhat.com/errata/RHSA-2026:34608",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://access.redhat.com/errata/RHSA-2026:41951",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://access.redhat.com/errata/RHSA-2026:48151",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://access.redhat.com/errata/RHSA-2026:50085",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://access.redhat.com/errata/RHSA-2026:62260",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://access.redhat.com/security/cve/CVE-2026-45674",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/CVEProject/cvelistV5/tree/main/cves/2026/45xxx/CVE-2026-45674.json",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/netty/netty/security/advisories/GHSA-676x-f7gg-47vc",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-45674",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-676x-f7gg-47vc",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://security.access.redhat.com/data/csaf/v2/vex/2026/cve-2026-47691.json",
+      "type": "WEB"
+    },
+    {
+      "url": "https://access.redhat.com/security/cve/CVE-2026-47691",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/CVEProject/cvelistV5/tree/main/cves/2026/47xxx/CVE-2026-47691.json",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/netty/netty/security/advisories/GHSA-5pvg-856g-cp85",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-47691",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-5pvg-856g-cp85",
+      "type": "ADVISORY"
+    }
+  ],
+  "summary": "Lightwell Security Advisory: netty-codec-dns 4.1.132.Final-rhlw-00002",
+  "details": "Red Hat Lightwell has released io.netty:netty-codec-dns 4.1.132.Final-rhlw-00002 with backported fixes for CVE-2026-42579, CVE-2026-45674, and CVE-2026-47691.\n\nCVE-2026-42579: Netty: DNS Codec Input Validation Bypass in Netty (Encoder + Decoder)\n\nCVE-2026-45674: Netty Vulnerable to DNS Cache Poisoning via Missing Bailiwick Checks in CNAME Records\n\nCVE-2026-47691: Netty has Insufficient Bailiwick Validation for NS Records\n\nThis patched artifact is a drop-in replacement for io.netty:netty-codec-dns 4.1.132.Final from Maven Central.",
+  "upstream": [
+    "CVE-2026-42579",
+    "CVE-2026-45674",
+    "CVE-2026-47691",
+    "GHSA-cm33-6792-r9fm",
+    "GHSA-676x-f7gg-47vc",
+    "GHSA-5pvg-856g-cp85"
+  ],
+  "affected": [
+    {
+      "package": {
+        "ecosystem": "Red Hat Lightwell:Maven",
+        "name": "io.netty:netty-codec-dns",
+        "purl": "pkg:maven/io.netty/netty-codec-dns"
+      },
+      "versions": [
+        "4.1.132.Final"
+      ],
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "4.1.132.Final-rhlw-00002"
+            }
+          ]
+        }
+      ],
+      "database_specific": {
+        "lightwell": {
+          "backport_base_version": "4.1.132.Final",
+          "remediated_version": "4.1.132.Final-rhlw-00002",
+          "repository_url": "https://packages.redhat.com/lightwell/java/remediated/"
+        }
+      }
+    }
+  ],
+  "credits": [
+    {
+      "name": "Red Hat Lightwell",
+      "type": "REMEDIATION_DEVELOPER"
+    }
+  ]
+}

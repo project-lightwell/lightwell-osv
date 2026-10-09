@@ -1,0 +1,73 @@
+{
+  "schema_version": "1.9.0",
+  "id": "RHLW-2026-a0be1f86ec6c5d2b",
+  "published": "2026-10-09T20:37:15Z",
+  "modified": "2026-10-09T20:37:15Z",
+  "severity": [
+    {
+      "type": "CVSS_V3",
+      "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+    }
+  ],
+  "references": [
+    {
+      "url": "https://repo.maven.apache.org/maven2",
+      "type": "WEB"
+    },
+    {
+      "url": "https://github.com/CVEProject/cvelistV5/tree/main/cves/2026/57xxx/CVE-2026-57819.json",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://lists.apache.org/thread/2n14mk01bjc3lrsyhzrkwy8h86289mov",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-57819",
+      "type": "ADVISORY"
+    }
+  ],
+  "summary": "Lightwell Security Advisory: cxf-rt-frontend-jaxrs 4.2.2.rhlw-00008",
+  "details": "Red Hat Lightwell has released org.apache.cxf:cxf-rt-frontend-jaxrs 4.2.2.rhlw-00008 with a backported security fix.\n\nCVE-2026-57819: Apache CXF: No default restriction on the amount of form parameters per message\n\nThis patched artifact is a drop-in replacement for org.apache.cxf:cxf-rt-frontend-jaxrs 4.2.2 from Maven Central.",
+  "upstream": [
+    "CVE-2026-57819"
+  ],
+  "affected": [
+    {
+      "package": {
+        "ecosystem": "Red Hat Lightwell:Maven",
+        "name": "org.apache.cxf:cxf-rt-frontend-jaxrs",
+        "purl": "pkg:maven/org.apache.cxf/cxf-rt-frontend-jaxrs"
+      },
+      "versions": [
+        "4.2.2"
+      ],
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "4.2.2.rhlw-00008"
+            }
+          ]
+        }
+      ],
+      "database_specific": {
+        "lightwell": {
+          "backport_base_version": "4.2.2",
+          "remediated_version": "4.2.2.rhlw-00008",
+          "repository_url": "https://packages.redhat.com/lightwell/java/remediated/"
+        }
+      }
+    }
+  ],
+  "credits": [
+    {
+      "name": "Red Hat Lightwell",
+      "type": "REMEDIATION_DEVELOPER"
+    }
+  ]
+}

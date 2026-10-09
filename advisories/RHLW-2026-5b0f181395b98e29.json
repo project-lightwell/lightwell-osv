@@ -1,0 +1,201 @@
+{
+  "schema_version": "1.9.0",
+  "id": "RHLW-2026-5b0f181395b98e29",
+  "published": "2026-10-09T20:37:27Z",
+  "modified": "2026-10-09T20:37:27Z",
+  "severity": [
+    {
+      "type": "CVSS_V3",
+      "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:N"
+    }
+  ],
+  "references": [
+    {
+      "url": "https://repo.maven.apache.org/maven2",
+      "type": "WEB"
+    },
+    {
+      "url": "https://github.com/CVEProject/cvelistV5/tree/main/cves/2026/50xxx/CVE-2026-50623.json",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://lists.apache.org/thread/ydzj8m5mqmjy13xgyj9mkk9hfff63qq7",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-50623",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-542g-m3fx-q86f",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://security.access.redhat.com/data/csaf/v2/vex/2026/cve-2026-50627.json",
+      "type": "WEB"
+    },
+    {
+      "url": "https://access.redhat.com/errata/RHSA-2026:37390",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://access.redhat.com/security/cve/CVE-2026-50627",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/CVEProject/cvelistV5/tree/main/cves/2026/50xxx/CVE-2026-50627.json",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://lists.apache.org/thread/0jfzz9q992957b99tw7hodcqjfyxwb1m",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-50627",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-9mrv-8pvf-hf4m",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://security.access.redhat.com/data/csaf/v2/vex/2026/cve-2026-50628.json",
+      "type": "WEB"
+    },
+    {
+      "url": "https://access.redhat.com/security/cve/CVE-2026-50628",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/CVEProject/cvelistV5/tree/main/cves/2026/50xxx/CVE-2026-50628.json",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://lists.apache.org/thread/vb3ho8lf228gh90m1fpnohf2008xrdxk",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-50628",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-g5v7-jchf-7jrr",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/CVEProject/cvelistV5/tree/main/cves/2026/50xxx/CVE-2026-50629.json",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://lists.apache.org/thread/xw95po30p8th58ms1no6b0f2375cql00",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-50629",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-f8p7-h97q-7vx7",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/CVEProject/cvelistV5/tree/main/cves/2026/50xxx/CVE-2026-50630.json",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://lists.apache.org/thread/bt7vnjzzkpd6vdhkxv103poor1jy5trm",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-50630",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-xf62-wr5p-5p95",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/CVEProject/cvelistV5/tree/main/cves/2026/50xxx/CVE-2026-50631.json",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://lists.apache.org/thread/s83t3x4r626o9h8rt0ryr1w7w53l1vv8",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-50631",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-83r6-96m8-r52p",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/CVEProject/cvelistV5/tree/main/cves/2026/68xxx/CVE-2026-68481.json",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://lists.apache.org/thread/88c0h10yjb2b8201o1km3st71fs2zw2b",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-68481",
+      "type": "ADVISORY"
+    }
+  ],
+  "summary": "Lightwell Security Advisory: cxf-rt-rs-security-oauth2 3.6.9.rhlw-00004",
+  "details": "Red Hat Lightwell has released org.apache.cxf:cxf-rt-rs-security-oauth2 3.6.9.rhlw-00004 with backported fixes for CVE-2026-50623, CVE-2026-50627, CVE-2026-50628, CVE-2026-50629, CVE-2026-50630, CVE-2026-50631, and CVE-2026-68481.\n\nCVE-2026-50623: Apache CXF: Authentication Bypass in OAuth2 TokenIntrospectionService\n\nCVE-2026-50627: Apache CXF: OAuth2: Missing JWT Audience and Issuer Validation in Access Token Validator\n\nCVE-2026-50628: Apache CXF: OAuth2: Inverted IP Binding Check Defeats Security Control\n\nCVE-2026-50629: Apache CXF: OAuth2: Log Injection via Unsanitized Client Identifier\n\nCVE-2026-50630: Apache CXF: OAuth2: HTTP Response Splitting via WWW-Authenticate Realm Injection\n\nCVE-2026-50631: Apache CXF: OAuth2: TOCTOU Race Condition in Refresh Token Processing\n\nCVE-2026-68481: Apache CXF: Revocation bypass in DefaultEncryptingOAuthDataProvider\n\nThis patched artifact is a drop-in replacement for org.apache.cxf:cxf-rt-rs-security-oauth2 3.6.9 from Maven Central.",
+  "upstream": [
+    "CVE-2026-50623",
+    "CVE-2026-50627",
+    "CVE-2026-50628",
+    "CVE-2026-50629",
+    "CVE-2026-50630",
+    "CVE-2026-50631",
+    "CVE-2026-68481",
+    "GHSA-542g-m3fx-q86f",
+    "GHSA-9mrv-8pvf-hf4m",
+    "GHSA-g5v7-jchf-7jrr",
+    "GHSA-f8p7-h97q-7vx7",
+    "GHSA-xf62-wr5p-5p95",
+    "GHSA-83r6-96m8-r52p"
+  ],
+  "affected": [
+    {
+      "package": {
+        "ecosystem": "Red Hat Lightwell:Maven",
+        "name": "org.apache.cxf:cxf-rt-rs-security-oauth2",
+        "purl": "pkg:maven/org.apache.cxf/cxf-rt-rs-security-oauth2"
+      },
+      "versions": [
+        "3.6.9"
+      ],
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "3.6.9.rhlw-00004"
+            }
+          ]
+        }
+      ],
+      "database_specific": {
+        "lightwell": {
+          "backport_base_version": "3.6.9",
+          "remediated_version": "3.6.9.rhlw-00004",
+          "repository_url": "https://packages.redhat.com/lightwell/java/remediated/"
+        }
+      }
+    }
+  ],
+  "credits": [
+    {
+      "name": "Red Hat Lightwell",
+      "type": "REMEDIATION_DEVELOPER"
+    }
+  ]
+}
