@@ -1,0 +1,82 @@
+{
+  "schema_version": "1.9.0",
+  "id": "RHLW-2026-10f7476ff588dde7",
+  "published": "2026-10-09T17:46:30Z",
+  "modified": "2026-10-09T17:46:30Z",
+  "severity": [
+    {
+      "type": "CVSS_V3",
+      "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L"
+    }
+  ],
+  "references": [
+    {
+      "url": "https://repo.maven.apache.org/maven2",
+      "type": "WEB"
+    },
+    {
+      "url": "https://github.com/CVEProject/cvelistV5/tree/main/cves/2026/45xxx/CVE-2026-45205.json",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://lists.apache.org/thread/q3q3j10ohcqhs6o0rg1v7kz6kk27vtkk",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-45205",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/apache/commons-configuration/pull/634",
+      "type": "FIX"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-337m-mw94-2v6g",
+      "type": "ADVISORY"
+    }
+  ],
+  "summary": "Lightwell Security Advisory: commons-configuration2 2.14.0.rhlw-00001",
+  "details": "Red Hat Lightwell has released org.apache.commons:commons-configuration2 2.14.0.rhlw-00001 with a backported security fix.\n\nCVE-2026-45205: Apache Commons Configuration: StackOverflowError for YAML input with cycles\n\nThis patched artifact is a drop-in replacement for org.apache.commons:commons-configuration2 2.14.0 from Maven Central.",
+  "upstream": [
+    "CVE-2026-45205",
+    "GHSA-337m-mw94-2v6g"
+  ],
+  "affected": [
+    {
+      "package": {
+        "ecosystem": "Red Hat Lightwell:Maven",
+        "name": "org.apache.commons:commons-configuration2",
+        "purl": "pkg:maven/org.apache.commons/commons-configuration2"
+      },
+      "versions": [
+        "2.14.0"
+      ],
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "2.14.0.rhlw-00001"
+            }
+          ]
+        }
+      ],
+      "database_specific": {
+        "lightwell": {
+          "backport_base_version": "2.14.0",
+          "remediated_version": "2.14.0.rhlw-00001",
+          "repository_url": "https://packages.redhat.com/lightwell/java/remediated/"
+        }
+      }
+    }
+  ],
+  "credits": [
+    {
+      "name": "Red Hat Lightwell",
+      "type": "REMEDIATION_DEVELOPER"
+    }
+  ]
+}
