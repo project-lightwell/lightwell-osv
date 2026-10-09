@@ -1,0 +1,86 @@
+{
+  "schema_version": "1.9.0",
+  "id": "RHLW-2026-db6cfa79167ec456",
+  "published": "2026-10-08T19:46:29Z",
+  "modified": "2026-10-08T19:46:29Z",
+  "severity": [
+    {
+      "type": "CVSS_V3",
+      "score": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:L"
+    }
+  ],
+  "references": [
+    {
+      "url": "https://bitbucket.org/snakeyaml/snakeyaml/issues/561/cve-2022-1471-vulnerability-in#comment-64581479",
+      "type": "REPORT"
+    },
+    {
+      "url": "https://www.github.com/mbechler/marshalsec/blob/master/marshalsec.pdf?raw=true",
+      "type": "WEB"
+    },
+    {
+      "url": "https://github.com/CVEProject/cvelistV5/tree/main/cves/2022/1xxx/CVE-2022-1471.json",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/google/security-research/security/advisories/GHSA-mjmj-j48q-9wg2",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2022-1471",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/mbechler/marshalsec",
+      "type": "PACKAGE"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-mjmj-j48q-9wg2",
+      "type": "ADVISORY"
+    }
+  ],
+  "summary": "Lightwell Security Advisory: snakeyaml 1.33.0.rhlw-00001",
+  "details": "Red Hat Lightwell has released org.yaml:snakeyaml 1.33.0.rhlw-00001 with a backported security fix.\n\nCVE-2022-1471: Remote Code execution in SnakeYAML\n\nThis patched artifact is a drop-in replacement for org.yaml:snakeyaml 1.33.0 from Maven Central.",
+  "upstream": [
+    "CVE-2022-1471",
+    "GHSA-mjmj-j48q-9wg2"
+  ],
+  "affected": [
+    {
+      "package": {
+        "ecosystem": "Red Hat Lightwell:Maven",
+        "name": "org.yaml:snakeyaml",
+        "purl": "pkg:maven/org.yaml/snakeyaml"
+      },
+      "versions": [
+        "1.33.0"
+      ],
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "1.33.0.rhlw-00001"
+            }
+          ]
+        }
+      ],
+      "database_specific": {
+        "lightwell": {
+          "backport_base_version": "1.33.0",
+          "remediated_version": "1.33.0.rhlw-00001",
+          "repository_url": "https://packages.redhat.com/lightwell/java/remediated/"
+        }
+      }
+    }
+  ],
+  "credits": [
+    {
+      "name": "Red Hat Lightwell",
+      "type": "REMEDIATION_DEVELOPER"
+    }
+  ]
+}

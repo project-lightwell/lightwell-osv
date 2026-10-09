@@ -1,0 +1,82 @@
+{
+  "schema_version": "1.9.0",
+  "id": "RHLW-2026-a06fd4cfdab7ef70",
+  "published": "2026-10-08T19:46:24Z",
+  "modified": "2026-10-08T19:46:24Z",
+  "severity": [
+    {
+      "type": "CVSS_V3",
+      "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H"
+    }
+  ],
+  "references": [
+    {
+      "url": "https://spring.io/blog/2022/05/11/spring-framework-5-3-20-and-5-2-22-available-now",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/spring-projects/spring-framework/issues/24434#issuecomment-579669626",
+      "type": "REPORT"
+    },
+    {
+      "url": "https://github.com/spring-projects/spring-framework/issues/24434#issuecomment-582313417",
+      "type": "REPORT"
+    },
+    {
+      "url": "https://github.com/spring-projects/spring-framework/issues/24434#issuecomment-744519525",
+      "type": "REPORT"
+    },
+    {
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2016-1000027",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-4wrc-f8pq-fpqp",
+      "type": "ADVISORY"
+    }
+  ],
+  "summary": "Lightwell Security Advisory: spring-aop 5.3.18.rhlw-00010",
+  "details": "Red Hat Lightwell has released org.springframework:spring-aop 5.3.18.rhlw-00010 with a backported security fix.\n\nCVE-2016-1000027: Pivotal Spring Framework through 5.3.16 suffers from a potential remote code execution (RCE) issue if used for Java deserialization of untrusted data. Depending on how the library is implemented within a product, this issue may or not occur, and authentication may be required. NOTE: the vendor's position is that untrusted data is not an intended use case. The product's behavior will not be changed because some users rely on deserialization of trusted data.\n\nThis patched artifact is a drop-in replacement for org.springframework:spring-aop 5.3.18 from Maven Central.",
+  "upstream": [
+    "CVE-2016-1000027",
+    "GHSA-4wrc-f8pq-fpqp"
+  ],
+  "affected": [
+    {
+      "package": {
+        "ecosystem": "Red Hat Lightwell:Maven",
+        "name": "org.springframework:spring-aop",
+        "purl": "pkg:maven/org.springframework/spring-aop"
+      },
+      "versions": [
+        "5.3.18"
+      ],
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "5.3.18.rhlw-00010"
+            }
+          ]
+        }
+      ],
+      "database_specific": {
+        "lightwell": {
+          "backport_base_version": "5.3.18",
+          "remediated_version": "5.3.18.rhlw-00010",
+          "repository_url": "https://packages.redhat.com/lightwell/java/remediated/"
+        }
+      }
+    }
+  ],
+  "credits": [
+    {
+      "name": "Red Hat Lightwell",
+      "type": "REMEDIATION_DEVELOPER"
+    }
+  ]
+}

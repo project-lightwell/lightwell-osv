@@ -1,0 +1,73 @@
+{
+  "schema_version": "1.9.0",
+  "id": "RHLW-2026-e56fd5f91f882db9",
+  "published": "2026-10-08T19:45:54Z",
+  "modified": "2026-10-08T19:45:54Z",
+  "severity": [
+    {
+      "type": "CVSS_V3",
+      "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:N"
+    }
+  ],
+  "references": [
+    {
+      "url": "https://repo.maven.apache.org/maven2/",
+      "type": "WEB"
+    },
+    {
+      "url": "https://github.com/CVEProject/cvelistV5/tree/main/cves/2026/71xxx/CVE-2026-71290.json",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://lists.apache.org/thread/bhf7g2zwpom2ohvwjjjlonc93br2s8vq",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-71290",
+      "type": "ADVISORY"
+    }
+  ],
+  "summary": "Lightwell Security Advisory: httpclient5-cache 5.6.2.rhlw-00005",
+  "details": "Red Hat Lightwell has released org.apache.httpcomponents.client5:httpclient5-cache 5.6.2.rhlw-00005 with a backported security fix.\n\nCVE-2026-71290: Apache HttpComponents Client: TLS hostname verification silently disabled on the async transport (default config, MITM)\n\nThis patched artifact is a drop-in replacement for org.apache.httpcomponents.client5:httpclient5-cache 5.6.2 from Maven Central.",
+  "upstream": [
+    "CVE-2026-71290"
+  ],
+  "affected": [
+    {
+      "package": {
+        "ecosystem": "Red Hat Lightwell:Maven",
+        "name": "org.apache.httpcomponents.client5:httpclient5-cache",
+        "purl": "pkg:maven/org.apache.httpcomponents.client5/httpclient5-cache"
+      },
+      "versions": [
+        "5.6.2"
+      ],
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "5.6.2.rhlw-00005"
+            }
+          ]
+        }
+      ],
+      "database_specific": {
+        "lightwell": {
+          "backport_base_version": "5.6.2",
+          "remediated_version": "5.6.2.rhlw-00005",
+          "repository_url": "https://packages.redhat.com/lightwell/java/remediated/"
+        }
+      }
+    }
+  ],
+  "credits": [
+    {
+      "name": "Red Hat Lightwell",
+      "type": "REMEDIATION_DEVELOPER"
+    }
+  ]
+}
