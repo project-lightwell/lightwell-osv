@@ -1,0 +1,129 @@
+{
+  "schema_version": "1.9.0",
+  "id": "RHLW-2026-109b0867db5b9dde",
+  "published": "2026-10-08T00:00:00Z",
+  "modified": "2026-10-08T00:00:00Z",
+  "severity": [
+    {
+      "type": "CVSS_V3",
+      "score": "CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:H/I:H/A:H"
+    }
+  ],
+  "references": [
+    {
+      "url": "https://repo.maven.apache.org/maven2",
+      "type": "WEB"
+    },
+    {
+      "url": "https://security.access.redhat.com/data/csaf/v2/vex/2026/cve-2026-44417.json",
+      "type": "WEB"
+    },
+    {
+      "url": "https://access.redhat.com/errata/RHSA-2026:37390",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://access.redhat.com/security/cve/CVE-2026-44417",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/CVEProject/cvelistV5/tree/main/cves/2026/44xxx/CVE-2026-44417.json",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://lists.apache.org/thread/bqg6gjy2cx7rfyqjxcpv3jwjvmclvz4o",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-44417",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-2hvc-5c6v-f533",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://security.access.redhat.com/data/csaf/v2/vex/2026/cve-2026-50632.json",
+      "type": "WEB"
+    },
+    {
+      "url": "https://access.redhat.com/security/cve/CVE-2026-50632",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/CVEProject/cvelistV5/tree/main/cves/2026/50xxx/CVE-2026-50632.json",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://lists.apache.org/thread/740ghch5z5y675cn2kzgtyo5k37n6qcw",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-50632",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-93g8-qqv3-mrx8",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/CVEProject/cvelistV5/tree/main/cves/2026/66xxx/CVE-2026-66909.json",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://lists.apache.org/thread/lr5d4tg6tf7j29jmw8wt242oowonjqpx",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-66909",
+      "type": "ADVISORY"
+    }
+  ],
+  "summary": "Lightwell Security Advisory: cxf-rt-transports-jms 3.6.9.rhlw-00004",
+  "details": "Red Hat Lightwell has released org.apache.cxf:cxf-rt-transports-jms 3.6.9.rhlw-00004 with backported fixes for CVE-2026-44417, CVE-2026-50632, and CVE-2026-66909.\n\nCVE-2026-44417: Apache CXF: Incomplete fix for CVE-2025-48913 (Untrusted JMS configuration can lead to RCE)\n\nCVE-2026-50632: Apache CXF: JNDI Injection Vulnerability in JMSConfigFactory\n\nCVE-2026-66909: Apache CXF: Unsafe deserialization of inbound JMS ObjectMessage\n\nThis patched artifact is a drop-in replacement for org.apache.cxf:cxf-rt-transports-jms 3.6.9 from Maven Central.",
+  "upstream": [
+    "CVE-2026-44417",
+    "CVE-2026-50632",
+    "CVE-2026-66909",
+    "GHSA-2hvc-5c6v-f533",
+    "GHSA-93g8-qqv3-mrx8"
+  ],
+  "affected": [
+    {
+      "package": {
+        "ecosystem": "Red Hat Lightwell:Maven",
+        "name": "org.apache.cxf:cxf-rt-transports-jms",
+        "purl": "pkg:maven/org.apache.cxf/cxf-rt-transports-jms"
+      },
+      "versions": [
+        "3.6.9"
+      ],
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "3.6.9.rhlw-00004"
+            }
+          ]
+        }
+      ],
+      "database_specific": {
+        "lightwell": {
+          "backport_base_version": "3.6.9",
+          "remediated_version": "3.6.9.rhlw-00004",
+          "repository_url": "https://packages.redhat.com/lightwell/java/remediated/"
+        }
+      }
+    }
+  ],
+  "credits": [
+    {
+      "name": "Red Hat Lightwell",
+      "type": "REMEDIATION_DEVELOPER"
+    }
+  ]
+}
