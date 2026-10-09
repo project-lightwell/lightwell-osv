@@ -1,0 +1,160 @@
+{
+  "schema_version": "1.9.0",
+  "id": "RHLW-2026-a9afa2d7b2973961",
+  "published": "2026-10-09T20:44:10Z",
+  "modified": "2026-10-09T20:44:10Z",
+  "severity": [
+    {
+      "type": "CVSS_V3",
+      "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H"
+    }
+  ],
+  "references": [
+    {
+      "url": "https://spring.io/blog/2022/05/11/spring-framework-5-3-20-and-5-2-22-available-now",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/spring-projects/spring-framework/issues/24434#issuecomment-579669626",
+      "type": "REPORT"
+    },
+    {
+      "url": "https://github.com/spring-projects/spring-framework/issues/24434#issuecomment-582313417",
+      "type": "REPORT"
+    },
+    {
+      "url": "https://github.com/spring-projects/spring-framework/issues/24434#issuecomment-744519525",
+      "type": "REPORT"
+    },
+    {
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2016-1000027",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-4wrc-f8pq-fpqp",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://spring.io/security/cve-2024-22259",
+      "type": "WEB"
+    },
+    {
+      "url": "https://github.com/CVEProject/cvelistV5/tree/main/cves/2024/22xxx/CVE-2024-22259.json",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-22259",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-hgjh-9rj2-g67j",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://spring.io/security/cve-2024-22262",
+      "type": "WEB"
+    },
+    {
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-22262",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-2wrp-6fg6-hmc5",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://spring.io/security/cve-2024-38809",
+      "type": "WEB"
+    },
+    {
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-38809",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-2rmj-mq67-h97g",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://spring.io/security/cve-2024-38820",
+      "type": "WEB"
+    },
+    {
+      "url": "https://github.com/CVEProject/cvelistV5/tree/main/cves/2024/38xxx/CVE-2024-38820.json",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-38820",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-4gc7-5j7h-4qph",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://spring.io/security/cve-2025-41249",
+      "type": "WEB"
+    },
+    {
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-41249",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-jmp9-x22r-554x",
+      "type": "ADVISORY"
+    }
+  ],
+  "summary": "Lightwell Security Advisory: spring-web 5.3.18.rhlw-00010",
+  "details": "Red Hat Lightwell has released org.springframework:spring-web 5.3.18.rhlw-00010 with backported fixes for CVE-2016-1000027, CVE-2024-22259, CVE-2024-22262, CVE-2024-38809, CVE-2024-38820, and CVE-2025-41249.\n\nCVE-2016-1000027: Pivotal Spring Framework through 5.3.16 suffers from a potential remote code execution (RCE) issue if used for Java deserialization of untrusted data. Depending on how the library is implemented within a product, this issue may or not occur, and authentication may be required. NOTE: the vendor's position is that untrusted data is not an intended use case. The product's behavior will not be changed because some users rely on deserialization of trusted data.\n\nCVE-2024-22259: CVE-2024-22259: Spring Framework URL Parsing with Host Validation (2nd report)\n\nCVE-2024-22262: Applications that use UriComponentsBuilder\u00a0to parse an externally provided URL (e.g. through a query parameter) AND\u00a0perform validation checks on the host of the parsed URL may be vulnerable to a  open redirect https://cwe.mitre.org/data/definitions/601.html \u00a0attack or to a SSRF attack if the URL is used after passing validation checks.\n\nThis is the same as  CVE-2024-22259 https://spring.io/security/cve-2024-22259 \u00a0and  CVE-2024-22243 https://spring.io/security/cve-2024-22243 , but with different input.\n\nCVE-2024-38809: Applications that parse ETags from \"If-Match\" or \"If-None-Match\" request headers are vulnerable to DoS attack.\n\nUsers of affected versions should upgrade to the corresponding fixed version.\n\nUsers of older, unsupported versions could enforce a size limit on \"If-Match\" and \"If-None-Match\" headers, e.g. through a Filter.\n\nCVE-2024-38820: CVE-2024-38820: Spring Framework DataBinder Case Sensitive Match Exception\n\nCVE-2025-41249: The Spring Framework annotation detection mechanism may not correctly resolve annotations on methods within type hierarchies with a parameterized super type with unbounded generics. This can be an issue if such annotations are used for authorization decisions.\n\nYour application may be affected by this if you are using Spring Security's @EnableMethodSecurity\u00a0feature.\n\nYou are not affected by this if you are not using @EnableMethodSecurity\u00a0or if you do not use security annotations on methods in generic superclasses or generic interfaces.\n\nThis CVE is published in conjunction with  CVE-2025-41248 https://spring.io/security/cve-2025-41248 .\n\nThis patched artifact is a drop-in replacement for org.springframework:spring-web 5.3.18 from Maven Central.",
+  "upstream": [
+    "CVE-2016-1000027",
+    "CVE-2024-22259",
+    "CVE-2024-22262",
+    "CVE-2024-38809",
+    "CVE-2024-38820",
+    "CVE-2025-41249",
+    "GHSA-4wrc-f8pq-fpqp",
+    "GHSA-hgjh-9rj2-g67j",
+    "GHSA-2wrp-6fg6-hmc5",
+    "GHSA-2rmj-mq67-h97g",
+    "GHSA-4gc7-5j7h-4qph",
+    "GHSA-jmp9-x22r-554x"
+  ],
+  "affected": [
+    {
+      "package": {
+        "ecosystem": "Red Hat Lightwell:Maven",
+        "name": "org.springframework:spring-web",
+        "purl": "pkg:maven/org.springframework/spring-web"
+      },
+      "versions": [
+        "5.3.18"
+      ],
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "5.3.18.rhlw-00010"
+            }
+          ]
+        }
+      ],
+      "database_specific": {
+        "lightwell": {
+          "backport_base_version": "5.3.18",
+          "remediated_version": "5.3.18.rhlw-00010",
+          "repository_url": "https://packages.redhat.com/lightwell/java/remediated/"
+        }
+      }
+    }
+  ],
+  "credits": [
+    {
+      "name": "Red Hat Lightwell",
+      "type": "REMEDIATION_DEVELOPER"
+    }
+  ]
+}

@@ -1,0 +1,73 @@
+{
+  "schema_version": "1.9.0",
+  "id": "RHLW-2026-e3b83df4e2f6a6af",
+  "published": "2026-10-09T20:38:43Z",
+  "modified": "2026-10-09T20:38:43Z",
+  "severity": [
+    {
+      "type": "CVSS_V3",
+      "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N"
+    }
+  ],
+  "references": [
+    {
+      "url": "https://repo.maven.apache.org/maven2",
+      "type": "WEB"
+    },
+    {
+      "url": "https://github.com/CVEProject/cvelistV5/tree/main/cves/2026/65xxx/CVE-2026-65432.json",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://lists.apache.org/thread/5qs207krzg51jl3zs3cvnl5lt9njp8c3",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-65432",
+      "type": "ADVISORY"
+    }
+  ],
+  "summary": "Lightwell Security Advisory: cxf-rt-wsdl 4.2.2.rhlw-00008",
+  "details": "Red Hat Lightwell has released org.apache.cxf:cxf-rt-wsdl 4.2.2.rhlw-00008 with a backported security fix.\n\nCVE-2026-65432: Apache CXF: XXE via WSDL/XSD import parsing\n\nThis patched artifact is a drop-in replacement for org.apache.cxf:cxf-rt-wsdl 4.2.2 from Maven Central.",
+  "upstream": [
+    "CVE-2026-65432"
+  ],
+  "affected": [
+    {
+      "package": {
+        "ecosystem": "Red Hat Lightwell:Maven",
+        "name": "org.apache.cxf:cxf-rt-wsdl",
+        "purl": "pkg:maven/org.apache.cxf/cxf-rt-wsdl"
+      },
+      "versions": [
+        "4.2.2"
+      ],
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "4.2.2.rhlw-00008"
+            }
+          ]
+        }
+      ],
+      "database_specific": {
+        "lightwell": {
+          "backport_base_version": "4.2.2",
+          "remediated_version": "4.2.2.rhlw-00008",
+          "repository_url": "https://packages.redhat.com/lightwell/java/remediated/"
+        }
+      }
+    }
+  ],
+  "credits": [
+    {
+      "name": "Red Hat Lightwell",
+      "type": "REMEDIATION_DEVELOPER"
+    }
+  ]
+}

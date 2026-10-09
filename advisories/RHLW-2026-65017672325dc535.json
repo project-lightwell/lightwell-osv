@@ -1,0 +1,61 @@
+{
+  "schema_version": "1.9.0",
+  "id": "RHLW-2026-65017672325dc535",
+  "published": "2026-10-09T20:39:24Z",
+  "modified": "2026-10-09T20:39:24Z",
+  "severity": [],
+  "references": [
+    {
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-94052",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-94053",
+      "type": "ADVISORY"
+    }
+  ],
+  "summary": "Lightwell Security Advisory: sshd-ldap 2.19.0.rhlw-00003",
+  "details": "Red Hat Lightwell has released org.apache.sshd:sshd-ldap 2.19.0.rhlw-00003 with backported fixes for CVE-2026-94052 and CVE-2026-94053.\n\nThis patched artifact is a drop-in replacement for org.apache.sshd:sshd-ldap 2.19.0 from Maven Central.",
+  "upstream": [
+    "CVE-2026-94052",
+    "CVE-2026-94053"
+  ],
+  "affected": [
+    {
+      "package": {
+        "ecosystem": "Red Hat Lightwell:Maven",
+        "name": "org.apache.sshd:sshd-ldap",
+        "purl": "pkg:maven/org.apache.sshd/sshd-ldap"
+      },
+      "versions": [
+        "2.19.0"
+      ],
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "2.19.0.rhlw-00003"
+            }
+          ]
+        }
+      ],
+      "database_specific": {
+        "lightwell": {
+          "backport_base_version": "2.19.0",
+          "remediated_version": "2.19.0.rhlw-00003",
+          "repository_url": "https://packages.redhat.com/lightwell/java/remediated/"
+        }
+      }
+    }
+  ],
+  "credits": [
+    {
+      "name": "Red Hat Lightwell",
+      "type": "REMEDIATION_DEVELOPER"
+    }
+  ]
+}
