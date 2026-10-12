@@ -1,0 +1,65 @@
+{
+  "schema_version": "1.9.0",
+  "id": "RHLW-2026-a5ec8923604c1851",
+  "published": "2026-10-12T16:59:45Z",
+  "modified": "2026-10-12T16:59:45Z",
+  "severity": [],
+  "references": [
+    {
+      "url": "https://github.com/CVEProject/cvelistV5/tree/main/cves/2022/22xxx/CVE-2022-22970.json",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2022-22970",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-hh26-6xwr-ggv7",
+      "type": "ADVISORY"
+    }
+  ],
+  "summary": "Lightwell Security Advisory: spring-beans 5.3.18.rhlw-00010",
+  "details": "Red Hat Lightwell has released org.springframework:spring-beans 5.3.18.rhlw-00010 with a backported security fix.\n\nCVE-2022-22970: In spring framework versions prior to 5.3.20+ , 5.2.22+ and old unsupported versions, applications that handle file uploads are vulnerable to DoS attack if they rely on data binding to set a MultipartFile or javax.servlet.Part to a field in a model object.\n\nThis patched artifact is a drop-in replacement for org.springframework:spring-beans 5.3.18 from Maven Central.",
+  "upstream": [
+    "CVE-2022-22970",
+    "GHSA-hh26-6xwr-ggv7"
+  ],
+  "affected": [
+    {
+      "package": {
+        "ecosystem": "Red Hat Lightwell:Maven",
+        "name": "org.springframework:spring-beans",
+        "purl": "pkg:maven/org.springframework/spring-beans"
+      },
+      "versions": [
+        "5.3.18"
+      ],
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "5.3.18.rhlw-00010"
+            }
+          ]
+        }
+      ],
+      "database_specific": {
+        "lightwell": {
+          "backport_base_version": "5.3.18",
+          "remediated_version": "5.3.18.rhlw-00010",
+          "repository_url": "https://packages.redhat.com/lightwell/java/remediated/"
+        }
+      }
+    }
+  ],
+  "credits": [
+    {
+      "name": "Red Hat Lightwell",
+      "type": "REMEDIATION_DEVELOPER"
+    }
+  ]
+}

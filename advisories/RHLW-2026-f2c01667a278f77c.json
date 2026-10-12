@@ -1,0 +1,61 @@
+{
+  "schema_version": "1.9.0",
+  "id": "RHLW-2026-f2c01667a278f77c",
+  "published": "2026-10-12T17:00:04Z",
+  "modified": "2026-10-12T17:00:04Z",
+  "severity": [],
+  "references": [
+    {
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-41254",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-41838",
+      "type": "ADVISORY"
+    }
+  ],
+  "summary": "Lightwell Security Advisory: spring-websocket 5.3.18.rhlw-00010",
+  "details": "Red Hat Lightwell has released org.springframework:spring-websocket 5.3.18.rhlw-00010 with backported fixes for CVE-2025-41254 and CVE-2026-41838.\n\nThis patched artifact is a drop-in replacement for org.springframework:spring-websocket 5.3.18 from Maven Central.",
+  "upstream": [
+    "CVE-2025-41254",
+    "CVE-2026-41838"
+  ],
+  "affected": [
+    {
+      "package": {
+        "ecosystem": "Red Hat Lightwell:Maven",
+        "name": "org.springframework:spring-websocket",
+        "purl": "pkg:maven/org.springframework/spring-websocket"
+      },
+      "versions": [
+        "5.3.18"
+      ],
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "5.3.18.rhlw-00010"
+            }
+          ]
+        }
+      ],
+      "database_specific": {
+        "lightwell": {
+          "backport_base_version": "5.3.18",
+          "remediated_version": "5.3.18.rhlw-00010",
+          "repository_url": "https://packages.redhat.com/lightwell/java/remediated/"
+        }
+      }
+    }
+  ],
+  "credits": [
+    {
+      "name": "Red Hat Lightwell",
+      "type": "REMEDIATION_DEVELOPER"
+    }
+  ]
+}

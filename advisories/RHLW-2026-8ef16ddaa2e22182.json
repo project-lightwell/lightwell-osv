@@ -1,0 +1,149 @@
+{
+  "schema_version": "1.9.0",
+  "id": "RHLW-2026-8ef16ddaa2e22182",
+  "published": "2026-10-12T16:59:51Z",
+  "modified": "2026-10-12T16:59:51Z",
+  "severity": [],
+  "references": [
+    {
+      "url": "https://spring.io/security/cve-2024-38816",
+      "type": "WEB"
+    },
+    {
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-38816",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-cx7f-g6mp-7hqm",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://spring.io/security/cve-2024-38819",
+      "type": "WEB"
+    },
+    {
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-38819",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-g5vr-rgqm-vf78",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-22735",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-22737",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-22740",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-22741",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-22745",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-41839",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-41840",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-41841",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-41842",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-41843",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-41844",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-41847",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-41853",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-47892",
+      "type": "ADVISORY"
+    }
+  ],
+  "summary": "Lightwell Security Advisory: spring-webflux 5.3.18.rhlw-00010",
+  "details": "Red Hat Lightwell has released org.springframework:spring-webflux 5.3.18.rhlw-00010 with backported fixes for CVE-2024-38816, CVE-2024-38819, CVE-2026-22735, CVE-2026-22737, CVE-2026-22740, CVE-2026-22741, CVE-2026-22745, CVE-2026-41839, CVE-2026-41840, CVE-2026-41841, CVE-2026-41842, CVE-2026-41843, CVE-2026-41844, CVE-2026-41847, CVE-2026-41853, and CVE-2026-47892.\n\nCVE-2024-38816: Applications serving static resources through the functional web frameworks WebMvc.fn or WebFlux.fn are vulnerable to path traversal attacks. An attacker can craft malicious HTTP requests and obtain any file on the file system that is also accessible to the process in which the Spring application is running.\n\nSpecifically, an application is vulnerable when both of the following are true:\n\n  *  the web application uses RouterFunctions\u00a0to serve static resources\n  *  resource handling is explicitly configured with a FileSystemResource\u00a0location\n\n\nHowever, malicious requests are blocked and rejected when any of the following is true:\n\n  *  the  Spring Security HTTP Firewall https://docs.spring.io/spring-security/reference/servlet/exploits/firewall.html \u00a0is in use\n  *  the application runs on Tomcat or Jetty\n\nCVE-2024-38819: Applications serving static resources through the functional web frameworks WebMvc.fn or WebFlux.fn are vulnerable to path traversal attacks. An attacker can craft malicious HTTP requests and obtain any file on the file system that is also accessible to the process in which the Spring application is running.\n\nThis patched artifact is a drop-in replacement for org.springframework:spring-webflux 5.3.18 from Maven Central.",
+  "upstream": [
+    "CVE-2024-38816",
+    "CVE-2024-38819",
+    "CVE-2026-22735",
+    "CVE-2026-22737",
+    "CVE-2026-22740",
+    "CVE-2026-22741",
+    "CVE-2026-22745",
+    "CVE-2026-41839",
+    "CVE-2026-41840",
+    "CVE-2026-41841",
+    "CVE-2026-41842",
+    "CVE-2026-41843",
+    "CVE-2026-41844",
+    "CVE-2026-41847",
+    "CVE-2026-41853",
+    "CVE-2026-47892",
+    "GHSA-cx7f-g6mp-7hqm",
+    "GHSA-g5vr-rgqm-vf78"
+  ],
+  "affected": [
+    {
+      "package": {
+        "ecosystem": "Red Hat Lightwell:Maven",
+        "name": "org.springframework:spring-webflux",
+        "purl": "pkg:maven/org.springframework/spring-webflux"
+      },
+      "versions": [
+        "5.3.18"
+      ],
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "5.3.18.rhlw-00010"
+            }
+          ]
+        }
+      ],
+      "database_specific": {
+        "lightwell": {
+          "backport_base_version": "5.3.18",
+          "remediated_version": "5.3.18.rhlw-00010",
+          "repository_url": "https://packages.redhat.com/lightwell/java/remediated/"
+        }
+      }
+    }
+  ],
+  "credits": [
+    {
+      "name": "Red Hat Lightwell",
+      "type": "REMEDIATION_DEVELOPER"
+    }
+  ]
+}

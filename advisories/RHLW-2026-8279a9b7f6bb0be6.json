@@ -1,0 +1,65 @@
+{
+  "schema_version": "1.9.0",
+  "id": "RHLW-2026-8279a9b7f6bb0be6",
+  "published": "2026-10-12T16:59:50Z",
+  "modified": "2026-10-12T16:59:50Z",
+  "severity": [],
+  "references": [
+    {
+      "url": "https://github.com/CVEProject/cvelistV5/tree/main/cves/2022/22xxx/CVE-2022-22971.json",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2022-22971",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-rqph-vqwm-22vc",
+      "type": "ADVISORY"
+    }
+  ],
+  "summary": "Lightwell Security Advisory: spring-messaging 5.3.18.rhlw-00010",
+  "details": "Red Hat Lightwell has released org.springframework:spring-messaging 5.3.18.rhlw-00010 with a backported security fix.\n\nCVE-2022-22971: In spring framework versions prior to 5.3.20+ , 5.2.22+ and old unsupported versions, application with a STOMP over WebSocket endpoint is vulnerable to a denial of service attack by an authenticated user.\n\nThis patched artifact is a drop-in replacement for org.springframework:spring-messaging 5.3.18 from Maven Central.",
+  "upstream": [
+    "CVE-2022-22971",
+    "GHSA-rqph-vqwm-22vc"
+  ],
+  "affected": [
+    {
+      "package": {
+        "ecosystem": "Red Hat Lightwell:Maven",
+        "name": "org.springframework:spring-messaging",
+        "purl": "pkg:maven/org.springframework/spring-messaging"
+      },
+      "versions": [
+        "5.3.18"
+      ],
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "5.3.18.rhlw-00010"
+            }
+          ]
+        }
+      ],
+      "database_specific": {
+        "lightwell": {
+          "backport_base_version": "5.3.18",
+          "remediated_version": "5.3.18.rhlw-00010",
+          "repository_url": "https://packages.redhat.com/lightwell/java/remediated/"
+        }
+      }
+    }
+  ],
+  "credits": [
+    {
+      "name": "Red Hat Lightwell",
+      "type": "REMEDIATION_DEVELOPER"
+    }
+  ]
+}
