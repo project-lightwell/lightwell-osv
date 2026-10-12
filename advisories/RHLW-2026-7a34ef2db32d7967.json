@@ -1,0 +1,86 @@
+{
+  "schema_version": "1.9.0",
+  "id": "RHLW-2026-7a34ef2db32d7967",
+  "published": "2026-10-09T18:45:18Z",
+  "modified": "2026-10-09T18:45:18Z",
+  "severity": [
+    {
+      "type": "CVSS_V3",
+      "score": "CVSS:3.1/AV:L/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H"
+    }
+  ],
+  "references": [
+    {
+      "url": "https://github.com/h2database/h2database/blob/96832bf5a97cdc0adc1f2066ed61c54990d66ab5/h2/src/main/org/h2/server/web/WebServer.java#L346-L347",
+      "type": "WEB"
+    },
+    {
+      "url": "https://github.com/h2database/h2database/releases/tag/version-2.2.220",
+      "type": "WEB"
+    },
+    {
+      "url": "https://github.com/CVEProject/cvelistV5/tree/main/cves/2022/45xxx/CVE-2022-45868.json",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-22wj-vf5f-wrvj",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2022-45868",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/h2database/h2database/issues/3686",
+      "type": "REPORT"
+    },
+    {
+      "url": "https://github.com/h2database/h2database/pull/3833",
+      "type": "FIX"
+    }
+  ],
+  "summary": "Lightwell Security Advisory: h2 2.2.219.rhlw-00001",
+  "details": "Red Hat Lightwell has released com.h2database:h2 2.2.219.rhlw-00001 with a backported security fix.\n\nCVE-2022-45868: The web-based admin console in H2 Database Engine before 2.2.220 can be started via the CLI with the argument -webAdminPassword, which allows the user to specify the password in cleartext for the web admin console. Consequently, a local user (or an attacker that has obtained local access through some means) would be able to discover the password by listing processes and their arguments. NOTE: the vendor states \"This is not a vulnerability of H2 Console ... Passwords should never be passed on the command line and every qualified DBA or system administrator is expected to know that.\" Nonetheless, the issue was fixed in 2.2.220.\n\nThis patched artifact is a drop-in replacement for com.h2database:h2 2.2.219 from Maven Central.",
+  "upstream": [
+    "CVE-2022-45868",
+    "GHSA-22wj-vf5f-wrvj"
+  ],
+  "affected": [
+    {
+      "package": {
+        "ecosystem": "Red Hat Lightwell:Maven",
+        "name": "com.h2database:h2",
+        "purl": "pkg:maven/com.h2database/h2"
+      },
+      "versions": [
+        "2.2.219"
+      ],
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "2.2.219.rhlw-00001"
+            }
+          ]
+        }
+      ],
+      "database_specific": {
+        "lightwell": {
+          "backport_base_version": "2.2.219",
+          "remediated_version": "2.2.219.rhlw-00001",
+          "repository_url": "https://packages.redhat.com/lightwell/java/remediated/"
+        }
+      }
+    }
+  ],
+  "credits": [
+    {
+      "name": "Red Hat Lightwell",
+      "type": "REMEDIATION_DEVELOPER"
+    }
+  ]
+}
