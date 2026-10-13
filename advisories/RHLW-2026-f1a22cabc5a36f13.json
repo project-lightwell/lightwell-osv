@@ -1,0 +1,78 @@
+{
+  "schema_version": "1.9.0",
+  "id": "RHLW-2026-f1a22cabc5a36f13",
+  "published": "2026-10-12T19:53:32Z",
+  "modified": "2026-10-12T19:53:32Z",
+  "severity": [
+    {
+      "type": "CVSS_V3",
+      "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+    }
+  ],
+  "references": [
+    {
+      "url": "https://github.com/CVEProject/cvelistV5/tree/main/cves/2024/47xxx/CVE-2024-47072.json",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/x-stream/xstream/security/advisories/GHSA-hfq9-hggm-c56q",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-47072",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/x-stream/xstream/commit/bb838ce2269cac47433e31c77b2b236466e9f266",
+      "type": "FIX"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-hfq9-hggm-c56q",
+      "type": "ADVISORY"
+    }
+  ],
+  "summary": "Lightwell Security Advisory: xstream 1.4.20.rhlw-00001",
+  "details": "Red Hat Lightwell has released com.thoughtworks.xstream:xstream 1.4.20.rhlw-00001 with a backported security fix.\n\nCVE-2024-47072: XStream is vulnerable to a Denial of Service attack due to stack overflow from a manipulated binary input stream\n\nThis patched artifact is a drop-in replacement for com.thoughtworks.xstream:xstream 1.4.20 from Maven Central.",
+  "upstream": [
+    "CVE-2024-47072",
+    "GHSA-hfq9-hggm-c56q"
+  ],
+  "affected": [
+    {
+      "package": {
+        "ecosystem": "Red Hat Lightwell:Maven",
+        "name": "com.thoughtworks.xstream:xstream",
+        "purl": "pkg:maven/com.thoughtworks.xstream/xstream"
+      },
+      "versions": [
+        "1.4.20"
+      ],
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "1.4.20.rhlw-00001"
+            }
+          ]
+        }
+      ],
+      "database_specific": {
+        "lightwell": {
+          "backport_base_version": "1.4.20",
+          "remediated_version": "1.4.20.rhlw-00001",
+          "repository_url": "https://packages.redhat.com/lightwell/java/remediated/"
+        }
+      }
+    }
+  ],
+  "credits": [
+    {
+      "name": "Red Hat Lightwell",
+      "type": "REMEDIATION_DEVELOPER"
+    }
+  ]
+}
