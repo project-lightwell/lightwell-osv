@@ -1,0 +1,74 @@
+{
+  "schema_version": "1.9.0",
+  "id": "RHLW-2026-90932e54c65972cd",
+  "published": "2026-10-09T17:46:22Z",
+  "modified": "2026-10-09T17:46:22Z",
+  "severity": [
+    {
+      "type": "CVSS_V3",
+      "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+    }
+  ],
+  "references": [
+    {
+      "url": "https://nvd.nist.gov/vuln/detail/cve-2023-1370",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/TurtleLiu/Vul_PoC/tree/main/CVE-2024-57699",
+      "type": "WEB"
+    },
+    {
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-57699",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-pq2g-wx69-c263",
+      "type": "ADVISORY"
+    }
+  ],
+  "summary": "Lightwell Security Advisory: json-smart 2.5.0.rhlw-00001",
+  "details": "Red Hat Lightwell has released net.minidev:json-smart 2.5.0.rhlw-00001 with a backported security fix.\n\nCVE-2024-57699: A security issue was found in Netplex Json-smart 2.5.0 through 2.5.1. When loading a specially crafted JSON input, containing a large number of \u2019{\u2019, a stack exhaustion can be trigger, which could allow an attacker to cause a Denial of Service (DoS). This issue exists because of an incomplete fix for CVE-2023-1370.\n\nThis patched artifact is a drop-in replacement for net.minidev:json-smart 2.5.0 from Maven Central.",
+  "upstream": [
+    "CVE-2024-57699",
+    "GHSA-pq2g-wx69-c263"
+  ],
+  "affected": [
+    {
+      "package": {
+        "ecosystem": "Red Hat Lightwell:Maven",
+        "name": "net.minidev:json-smart",
+        "purl": "pkg:maven/net.minidev/json-smart"
+      },
+      "versions": [
+        "2.5.0"
+      ],
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "2.5.0.rhlw-00001"
+            }
+          ]
+        }
+      ],
+      "database_specific": {
+        "lightwell": {
+          "backport_base_version": "2.5.0",
+          "remediated_version": "2.5.0.rhlw-00001",
+          "repository_url": "https://packages.redhat.com/lightwell/java/remediated/"
+        }
+      }
+    }
+  ],
+  "credits": [
+    {
+      "name": "Red Hat Lightwell",
+      "type": "REMEDIATION_DEVELOPER"
+    }
+  ]
+}
