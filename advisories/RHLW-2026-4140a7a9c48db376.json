@@ -1,0 +1,152 @@
+{
+  "schema_version": "1.9.0",
+  "id": "RHLW-2026-4140a7a9c48db376",
+  "published": "2026-10-12T16:58:34Z",
+  "modified": "2026-10-12T16:58:34Z",
+  "severity": [
+    {
+      "type": "CVSS_V3",
+      "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+    }
+  ],
+  "references": [
+    {
+      "url": "https://github.com/netty/netty/releases/tag/netty-4.1.135.Final",
+      "type": "WEB"
+    },
+    {
+      "url": "https://github.com/netty/netty/releases/tag/netty-4.2.15.Final",
+      "type": "WEB"
+    },
+    {
+      "url": "https://security.access.redhat.com/data/csaf/v2/vex/2026/cve-2026-46340.json",
+      "type": "WEB"
+    },
+    {
+      "url": "https://access.redhat.com/errata/RHSA-2026:37390",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://access.redhat.com/errata/RHSA-2026:41951",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://access.redhat.com/errata/RHSA-2026:50085",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://access.redhat.com/errata/RHSA-2026:53644",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://access.redhat.com/errata/RHSA-2026:53645",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://access.redhat.com/errata/RHSA-2026:53646",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://access.redhat.com/security/cve/CVE-2026-46340",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/CVEProject/cvelistV5/tree/main/cves/2026/46xxx/CVE-2026-46340.json",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/netty/netty/security/advisories/GHSA-5xrh-qmmq-w6ch",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-46340",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-5xrh-qmmq-w6ch",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/netty/netty/releases/tag/netty-4.1.137.Final",
+      "type": "WEB"
+    },
+    {
+      "url": "https://github.com/netty/netty/releases/tag/netty-4.2.17.Final",
+      "type": "WEB"
+    },
+    {
+      "url": "https://github.com/CVEProject/cvelistV5/tree/main/cves/2026/59xxx/CVE-2026-59902.json",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/netty/netty/security/advisories/GHSA-2qj4-mmr9-4v2f",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-59902",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/netty/netty/commit/1b5abc6443b63726c72cdd285af2feb7ddbb8ff7",
+      "type": "FIX"
+    },
+    {
+      "url": "https://github.com/netty/netty/pull/17213",
+      "type": "FIX"
+    },
+    {
+      "url": "https://github.com/netty/netty/pull/17217",
+      "type": "FIX"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-2qj4-mmr9-4v2f",
+      "type": "ADVISORY"
+    }
+  ],
+  "summary": "Lightwell Security Advisory: netty-transport-sctp 4.1.100.Final-rhlw-00001",
+  "details": "Red Hat Lightwell has released io.netty:netty-transport-sctp 4.1.100.Final-rhlw-00001 with backported fixes for CVE-2026-46340 and CVE-2026-59902.\n\nCVE-2026-46340: Netty: SCTP reassembly nests buffers without bound\n\nCVE-2026-59902: Netty: Memory Exhaustion in SctpMessageCompletionHandler\n\nThis patched artifact is a drop-in replacement for io.netty:netty-transport-sctp 4.1.100.Final from Maven Central.",
+  "upstream": [
+    "CVE-2026-46340",
+    "CVE-2026-59902",
+    "GHSA-5xrh-qmmq-w6ch",
+    "GHSA-2qj4-mmr9-4v2f"
+  ],
+  "affected": [
+    {
+      "package": {
+        "ecosystem": "Red Hat Lightwell:Maven",
+        "name": "io.netty:netty-transport-sctp",
+        "purl": "pkg:maven/io.netty/netty-transport-sctp"
+      },
+      "versions": [
+        "4.1.100.Final"
+      ],
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "4.1.100.Final-rhlw-00001"
+            }
+          ]
+        }
+      ],
+      "database_specific": {
+        "lightwell": {
+          "backport_base_version": "4.1.100.Final",
+          "remediated_version": "4.1.100.Final-rhlw-00001",
+          "repository_url": "https://packages.redhat.com/lightwell/java/remediated/"
+        }
+      }
+    }
+  ],
+  "credits": [
+    {
+      "name": "Red Hat Lightwell",
+      "type": "REMEDIATION_DEVELOPER"
+    }
+  ]
+}

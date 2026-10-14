@@ -1,0 +1,78 @@
+{
+  "schema_version": "1.9.0",
+  "id": "RHLW-2026-fb860419f051aedd",
+  "published": "2026-10-09T20:36:29Z",
+  "modified": "2026-10-09T20:36:29Z",
+  "severity": [
+    {
+      "type": "CVSS_V4",
+      "score": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:N/VI:L/VA:N/SC:N/SI:N/SA:N/E:P"
+    }
+  ],
+  "references": [
+    {
+      "url": "https://github.com/CVEProject/cvelistV5/tree/main/cves/2025/59xxx/CVE-2025-59419.json",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/netty/netty/security/advisories/GHSA-jq43-27x9-3v86",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-59419",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/netty/netty/commit/1782e8c2060a244c4d4e6f9d9112d5517ca05120",
+      "type": "FIX"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-jq43-27x9-3v86",
+      "type": "ADVISORY"
+    }
+  ],
+  "summary": "Lightwell Security Advisory: netty-codec-smtp 4.1.100.Final-rhlw-00001",
+  "details": "Red Hat Lightwell has released io.netty:netty-codec-smtp 4.1.100.Final-rhlw-00001 with a backported security fix.\n\nCVE-2025-59419: Netty netty-codec-smtp SMTP Command Injection Vulnerability Allowing Email Forgery\n\nThis patched artifact is a drop-in replacement for io.netty:netty-codec-smtp 4.1.100.Final from Maven Central.",
+  "upstream": [
+    "CVE-2025-59419",
+    "GHSA-jq43-27x9-3v86"
+  ],
+  "affected": [
+    {
+      "package": {
+        "ecosystem": "Red Hat Lightwell:Maven",
+        "name": "io.netty:netty-codec-smtp",
+        "purl": "pkg:maven/io.netty/netty-codec-smtp"
+      },
+      "versions": [
+        "4.1.100.Final"
+      ],
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "4.1.100.Final-rhlw-00001"
+            }
+          ]
+        }
+      ],
+      "database_specific": {
+        "lightwell": {
+          "backport_base_version": "4.1.100.Final",
+          "remediated_version": "4.1.100.Final-rhlw-00001",
+          "repository_url": "https://packages.redhat.com/lightwell/java/remediated/"
+        }
+      }
+    }
+  ],
+  "credits": [
+    {
+      "name": "Red Hat Lightwell",
+      "type": "REMEDIATION_DEVELOPER"
+    }
+  ]
+}
