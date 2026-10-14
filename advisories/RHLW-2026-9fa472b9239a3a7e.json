@@ -1,0 +1,78 @@
+{
+  "schema_version": "1.9.0",
+  "id": "RHLW-2026-9fa472b9239a3a7e",
+  "published": "2026-10-13T19:09:45Z",
+  "modified": "2026-10-13T19:09:45Z",
+  "severity": [
+    {
+      "type": "CVSS_V3",
+      "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:L"
+    }
+  ],
+  "references": [
+    {
+      "url": "https://repo.maven.apache.org/maven2",
+      "type": "WEB"
+    },
+    {
+      "url": "https://github.com/CVEProject/cvelistV5/tree/main/cves/2025/33xxx/CVE-2025-33042.json",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://lists.apache.org/thread/fy88wmgf1lj9479vrpt12cv8x73lroj1",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-33042",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-rp46-r563-jrc7",
+      "type": "ADVISORY"
+    }
+  ],
+  "summary": "Lightwell Security Advisory: avro-compiler 1.9.2.rhlw-00002",
+  "details": "Red Hat Lightwell has released org.apache.avro:avro-compiler 1.9.2.rhlw-00002 with a backported security fix.\n\nCVE-2025-33042: Apache Avro Java SDK: Code injection on Java generated code\n\nThis patched artifact is a drop-in replacement for org.apache.avro:avro-compiler 1.9.2 from Maven Central.",
+  "upstream": [
+    "CVE-2025-33042",
+    "GHSA-rp46-r563-jrc7"
+  ],
+  "affected": [
+    {
+      "package": {
+        "ecosystem": "Red Hat Lightwell:Maven",
+        "name": "org.apache.avro:avro-compiler",
+        "purl": "pkg:maven/org.apache.avro/avro-compiler"
+      },
+      "versions": [
+        "1.9.2"
+      ],
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "1.9.2.rhlw-00002"
+            }
+          ]
+        }
+      ],
+      "database_specific": {
+        "lightwell": {
+          "backport_base_version": "1.9.2",
+          "remediated_version": "1.9.2.rhlw-00002",
+          "repository_url": "https://packages.redhat.com/lightwell/java/remediated/"
+        }
+      }
+    }
+  ],
+  "credits": [
+    {
+      "name": "Red Hat Lightwell",
+      "type": "REMEDIATION_DEVELOPER"
+    }
+  ]
+}
