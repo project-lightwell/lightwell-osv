@@ -1,0 +1,100 @@
+{
+  "schema_version": "1.9.0",
+  "id": "RHLW-2026-858cb80fc989d912",
+  "published": "2026-10-12T16:58:08Z",
+  "modified": "2026-10-12T16:58:08Z",
+  "severity": [
+    {
+      "type": "CVSS_V3",
+      "score": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H"
+    }
+  ],
+  "references": [
+    {
+      "url": "https://github.com/CVEProject/cvelistV5/tree/main/cves/2024/47xxx/CVE-2024-47535.json",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/netty/netty/security/advisories/GHSA-xq3w-v528-46rv",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-47535",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/netty/netty/commit/fbf7a704a82e7449b48bd0bbb679f5661c6d61a3",
+      "type": "FIX"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-xq3w-v528-46rv",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/CVEProject/cvelistV5/tree/main/cves/2025/25xxx/CVE-2025-25193.json",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/netty/netty/security/advisories/GHSA-389x-839f-4rhx",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-25193",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/netty/netty/commit/d1fbda62d3a47835d3fb35db8bd42ecc205a5386",
+      "type": "FIX"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-389x-839f-4rhx",
+      "type": "ADVISORY"
+    }
+  ],
+  "summary": "Lightwell Security Advisory: netty-common 4.1.100.Final-rhlw-00001",
+  "details": "Red Hat Lightwell has released io.netty:netty-common 4.1.100.Final-rhlw-00001 with backported fixes for CVE-2024-47535 and CVE-2025-25193.\n\nCVE-2024-47535: Denial of Service attack on windows app using Netty\n\nCVE-2025-25193: Denial of Service attack on windows app using Netty\n\nThis patched artifact is a drop-in replacement for io.netty:netty-common 4.1.100.Final from Maven Central.",
+  "upstream": [
+    "CVE-2024-47535",
+    "CVE-2025-25193",
+    "GHSA-xq3w-v528-46rv",
+    "GHSA-389x-839f-4rhx"
+  ],
+  "affected": [
+    {
+      "package": {
+        "ecosystem": "Red Hat Lightwell:Maven",
+        "name": "io.netty:netty-common",
+        "purl": "pkg:maven/io.netty/netty-common"
+      },
+      "versions": [
+        "4.1.100.Final"
+      ],
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "4.1.100.Final-rhlw-00001"
+            }
+          ]
+        }
+      ],
+      "database_specific": {
+        "lightwell": {
+          "backport_base_version": "4.1.100.Final",
+          "remediated_version": "4.1.100.Final-rhlw-00001",
+          "repository_url": "https://packages.redhat.com/lightwell/java/remediated/"
+        }
+      }
+    }
+  ],
+  "credits": [
+    {
+      "name": "Red Hat Lightwell",
+      "type": "REMEDIATION_DEVELOPER"
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "schema_version": "1.9.0",
+  "id": "RHLW-2026-11ab22698dd7c623",
+  "published": "2026-10-12T16:59:37Z",
+  "modified": "2026-10-12T16:59:37Z",
+  "severity": [],
+  "references": [
+    {
+      "url": "https://spring.io/security/cve-2024-38807",
+      "type": "WEB"
+    },
+    {
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-38807",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-7cj3-x93g-gj76",
+      "type": "ADVISORY"
+    }
+  ],
+  "summary": "Lightwell Security Advisory: spring-boot-loader 2.7.18.rhlw-00004",
+  "details": "Red Hat Lightwell has released org.springframework.boot:spring-boot-loader 2.7.18.rhlw-00004 with a backported security fix.\n\nCVE-2024-38807: Applications that use spring-boot-loader\u00a0or spring-boot-loader-classic\u00a0and contain custom code that performs signature verification of nested jar files may be vulnerable to signature forgery where content that appears to have been signed by one signer has, in fact, been signed by another.\n\nThis patched artifact is a drop-in replacement for org.springframework.boot:spring-boot-loader 2.7.18 from Maven Central.",
+  "upstream": [
+    "CVE-2024-38807",
+    "GHSA-7cj3-x93g-gj76"
+  ],
+  "affected": [
+    {
+      "package": {
+        "ecosystem": "Red Hat Lightwell:Maven",
+        "name": "org.springframework.boot:spring-boot-loader",
+        "purl": "pkg:maven/org.springframework.boot/spring-boot-loader"
+      },
+      "versions": [
+        "2.7.18"
+      ],
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "2.7.18.rhlw-00004"
+            }
+          ]
+        }
+      ],
+      "database_specific": {
+        "lightwell": {
+          "backport_base_version": "2.7.18",
+          "remediated_version": "2.7.18.rhlw-00004",
+          "repository_url": "https://packages.redhat.com/lightwell/java/remediated/"
+        }
+      }
+    }
+  ],
+  "credits": [
+    {
+      "name": "Red Hat Lightwell",
+      "type": "REMEDIATION_DEVELOPER"
+    }
+  ]
+}

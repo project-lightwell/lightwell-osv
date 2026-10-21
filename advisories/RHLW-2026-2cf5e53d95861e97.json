@@ -1,0 +1,110 @@
+{
+  "schema_version": "1.9.0",
+  "id": "RHLW-2026-2cf5e53d95861e97",
+  "published": "2026-10-12T16:59:41Z",
+  "modified": "2026-10-12T16:59:41Z",
+  "severity": [
+    {
+      "type": "CVSS_V3",
+      "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+    }
+  ],
+  "references": [
+    {
+      "url": "https://spring.io/security/cve-2026-40988",
+      "type": "WEB"
+    },
+    {
+      "url": "https://github.com/CVEProject/cvelistV5/tree/main/cves/2026/40xxx/CVE-2026-40988.json",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-40988",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-m69x-pw9p-7j3q",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://spring.io/security/cve-2026-41003",
+      "type": "WEB"
+    },
+    {
+      "url": "https://github.com/CVEProject/cvelistV5/tree/main/cves/2026/41xxx/CVE-2026-41003.json",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-41003",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-3pjj-qpw6-5fcm",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://spring.io/security/cve-2026-41694",
+      "type": "WEB"
+    },
+    {
+      "url": "https://github.com/CVEProject/cvelistV5/tree/main/cves/2026/41xxx/CVE-2026-41694.json",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-41694",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-ww38-37g9-m3q3",
+      "type": "ADVISORY"
+    }
+  ],
+  "summary": "Lightwell Security Advisory: spring-security-saml2-service-provider 5.7.11.rhlw-00006",
+  "details": "Red Hat Lightwell has released org.springframework.security:spring-security-saml2-service-provider 5.7.11.rhlw-00006 with backported fixes for CVE-2026-40988, CVE-2026-41003, and CVE-2026-41694.\n\nCVE-2026-40988: Unbounded DEFLATE Inflation in SAML 2.0 Service Provider\n\nCVE-2026-41003: Unencoded HTML Outputs in Spring Security May Allow Cross-Site Scripting\n\nCVE-2026-41694: SAML Payloads Decrypted Without Valid Signature\n\nThis patched artifact is a drop-in replacement for org.springframework.security:spring-security-saml2-service-provider 5.7.11 from Maven Central.",
+  "upstream": [
+    "CVE-2026-40988",
+    "CVE-2026-41003",
+    "CVE-2026-41694",
+    "GHSA-m69x-pw9p-7j3q",
+    "GHSA-3pjj-qpw6-5fcm",
+    "GHSA-ww38-37g9-m3q3"
+  ],
+  "affected": [
+    {
+      "package": {
+        "ecosystem": "Red Hat Lightwell:Maven",
+        "name": "org.springframework.security:spring-security-saml2-service-provider",
+        "purl": "pkg:maven/org.springframework.security/spring-security-saml2-service-provider"
+      },
+      "versions": [
+        "5.7.11"
+      ],
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "5.7.11.rhlw-00006"
+            }
+          ]
+        }
+      ],
+      "database_specific": {
+        "lightwell": {
+          "backport_base_version": "5.7.11",
+          "remediated_version": "5.7.11.rhlw-00006",
+          "repository_url": "https://packages.redhat.com/lightwell/java/remediated/"
+        }
+      }
+    }
+  ],
+  "credits": [
+    {
+      "name": "Red Hat Lightwell",
+      "type": "REMEDIATION_DEVELOPER"
+    }
+  ]
+}

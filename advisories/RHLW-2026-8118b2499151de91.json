@@ -1,0 +1,78 @@
+{
+  "schema_version": "1.9.0",
+  "id": "RHLW-2026-8118b2499151de91",
+  "published": "2026-10-12T16:58:46Z",
+  "modified": "2026-10-12T16:58:46Z",
+  "severity": [
+    {
+      "type": "CVSS_V3",
+      "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L"
+    }
+  ],
+  "references": [
+    {
+      "url": "https://repo.maven.apache.org/maven2/",
+      "type": "WEB"
+    },
+    {
+      "url": "https://github.com/CVEProject/cvelistV5/tree/main/cves/2026/64xxx/CVE-2026-64607.json",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://lists.apache.org/thread/qqfzo3fqcdk4l5496vz95ppvl4ty511q",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-64607",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-hjcp-jmpx-g3qm",
+      "type": "ADVISORY"
+    }
+  ],
+  "summary": "Lightwell Security Advisory: httpclient5 5.6.1.rhlw-00012",
+  "details": "Red Hat Lightwell has released org.apache.httpcomponents.client5:httpclient5 5.6.1.rhlw-00012 with a backported security fix.\n\nCVE-2026-64607: Apache HttpComponents Client: Connection Leak on Content-Encoding Decode Error Leads to Pool Exhaustion DoS\n\nThis patched artifact is a drop-in replacement for org.apache.httpcomponents.client5:httpclient5 5.6.1 from Maven Central.",
+  "upstream": [
+    "CVE-2026-64607",
+    "GHSA-hjcp-jmpx-g3qm"
+  ],
+  "affected": [
+    {
+      "package": {
+        "ecosystem": "Red Hat Lightwell:Maven",
+        "name": "org.apache.httpcomponents.client5:httpclient5",
+        "purl": "pkg:maven/org.apache.httpcomponents.client5/httpclient5"
+      },
+      "versions": [
+        "5.6.1"
+      ],
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "5.6.1.rhlw-00012"
+            }
+          ]
+        }
+      ],
+      "database_specific": {
+        "lightwell": {
+          "backport_base_version": "5.6.1",
+          "remediated_version": "5.6.1.rhlw-00012",
+          "repository_url": "https://packages.redhat.com/lightwell/java/remediated/"
+        }
+      }
+    }
+  ],
+  "credits": [
+    {
+      "name": "Red Hat Lightwell",
+      "type": "REMEDIATION_DEVELOPER"
+    }
+  ]
+}

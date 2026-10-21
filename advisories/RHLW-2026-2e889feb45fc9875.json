@@ -1,0 +1,228 @@
+{
+  "schema_version": "1.9.0",
+  "id": "RHLW-2026-2e889feb45fc9875",
+  "published": "2026-10-12T16:55:07Z",
+  "modified": "2026-10-12T16:55:07Z",
+  "severity": [
+    {
+      "type": "CVSS_V4",
+      "score": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:N/VI:N/VA:H/SC:N/SI:N/SA:N"
+    }
+  ],
+  "references": [
+    {
+      "url": "https://github.com/netty/netty/releases/tag/netty-4.1.135.Final",
+      "type": "WEB"
+    },
+    {
+      "url": "https://github.com/netty/netty/releases/tag/netty-4.2.15.Final",
+      "type": "WEB"
+    },
+    {
+      "url": "https://security.access.redhat.com/data/csaf/v2/vex/2026/cve-2026-44893.json",
+      "type": "WEB"
+    },
+    {
+      "url": "https://access.redhat.com/errata/RHSA-2026:26017",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://access.redhat.com/errata/RHSA-2026:26018",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://access.redhat.com/errata/RHSA-2026:26586",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://access.redhat.com/errata/RHSA-2026:34608",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://access.redhat.com/errata/RHSA-2026:36820",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://access.redhat.com/errata/RHSA-2026:37390",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://access.redhat.com/errata/RHSA-2026:41951",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://access.redhat.com/errata/RHSA-2026:48151",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://access.redhat.com/errata/RHSA-2026:50085",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://access.redhat.com/errata/RHSA-2026:53644",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://access.redhat.com/errata/RHSA-2026:53645",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://access.redhat.com/errata/RHSA-2026:53646",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://access.redhat.com/errata/RHSA-2026:54435",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://access.redhat.com/errata/RHSA-2026:65126",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://access.redhat.com/errata/RHSA-2026:66488",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://access.redhat.com/security/cve/CVE-2026-44893",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/CVEProject/cvelistV5/tree/main/cves/2026/44xxx/CVE-2026-44893.json",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/netty/netty/security/advisories/GHSA-cc37-9q2j-3hfv",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-44893",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-cc37-9q2j-3hfv",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://security.access.redhat.com/data/csaf/v2/vex/2026/cve-2026-48059.json",
+      "type": "WEB"
+    },
+    {
+      "url": "https://access.redhat.com/security/cve/CVE-2026-48059",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/CVEProject/cvelistV5/tree/main/cves/2026/48xxx/CVE-2026-48059.json",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/netty/netty/security/advisories/GHSA-h2qv-fj59-j46j",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48059",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-h2qv-fj59-j46j",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/netty/netty/releases/tag/netty-4.1.136.Final",
+      "type": "WEB"
+    },
+    {
+      "url": "https://github.com/netty/netty/releases/tag/netty-4.2.16.Final",
+      "type": "WEB"
+    },
+    {
+      "url": "https://github.com/CVEProject/cvelistV5/tree/main/cves/2026/55xxx/CVE-2026-55851.json",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/netty/netty/security/advisories/GHSA-q6cq-mhr2-jmr5",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-55851",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/netty/netty/commit/5b68c61f37aa4a3045cba624cbea239655c9003b",
+      "type": "FIX"
+    },
+    {
+      "url": "https://github.com/netty/netty/commit/bb2ff68a1fb71cb4b0eb9a9e17b66c52aff680c6",
+      "type": "FIX"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-q6cq-mhr2-jmr5",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/CVEProject/cvelistV5/tree/main/cves/2026/59xxx/CVE-2026-59919.json",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/netty/netty/security/advisories/GHSA-wh89-7897-x99h",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-59919",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-wh89-7897-x99h",
+      "type": "ADVISORY"
+    }
+  ],
+  "summary": "Lightwell Security Advisory: netty-codec-haproxy 4.1.100.Final-rhlw-00001",
+  "details": "Red Hat Lightwell has released io.netty:netty-codec-haproxy 4.1.100.Final-rhlw-00001 with backported fixes for CVE-2026-44893, CVE-2026-48059, CVE-2026-55851, and CVE-2026-59919.\n\nCVE-2026-44893: Netty: HAProxy SSL TLV parsing leaks retained slice on invalid TLV length\n\nCVE-2026-48059: Netty HAProxy: Unbalanced Reference Count in Nested PP2_TYPE_SSL TLV Parsing Leads to Memory Exhaustion\n\nCVE-2026-55851: Netty codec-haproxy: Signed-Byte Sentinel Collision in HAProxyMessageDecoder Leads to Unbounded Memory Exhaustion\n\nCVE-2026-59919: Netty: HAProxy V1 Protocol CRLF Injection via AF_UNIX Address\n\nThis patched artifact is a drop-in replacement for io.netty:netty-codec-haproxy 4.1.100.Final from Maven Central.",
+  "upstream": [
+    "CVE-2026-44893",
+    "CVE-2026-48059",
+    "CVE-2026-55851",
+    "CVE-2026-59919",
+    "GHSA-cc37-9q2j-3hfv",
+    "GHSA-h2qv-fj59-j46j",
+    "GHSA-q6cq-mhr2-jmr5",
+    "GHSA-wh89-7897-x99h"
+  ],
+  "affected": [
+    {
+      "package": {
+        "ecosystem": "Red Hat Lightwell:Maven",
+        "name": "io.netty:netty-codec-haproxy",
+        "purl": "pkg:maven/io.netty/netty-codec-haproxy"
+      },
+      "versions": [
+        "4.1.100.Final"
+      ],
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "4.1.100.Final-rhlw-00001"
+            }
+          ]
+        }
+      ],
+      "database_specific": {
+        "lightwell": {
+          "backport_base_version": "4.1.100.Final",
+          "remediated_version": "4.1.100.Final-rhlw-00001",
+          "repository_url": "https://packages.redhat.com/lightwell/java/remediated/"
+        }
+      }
+    }
+  ],
+  "credits": [
+    {
+      "name": "Red Hat Lightwell",
+      "type": "REMEDIATION_DEVELOPER"
+    }
+  ]
+}
