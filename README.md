@@ -15,11 +15,13 @@ advisories/<ADVISORY-ID>.json
 ```
 
 - One OSV record per file, named after its advisory id.
-- Advisory ids use the registered **`RHLW-`** prefix (`RHLW-YYYY-NNNNN`), reserved in
-  [ossf/osv-schema](https://github.com/ossf/osv-schema) (PR #571).
-- Records use the **`Red Hat Lightwell`** OSV ecosystem (e.g. `Red Hat Lightwell:Maven`),
-  defined in osv-schema, alongside a plain-ecosystem entry (`Maven`, `PyPI`, …) with a
-  versionless PURL for broad scanner matching.
+- Advisory ids use the **`RHLW-`** prefix reserved in
+  [ossf/osv-schema](https://github.com/ossf/osv-schema), in an opaque, semantically neutral
+  form `RHLW-YYYY-<16 hex digits>` (e.g. `RHLW-2026-a1b2c3d4e5f6a7b8`).
+- Records use the **`Red Hat Lightwell`** OSV ecosystem only (e.g. `Red Hat Lightwell:Maven`,
+  `Red Hat Lightwell:PyPI`), defined in osv-schema. Lightwell-remediated versions do not
+  exist in the upstream registries (Maven Central, PyPI), so records are scoped to the
+  Red Hat Lightwell ecosystem and do not carry plain `Maven`/`PyPI` entries.
 - Upstream CVEs are referenced via the OSV `upstream` field.
 
 ## Consuming this data
@@ -37,3 +39,13 @@ This feed is being populated by the Lightwell pipeline. Advisories will appear u
 
 The authoritative schema is the public [OSV Schema](https://ossf.github.io/osv-schema/);
 this repository follows it and may add optional fields per the specification.
+
+## License
+
+The vulnerability advisory data in this repository (the OSV-format JSON under
+`advisories/`) is licensed under
+[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) — see [LICENSE](LICENSE).
+
+This license covers the advisory data only. The Red Hat Lightwell software,
+packages, and remediated build artifacts are a separate, commercially licensed
+offering and are not covered by this license.
