@@ -1,0 +1,81 @@
+{
+  "schema_version": "1.9.0",
+  "id": "RHLW-2026-b11abda52745af4c",
+  "published": "2026-10-19T14:27:21Z",
+  "modified": "2026-10-19T14:27:21Z",
+  "severity": [
+    {
+      "type": "CVSS_V4",
+      "score": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:P/VC:N/VI:N/VA:H/SC:N/SI:N/SA:N"
+    },
+    {
+      "type": "CVSS_V3",
+      "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:N/A:H"
+    }
+  ],
+  "references": [
+    {
+      "url": "https://github.com/CVEProject/cvelistV5/tree/main/cves/2026/85xxx/CVE-2026-85670.json",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-85670",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/huggingface/tokenizers/issues/2094",
+      "type": "REPORT"
+    },
+    {
+      "url": "https://github.com/huggingface/tokenizers",
+      "type": "PACKAGE"
+    },
+    {
+      "url": "https://github.com/huggingface/tokenizers/blob/v0.23.2/tokenizers/src/models/bpe/model.rs",
+      "type": "ARTICLE"
+    }
+  ],
+  "summary": "Lightwell Security Advisory: tokenizers 0.23.1+rhlw.1",
+  "details": "Red Hat Lightwell has released tokenizers 0.23.1+rhlw.1 with a backported security fix.\n\nCVE-2026-85670: tokenizers BpeBuilder Buffer Overflow via merge token\n\nThis patched artifact is a drop-in replacement for tokenizers 0.23.1 from PyPI.",
+  "upstream": [
+    "CVE-2026-85670"
+  ],
+  "affected": [
+    {
+      "package": {
+        "ecosystem": "Red Hat Lightwell:PyPI",
+        "name": "tokenizers",
+        "purl": "pkg:pypi/tokenizers"
+      },
+      "versions": [
+        "0.23.1"
+      ],
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "0.23.1+rhlw.1"
+            }
+          ]
+        }
+      ],
+      "database_specific": {
+        "lightwell": {
+          "backport_base_version": "0.23.1",
+          "remediated_version": "0.23.1+rhlw.1",
+          "repository_url": "https://packages.redhat.com/lightwell/python/remediated/"
+        }
+      }
+    }
+  ],
+  "credits": [
+    {
+      "name": "Red Hat Lightwell",
+      "type": "REMEDIATION_DEVELOPER"
+    }
+  ]
+}
