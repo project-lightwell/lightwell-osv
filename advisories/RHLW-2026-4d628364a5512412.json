@@ -1,0 +1,90 @@
+{
+  "schema_version": "1.9.0",
+  "id": "RHLW-2026-4d628364a5512412",
+  "published": "2026-10-23T17:53:24Z",
+  "modified": "2026-10-23T17:53:24Z",
+  "severity": [
+    {
+      "type": "CVSS_V3",
+      "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:N/I:N/A:L"
+    }
+  ],
+  "references": [
+    {
+      "url": "https://bitbucket.org/connect2id/nimbus-jose-jwt/issues/583/stackoverflowerror-due-to-deeply-nested",
+      "type": "REPORT"
+    },
+    {
+      "url": "https://bitbucket.org/connect2id/nimbus-jose-jwt/issues/593/back-port-cve-2025-53864-fix-to-9x-branch",
+      "type": "REPORT"
+    },
+    {
+      "url": "https://github.com/google/gson/compare/gson-parent-2.11.0...gson-parent-2.12.0",
+      "type": "WEB"
+    },
+    {
+      "url": "https://github.com/CVEProject/cvelistV5/tree/main/cves/2025/53xxx/CVE-2025-53864.json",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-53864",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://bitbucket.org/connect2id/nimbus-jose-jwt/commits/f7fb882cc08f027c9ceb874acec3b51c6222861c",
+      "type": "FIX"
+    },
+    {
+      "url": "https://github.com/google/gson/commit/1039427ff0100293dd3cf967a53a55282c0fef6b",
+      "type": "FIX"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-xwmg-2g98-w7v9",
+      "type": "ADVISORY"
+    }
+  ],
+  "summary": "Lightwell Security Advisory: nimbus-jose-jwt 9.7.0.rhlw-00004",
+  "details": "Red Hat Lightwell has released com.nimbusds:nimbus-jose-jwt 9.7.0.rhlw-00004 with a backported security fix.\n\nCVE-2025-53864: Connect2id Nimbus JOSE + JWT 10.0.x before 10.0.2 and 9.37.x before 9.37.4 allows a remote attacker to cause a denial of service via a deeply nested JSON object supplied in a JWT claim set, because of uncontrolled recursion. NOTE: this is independent of the Gson 2.11.0 issue because the Connect2id product could have checked the JSON object nesting depth, regardless of what limits (if any) were imposed by Gson.\n\nThis patched artifact is a drop-in replacement for com.nimbusds:nimbus-jose-jwt 9.7.0 from Maven Central.",
+  "upstream": [
+    "CVE-2025-53864",
+    "GHSA-xwmg-2g98-w7v9"
+  ],
+  "affected": [
+    {
+      "package": {
+        "ecosystem": "Red Hat Lightwell:Maven",
+        "name": "com.nimbusds:nimbus-jose-jwt",
+        "purl": "pkg:maven/com.nimbusds/nimbus-jose-jwt"
+      },
+      "versions": [
+        "9.7.0"
+      ],
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "9.7.0.rhlw-00004"
+            }
+          ]
+        }
+      ],
+      "database_specific": {
+        "lightwell": {
+          "backport_base_version": "9.7.0",
+          "remediated_version": "9.7.0.rhlw-00004",
+          "repository_url": "https://packages.redhat.com/lightwell/java/remediated/"
+        }
+      }
+    }
+  ],
+  "credits": [
+    {
+      "name": "Red Hat Lightwell",
+      "type": "REMEDIATION_DEVELOPER"
+    }
+  ]
+}

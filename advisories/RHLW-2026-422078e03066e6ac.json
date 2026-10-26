@@ -1,0 +1,61 @@
+{
+  "schema_version": "1.9.0",
+  "id": "RHLW-2026-422078e03066e6ac",
+  "published": "2026-10-22T09:14:50Z",
+  "modified": "2026-10-22T09:14:50Z",
+  "severity": [
+    {
+      "type": "CVSS_V3",
+      "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:H/A:N"
+    }
+  ],
+  "references": [
+    {
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-92121",
+      "type": "ADVISORY"
+    }
+  ],
+  "summary": "Lightwell Security Advisory: wss4j-ws-security-stax 4.0.1.rhlw-00003",
+  "details": "Red Hat Lightwell has released org.apache.wss4j:wss4j-ws-security-stax 4.0.1.rhlw-00003 with a backported security fix.\n\nCVE-2026-92121: In the WSS4J streaming (StAX) code, a signature reference using the WS-Security STR-Transform leaves an internal \"inside signed content\" flag permanently set. The WS-SecurityPolicy enforcer uses that flag to decide whether an element needs checking, so it stops evaluating SignedParts and SignedElements for the rest of the message. A policy requiring the SOAP Body to be signed is then satisfied even when the Body carries no signature, removing the protection against XML Signature Wrapping. Signature verification itself is unaffected. The DOM code is not affected.\u00a0\nUsers are recommended to upgrade to versions 4.0.2 or 3.0.6 or 2.4.4 which fix this issue.\n\nThis patched artifact is a drop-in replacement for org.apache.wss4j:wss4j-ws-security-stax 4.0.1 from Maven Central.",
+  "upstream": [
+    "CVE-2026-92121"
+  ],
+  "affected": [
+    {
+      "package": {
+        "ecosystem": "Red Hat Lightwell:Maven",
+        "name": "org.apache.wss4j:wss4j-ws-security-stax",
+        "purl": "pkg:maven/org.apache.wss4j/wss4j-ws-security-stax"
+      },
+      "versions": [
+        "4.0.1"
+      ],
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "4.0.1.rhlw-00003"
+            }
+          ]
+        }
+      ],
+      "database_specific": {
+        "lightwell": {
+          "backport_base_version": "4.0.1",
+          "remediated_version": "4.0.1.rhlw-00003",
+          "repository_url": "https://packages.redhat.com/lightwell/java/remediated/"
+        }
+      }
+    }
+  ],
+  "credits": [
+    {
+      "name": "Red Hat Lightwell",
+      "type": "REMEDIATION_DEVELOPER"
+    }
+  ]
+}
