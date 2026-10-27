@@ -1,0 +1,136 @@
+{
+  "schema_version": "1.9.0",
+  "id": "RHLW-2026-f7c61b4b79130a3c",
+  "published": "2026-10-15T01:32:14Z",
+  "modified": "2026-10-15T01:32:14Z",
+  "severity": [
+    {
+      "type": "CVSS_V3",
+      "score": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:N/A:N"
+    }
+  ],
+  "references": [
+    {
+      "url": "https://repo.maven.apache.org/maven2",
+      "type": "WEB"
+    },
+    {
+      "url": "https://github.com/CVEProject/cvelistV5/tree/main/cves/2024/31xxx/CVE-2024-31141.json",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://lists.apache.org/thread/9whdzfr0zwdhr364604w5ssnzmg4v2lv",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-31141",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-2x2g-32r7-p4x8",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/CVEProject/cvelistV5/tree/main/cves/2025/27xxx/CVE-2025-27817.json",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://kafka.apache.org/cve-list",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-27817",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-vgq5-3255-v292",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/CVEProject/cvelistV5/tree/main/cves/2026/33xxx/CVE-2026-33558.json",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-33558",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://lists.apache.org/thread/pz5g4ky3h0k91tfd14p0dzqjp80960kl",
+      "type": "ARTICLE"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-wf66-mphr-4c4r",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/CVEProject/cvelistV5/tree/main/cves/2026/35xxx/CVE-2026-35554.json",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://lists.apache.org/thread/f07x7j8ovyqhjd1to25jsnqbm6wj01d6",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-35554",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://issues.apache.org/jira/browse/KAFKA-19012",
+      "type": "REPORT"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-5qcv-4rpc-jp93",
+      "type": "ADVISORY"
+    }
+  ],
+  "summary": "Lightwell Security Advisory: kafka-clients 3.6.2.rhlw-00004",
+  "details": "Red Hat Lightwell has released org.apache.kafka:kafka-clients 3.6.2.rhlw-00004 with backported fixes for CVE-2024-31141, CVE-2025-27817, CVE-2026-33558, and CVE-2026-35554.\n\nCVE-2024-31141: Apache Kafka Clients: Privilege escalation to filesystem read-access via automatic ConfigProvider\n\nCVE-2025-27817: Apache Kafka Client: Arbitrary file read and SSRF vulnerability\n\nCVE-2026-33558: Apache Kafka, Apache Kafka Clients: Information Exposure Through Network Client Log Output\n\nCVE-2026-35554: Apache Kafka Clients: Kafka Producer Message Corruption and Misrouting via Buffer Pool Race Condition\n\nThis patched artifact is a drop-in replacement for org.apache.kafka:kafka-clients 3.6.2 from Maven Central.",
+  "upstream": [
+    "CVE-2024-31141",
+    "CVE-2025-27817",
+    "CVE-2026-33558",
+    "CVE-2026-35554",
+    "GHSA-2x2g-32r7-p4x8",
+    "GHSA-vgq5-3255-v292",
+    "GHSA-wf66-mphr-4c4r",
+    "GHSA-5qcv-4rpc-jp93"
+  ],
+  "affected": [
+    {
+      "package": {
+        "ecosystem": "Red Hat Lightwell:Maven",
+        "name": "org.apache.kafka:kafka-clients",
+        "purl": "pkg:maven/org.apache.kafka/kafka-clients"
+      },
+      "versions": [
+        "3.6.2"
+      ],
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "3.6.2.rhlw-00004"
+            }
+          ]
+        }
+      ],
+      "database_specific": {
+        "lightwell": {
+          "backport_base_version": "3.6.2",
+          "remediated_version": "3.6.2.rhlw-00004",
+          "repository_url": "https://packages.redhat.com/lightwell/java/remediated/"
+        }
+      }
+    }
+  ],
+  "credits": [
+    {
+      "name": "Red Hat Lightwell",
+      "type": "REMEDIATION_DEVELOPER"
+    }
+  ]
+}

@@ -1,0 +1,78 @@
+{
+  "schema_version": "1.9.0",
+  "id": "RHLW-2026-6e6e3b76edf3a10b",
+  "published": "2026-10-23T14:41:57Z",
+  "modified": "2026-10-23T14:41:57Z",
+  "severity": [
+    {
+      "type": "CVSS_V3",
+      "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H"
+    }
+  ],
+  "references": [
+    {
+      "url": "https://repo.maven.apache.org/maven2/org/apache/mina",
+      "type": "WEB"
+    },
+    {
+      "url": "https://github.com/CVEProject/cvelistV5/tree/main/cves/2026/47xxx/CVE-2026-47065.json",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://lists.apache.org/thread/y7xj1bl8qo47p9bktb11hg5v6k1d4dyj",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-47065",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-v3pr-hxpr-mfm8",
+      "type": "ADVISORY"
+    }
+  ],
+  "summary": "Lightwell Security Advisory: mina-core 2.2.5.rhlw-00009",
+  "details": "Red Hat Lightwell has released org.apache.mina:mina-core 2.2.5.rhlw-00009 with a backported security fix.\n\nCVE-2026-47065: Apache MINA: Critical Deserialization Allow-list Bypass via resolveProxyClass - ZDRES-232\n\nThis patched artifact is a drop-in replacement for org.apache.mina:mina-core 2.2.5 from Maven Central.",
+  "upstream": [
+    "CVE-2026-47065",
+    "GHSA-v3pr-hxpr-mfm8"
+  ],
+  "affected": [
+    {
+      "package": {
+        "ecosystem": "Red Hat Lightwell:Maven",
+        "name": "org.apache.mina:mina-core",
+        "purl": "pkg:maven/org.apache.mina/mina-core"
+      },
+      "versions": [
+        "2.2.5"
+      ],
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "2.2.5.rhlw-00009"
+            }
+          ]
+        }
+      ],
+      "database_specific": {
+        "lightwell": {
+          "backport_base_version": "2.2.5",
+          "remediated_version": "2.2.5.rhlw-00009",
+          "repository_url": "https://packages.redhat.com/lightwell/java/remediated/"
+        }
+      }
+    }
+  ],
+  "credits": [
+    {
+      "name": "Red Hat Lightwell",
+      "type": "REMEDIATION_DEVELOPER"
+    }
+  ]
+}

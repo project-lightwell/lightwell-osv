@@ -1,0 +1,86 @@
+{
+  "schema_version": "1.9.0",
+  "id": "RHLW-2026-e9343e476d7f9acf",
+  "published": "2026-10-16T11:44:42Z",
+  "modified": "2026-10-16T11:44:42Z",
+  "severity": [
+    {
+      "type": "CVSS_V3",
+      "score": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:L"
+    }
+  ],
+  "references": [
+    {
+      "url": "https://github.com/snowflakedb/snowflake-jdbc/",
+      "type": "WEB"
+    },
+    {
+      "url": "https://github.com/CVEProject/cvelistV5/tree/main/cves/2026/3xxx/CVE-2026-3293.json",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-3293",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/snowflakedb/snowflake-jdbc/issues/2505",
+      "type": "REPORT"
+    },
+    {
+      "url": "https://github.com/snowflakedb/snowflake-jdbc/issues/2505#issue-3951994646",
+      "type": "REPORT"
+    },
+    {
+      "url": "https://github.com/snowflakedb/snowflake-jdbc/commit/5fb0a8a318a2ed87f4022a1f56e742424ba94052",
+      "type": "FIX"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-gx6c-pv62-9mcf",
+      "type": "ADVISORY"
+    }
+  ],
+  "summary": "Lightwell Security Advisory: snowflake-jdbc 3.26.1.rhlw-00004",
+  "details": "Red Hat Lightwell has released net.snowflake:snowflake-jdbc 3.26.1.rhlw-00004 with a backported security fix.\n\nCVE-2026-3293: snowflakedb snowflake-jdbc JDBC URL SdkProxyRoutePlanner.java SdkProxyRoutePlanner redos\n\nThis patched artifact is a drop-in replacement for net.snowflake:snowflake-jdbc 3.26.1 from Maven Central.",
+  "upstream": [
+    "CVE-2026-3293",
+    "GHSA-gx6c-pv62-9mcf"
+  ],
+  "affected": [
+    {
+      "package": {
+        "ecosystem": "Red Hat Lightwell:Maven",
+        "name": "net.snowflake:snowflake-jdbc",
+        "purl": "pkg:maven/net.snowflake/snowflake-jdbc"
+      },
+      "versions": [
+        "3.26.1"
+      ],
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "3.26.1.rhlw-00004"
+            }
+          ]
+        }
+      ],
+      "database_specific": {
+        "lightwell": {
+          "backport_base_version": "3.26.1",
+          "remediated_version": "3.26.1.rhlw-00004",
+          "repository_url": "https://packages.redhat.com/lightwell/java/remediated/"
+        }
+      }
+    }
+  ],
+  "credits": [
+    {
+      "name": "Red Hat Lightwell",
+      "type": "REMEDIATION_DEVELOPER"
+    }
+  ]
+}
