@@ -23,6 +23,8 @@ advisories/<ADVISORY-ID>.json
   exist in the upstream registries (Maven Central, PyPI), so records are scoped to the
   Red Hat Lightwell ecosystem and do not carry plain `Maven`/`PyPI` entries.
 - Upstream CVEs are referenced via the OSV `upstream` field.
+- [`tools/check_ranges.py`](tools/README.md) validates advisory changes between two git
+  refs (range rules plus a simulated OSV query for false positives and negatives).
 
 ## Consuming this data
 

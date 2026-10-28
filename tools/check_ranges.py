@@ -1,24 +1,32 @@
 #!/usr/bin/env python3
-"""Compare OSV advisories between two git refs and validate multi-branch range tiling.
+"""Compare OSV advisories between two git refs and validate multi-branch ranges.
 
-For every (ecosystem, package, CVE) that is remediated on more than one branch, the
-advisories must tile the version line: the lowest branch starts at "0" and every
-other branch starts at the latest `fixed` version of the previous (lower) branch.
+When a CVE is remediated on more than one base-version branch, every advisory's
+range must avoid covering other branches' remediated builds that already carry the
+fix (false positives), without dropping builds that still need it (false negatives).
 
 Checks:
   1. diff      - per changed file, every JSON change outside the allowed paths
                  (default: `modified` and range `introduced`) is reported.
-  2. tiling    - each range's `introduced` vs the expected value derived from the
-                 previous advisory in the same (package, CVE) group; advisories
-                 whose CVEs demand different starts are reported as CONFLICT.
-  3. simulate  - evaluates every known remediated version of a package against
-                 every advisory, on both refs, and reports fixed builds that are
-                 still reported affected (false positives), versions that stopped
-                 being affected (possible false negatives), and later rebuilds of
-                 a lower branch that fall inside a tiled range.
+  2. rule      - each range's `introduced` vs the value the chosen --rule expects:
+                   scoped   (default) start at the advisory's own backport_base_version,
+                            unless that would exclude a remediated build that does not
+                            carry all of the advisory's CVEs; then keep "0".
+                   own-base lowest branch per CVE starts at "0", others at their
+                            backport_base_version (CONFLICT when CVEs disagree).
+                   tiling   lowest branch starts at "0", others at the previous
+                            branch's `fixed`.
+                 Ranges that start exactly at a sibling's `fixed` are always errors:
+                 `introduced` is inclusive, so that fixed build stays affected.
+  3. simulate  - evaluates every known remediated build against every advisory
+                 (ranges and `versions`), on both refs, per the OSV spec algorithm.
+                 Errors: a build that stops being affected by a CVE it does not
+                 carry (false negative), or a fixed build newly reported affected
+                 by a CVE it fixes (new false positive). False positives already
+                 present on the base ref are reported for information only.
 
 Usage:
-  check_ranges.py --base origin/main --head pr-17 [--repo .] [--allow PATH ...]
+  check_ranges.py --base origin/main --head HEAD [--rule scoped|own-base|tiling] [-v]
 Exit status: 0 clean, 1 errors found, 2 usage/git failure.
 """
 
@@ -253,8 +261,11 @@ def introduced_of(events):
     return vals[0] if vals else None
 
 
-def expected_tiling(advs):
-    """Return {(file, ai, ri): {"actual", "expected": {cve: value}, "eco", "name", "fixed", "id"}}."""
+def expected_tiling(advs, rule="scoped"):
+    """Return {(file, ai, ri): {"actual", "expected": {cve: value}, "eco", "name", "fixed", "id"}}.
+
+    See the module docstring for the meaning of each rule.
+    """
     groups = defaultdict(list)  # (eco, name, cve) -> [(fixed, key)]
     info = {}
     for f, (_, adv) in advs.items():
@@ -262,7 +273,9 @@ def expected_tiling(advs):
             key = (f, ai, ri)
             info[key] = {"id": adv["id"], "eco": eco, "name": name, "fixed": fixed,
                          "actual": introduced_of(events), "expected": {}, "events": events,
-                         "cves": cve_keys(adv)}
+                         "cves": cve_keys(adv),
+                         "own_base": adv["affected"][ai].get("database_specific", {}).get("lightwell", {})
+                         .get("backport_base_version")}
             if fixed is None:
                 continue
             for cve in cve_keys(adv):
@@ -274,9 +287,30 @@ def expected_tiling(advs):
         for i, (fixed, key) in enumerate(members):
             # the previous fix is the highest fixed strictly below this one
             lower = [m[0] for m in members[:i] if cmp(m[0], fixed) < 0]
-            prev = lower[-1] if lower else "0"
+            if not lower:
+                prev = "0"
+            elif rule == "own-base":
+                prev = info[key]["own_base"] or "<missing backport_base_version>"
+            else:
+                prev = lower[-1]
             info[key]["expected"][cve] = prev
             info[key].setdefault("group_sizes", {})[cve] = len(members)
+    if rule == "scoped":
+        builds, carries = defaultdict(set), defaultdict(set)
+        for r in info.values():
+            if r["fixed"]:
+                builds[(r["eco"], r["name"])].add(r["fixed"])
+                carries[(r["eco"], r["name"], r["fixed"])] |= set(r["cves"])
+        for r in info.values():
+            if not r["fixed"]:
+                continue
+            cmp, ob = comparator(r["eco"]), r["own_base"]
+            # builds inside [0, fixed) that scoping to [own_base, fixed) would drop
+            excluded = [b for b in builds[(r["eco"], r["name"])]
+                        if b != r["fixed"] and cmp(b, r["fixed"]) < 0 and (not ob or cmp(b, ob) < 0)]
+            r["hides"] = sorted(b for b in excluded if not set(r["cves"]) <= carries[(r["eco"], r["name"], b)])
+            exp = ob if (ob and excluded and not r["hides"]) else "0"
+            r["expected"] = {cve: exp for cve in r["cves"]}
     return info
 
 
@@ -292,10 +326,12 @@ def simulate(advs):
                     fixed_by.add((eco, name, fixed, cve))
     affected = {}
     for _, (_, adv) in advs.items():
-        for _, _, eco, name, events, _ in ranges(adv):
+        for ai, _, eco, name, events, _ in ranges(adv):
             cmp = comparator(eco)
+            listed = set(adv["affected"][ai].get("versions", []))
             for v in versions[(eco, name)]:
-                hit = in_range(cmp, v, events)
+                # per the spec, an explicit `versions` entry is affected regardless of ranges
+                hit = v in listed or in_range(cmp, v, events)
                 for cve in cve_keys(adv):
                     k = (eco, name, v, cve)
                     affected[k] = affected.get(k, False) or hit
@@ -316,6 +352,8 @@ def main():
     ap.add_argument("--head", default="HEAD")
     ap.add_argument("--repo", default=".")
     ap.add_argument("--allow", action="append", help="extra allowed generic JSON path (e.g. 'references')")
+    ap.add_argument("--rule", choices=["scoped", "own-base", "tiling"], default="scoped",
+                    help="expected `introduced` for multi-branch advisories (default: scoped)")
     ap.add_argument("--all", action="store_true", help="check tiling for all advisories, not only changed ones")
     ap.add_argument("-v", "--verbose", action="store_true", help="list every finding instead of a sample")
     args = ap.parse_args()
@@ -371,9 +409,9 @@ def main():
     print()
 
     # 2. tiling
-    print("## 2. `introduced` vs latest fixed of the previous advisory (same package + CVE)")
-    info = expected_tiling(head)
-    base_info = expected_tiling(base)
+    print(f"## 2. `introduced` vs expected start, rule={args.rule} (grouped by package + CVE)")
+    info = expected_tiling(head, args.rule)
+    base_info = expected_tiling(base, args.rule)
     sibling_fixes = defaultdict(set)  # (eco, name, cve) -> fixed versions
     for r in info.values():
         for cve in r["cves"]:
@@ -398,7 +436,8 @@ def main():
             print(f"  CONFLICT {tag}\n           one range cannot satisfy every CVE: {detail}")
             errors += 1
         elif exp and r["actual"] != next(iter(exp)):
-            print(f"  MISMATCH {tag}  expected introduced={next(iter(exp))}")
+            why = f" (scoping would hide {', '.join(r['hides'])})" if r.get("hides") else ""
+            print(f"  MISMATCH {tag}  expected introduced={next(iter(exp))}{why}")
             errors += 1
         elif f in changed and old != r["actual"]:
             ok.append(tag)
@@ -406,7 +445,12 @@ def main():
         if r["actual"] and r["actual"] != "0" and any(
                 r["actual"] in sibling_fixes[(r["eco"], r["name"], c)] for c in r["cves"]):
             inclusive.append(tag)
-    print(f"  OK       {len(ok)} changed range(s) follow the previous-branch rule")
+    print(f"  OK       {len(ok)} changed range(s) follow the rule")
+    for r in info.values():
+        ob = r["own_base"]
+        if ob and r["fixed"] and (re.search(r"rhlw", ob) or comparator(r["eco"])(ob, r["fixed"]) >= 0):
+            print(f"  WARN     {r['id']}: backport_base_version {ob} is not an upstream version below fixed {r['fixed']}")
+            warnings += 1
     if inclusive:
         print(f"  ERROR    {len(inclusive)} range(s) start AT a sibling advisory's fixed version; `introduced` is"
               f" inclusive,\n           so that fixed build is still reported affected")
@@ -423,7 +467,7 @@ def main():
     a_head, fixed_head, versions = simulate(head)
     fp_base = {k for k in fixed_base if a_base.get(k)}
     fp_head = {k for k in fixed_head if a_head.get(k)}
-    print(f"  fixed builds reported affected by the CVE they fix: base={len(fp_base)} head={len(fp_head)}"
+    print(f"  INFO  fixed builds reported affected by the CVE they fix: base={len(fp_base)} head={len(fp_head)}"
           f"  (resolved={len(fp_base - fp_head)}, new={len(fp_head - fp_base)})")
     per_pkg = defaultdict(lambda: [0, 0])
     for _, name, _, _ in fp_base:
@@ -432,8 +476,6 @@ def main():
         per_pkg[name][1] += 1
     for name, (b, h) in sorted(per_pkg.items()):
         print(f"    {name:60} {b:3} -> {h:3}")
-    if fp_head:
-        errors += 1
     for _, name, v, cve in sorted(fp_head - fp_base):
         print(f"  ERROR newly affected fixed build: {name} {v} {cve}")
         errors += 1
@@ -442,8 +484,8 @@ def main():
             print(f"    still affected: {name} {v} {cve}")
     gone = sorted(k for k, hit in a_base.items() if hit and not a_head.get(k) and k not in fixed_head)
     for _, name, v, cve in gone:
-        print(f"  WARN  no longer affected (verify not a false negative): {name} {v} {cve}")
-        warnings += 1
+        print(f"  ERROR no longer affected by a CVE it does not carry (false negative): {name} {v} {cve}")
+        errors += 1
     # later rebuilds of a lower branch landing inside a tiled range
     for key, r in info.items():
         start = r["actual"]
