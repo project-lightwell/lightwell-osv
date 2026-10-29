@@ -2,7 +2,7 @@
   "schema_version": "1.9.0",
   "id": "RHLW-2026-cf52dc28ccb66c72",
   "published": "2026-10-13T18:33:12Z",
-  "modified": "2026-10-13T18:33:12Z",
+  "modified": "2026-10-27T21:27:53Z",
   "severity": [
     {
       "type": "CVSS_V3",
@@ -60,7 +60,7 @@
           "type": "ECOSYSTEM",
           "events": [
             {
-              "introduced": "0"
+              "introduced": "4.2.2"
             },
             {
               "fixed": "4.2.2.rhlw-00008"
