@@ -26,14 +26,18 @@ advisories/<ADVISORY-ID>.json
 
 ## Consuming this data
 
+See the [Lightwell OSV data usage guide](docs/) for record structure, example
+queries, and how to resolve upstream false positives.
+
 Point OSV-compatible tooling at the records under `advisories/`, or query them via
-[osv.dev](https://osv.dev) once ingestion is enabled. Match on the affected package
+[osv.dev](https://osv.dev), where this feed is ingested. Match on the affected package
 `ecosystem` + `name` and use the `fixed` version to identify the remediated release.
 
 ## Status
 
-This feed is being populated by the Lightwell pipeline. Advisories will appear under
-`advisories/` as remediations are released.
+This feed is actively maintained and is ingested by [osv.dev](https://osv.dev), where
+the records are queryable under the `Red Hat Lightwell:*` ecosystems. New advisories are
+added under `advisories/` by the Lightwell pipeline as remediations are released.
 
 ## Notes
 
