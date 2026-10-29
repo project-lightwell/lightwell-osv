@@ -26,8 +26,8 @@ advisories/<ADVISORY-ID>.json
 
 ## Consuming this data
 
-**→ See the [Lightwell OSV data usage guide](docs/) for record structure, example
-queries, and how to resolve upstream false positives.**
+See the [Lightwell OSV data usage guide](docs/) for record structure, example
+queries, and how to resolve upstream false positives.
 
 Point OSV-compatible tooling at the records under `advisories/`, or query them via
 [osv.dev](https://osv.dev), where this feed is ingested. Match on the affected package
@@ -36,7 +36,7 @@ Point OSV-compatible tooling at the records under `advisories/`, or query them v
 ## Status
 
 This feed is actively maintained and is ingested by [osv.dev](https://osv.dev), where
-the records are queryable under the `Red Hat Lightwell` ecosystem. New advisories are
+the records are queryable under the `Red Hat Lightwell:*` ecosystems. New advisories are
 added under `advisories/` by the Lightwell pipeline as remediations are released.
 
 ## Notes
