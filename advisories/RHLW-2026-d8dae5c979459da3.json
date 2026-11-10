@@ -1,0 +1,131 @@
+{
+  "schema_version": "1.9.2",
+  "id": "RHLW-2026-d8dae5c979459da3",
+  "published": "2026-11-10T09:39:22Z",
+  "modified": "2026-11-10T09:39:22Z",
+  "severity": [
+    {
+      "type": "CVSS_V3",
+      "score": "CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:C/C:N/I:N/A:H"
+    }
+  ],
+  "references": [
+    {
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2022-3102",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/CVEProject/cvelistV5/tree/main/cves/2024/28xxx/CVE-2024-28102.json",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/latchset/jwcrypto/security/advisories/GHSA-j857-7rvv-vj97",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-28102",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/latchset/jwcrypto/commit/90477a3b6e73da69740e00b8161f53fea19b831f",
+      "type": "FIX"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-j857-7rvv-vj97",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/CVEProject/cvelistV5/tree/main/cves/2026/39xxx/CVE-2026-39373.json",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/latchset/jwcrypto/security/advisories/GHSA-fjrm-76x2-c4q4",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-39373",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-fjrm-76x2-c4q4",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://access.redhat.com/downloads/content/package-browser/",
+      "type": "WEB"
+    },
+    {
+      "url": "https://access.redhat.com/errata/RHSA-2024:3267",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://access.redhat.com/errata/RHSA-2024:9281",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://access.redhat.com/security/cve/CVE-2023-6681",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/CVEProject/cvelistV5/tree/main/cves/2023/6xxx/CVE-2023-6681.json",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2023-6681",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-cw2r-4p82-qv79",
+      "type": "ADVISORY"
+    }
+  ],
+  "summary": "Lightwell Security Advisory: jwcrypto 1.0+rhlw.1",
+  "details": "Red Hat Lightwell has released jwcrypto 1.0+rhlw.1 with backported fixes for CVE-2022-3102, CVE-2024-28102, CVE-2026-39373, and CVE-2023-6681.\n\nCVE-2024-28102: JWCrypto vulnerable to JWT bomb Attack in `deserialize` function\n\nCVE-2026-39373: JWCrypto: JWE ZIP decompression bomb\n\nCVE-2023-6681: Jwcrypto: denail of service  via specifically crafted jwe\n\nThis patched artifact is a drop-in replacement for jwcrypto 1.0 from PyPI.",
+  "upstream": [
+    "CVE-2022-3102",
+    "CVE-2024-28102",
+    "CVE-2026-39373",
+    "CVE-2023-6681",
+    "GHSA-j857-7rvv-vj97",
+    "GHSA-fjrm-76x2-c4q4",
+    "GHSA-cw2r-4p82-qv79"
+  ],
+  "affected": [
+    {
+      "package": {
+        "ecosystem": "Red Hat Lightwell:PyPI",
+        "name": "jwcrypto",
+        "purl": "pkg:pypi/jwcrypto"
+      },
+      "versions": [
+        "1.0"
+      ],
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "1.0+rhlw.1"
+            }
+          ]
+        }
+      ],
+      "database_specific": {
+        "lightwell": {
+          "backport_base_version": "1.0",
+          "remediated_version": "1.0+rhlw.1",
+          "repository_url": "https://packages.redhat.com/lightwell/python/remediated/"
+        }
+      }
+    }
+  ],
+  "credits": [
+    {
+      "name": "Red Hat Lightwell",
+      "type": "REMEDIATION_DEVELOPER"
+    }
+  ]
+}

@@ -1,0 +1,90 @@
+{
+  "schema_version": "1.9.2",
+  "id": "RHLW-2026-57dac09fd590950f",
+  "published": "2026-11-10T16:14:24Z",
+  "modified": "2026-11-10T16:14:24Z",
+  "severity": [
+    {
+      "type": "CVSS_V3",
+      "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H"
+    },
+    {
+      "type": "CVSS_V4",
+      "score": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:H/VI:H/VA:H/SC:N/SI:N/SA:N"
+    }
+  ],
+  "references": [
+    {
+      "url": "https://github.com/CVEProject/cvelistV5/tree/main/cves/2026/65xxx/CVE-2026-65321.json",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/laughingman7743/PyAthena/security/advisories/GHSA-xwj5-g6cv-4r5c",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-65321",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/pyathena-dev/PyAthena/commit/27901d12245ea722b3b4e211c60e2ade4e7c8efd",
+      "type": "FIX"
+    },
+    {
+      "url": "https://github.com/laughingman7743/PyAthena",
+      "type": "PACKAGE"
+    },
+    {
+      "url": "https://github.com/rahulreddykarne/CVE-2026-65321-pyathena",
+      "type": "PACKAGE"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-xwj5-g6cv-4r5c",
+      "type": "ADVISORY"
+    }
+  ],
+  "summary": "Lightwell Security Advisory: pyathena 3.35.2+rhlw.1",
+  "details": "Red Hat Lightwell has released pyathena 3.35.2+rhlw.1 with a backported security fix.\n\nCVE-2026-65321: PyAthena SQL Injection via DefaultParameterFormatter DELETE/CTAS\n\nThis patched artifact is a drop-in replacement for pyathena 3.35.2 from PyPI.",
+  "upstream": [
+    "CVE-2026-65321",
+    "GHSA-xwj5-g6cv-4r5c"
+  ],
+  "affected": [
+    {
+      "package": {
+        "ecosystem": "Red Hat Lightwell:PyPI",
+        "name": "pyathena",
+        "purl": "pkg:pypi/pyathena"
+      },
+      "versions": [
+        "3.35.2"
+      ],
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "3.35.2+rhlw.1"
+            }
+          ]
+        }
+      ],
+      "database_specific": {
+        "lightwell": {
+          "backport_base_version": "3.35.2",
+          "remediated_version": "3.35.2+rhlw.1",
+          "repository_url": "https://packages.redhat.com/lightwell/python/remediated/"
+        }
+      }
+    }
+  ],
+  "credits": [
+    {
+      "name": "Red Hat Lightwell",
+      "type": "REMEDIATION_DEVELOPER"
+    }
+  ]
+}
