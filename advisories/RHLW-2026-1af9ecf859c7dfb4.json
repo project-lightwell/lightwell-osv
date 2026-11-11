@@ -1,0 +1,112 @@
+{
+  "schema_version": "1.9.2",
+  "id": "RHLW-2026-1af9ecf859c7dfb4",
+  "published": "2026-11-11T19:24:36Z",
+  "modified": "2026-11-11T19:24:36Z",
+  "severity": [
+    {
+      "type": "CVSS_V3",
+      "score": "CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:C/C:L/I:L/A:N"
+    }
+  ],
+  "references": [
+    {
+      "url": "https://github.com/jhy/jsoup/releases/tag/jsoup-1.23.1",
+      "type": "WEB"
+    },
+    {
+      "url": "https://github.com/CVEProject/cvelistV5/tree/main/cves/2026/71xxx/CVE-2026-71497.json",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/jhy/jsoup/security/advisories/GHSA-pmhh-3w7g-xqp8",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-71497",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/jhy/jsoup/issues/2538",
+      "type": "REPORT"
+    },
+    {
+      "url": "https://github.com/jhy/jsoup/commit/92f1aca552548b484bc7d4b94c51e48b8e6eca70",
+      "type": "FIX"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-pmhh-3w7g-xqp8",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/CVEProject/cvelistV5/tree/main/cves/2026/75xxx/CVE-2026-75140.json",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-75140",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/jhy/jsoup/commit/862ba2f1d48ee95609183dbcfc848c9fd7afc76a",
+      "type": "FIX"
+    },
+    {
+      "url": "https://github.com/jhy/jsoup/pull/2556",
+      "type": "FIX"
+    },
+    {
+      "url": "https://github.com/jhy/jsoup",
+      "type": "PACKAGE"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-65r4-943x-97jj",
+      "type": "ADVISORY"
+    }
+  ],
+  "summary": "Lightwell Security Advisory: jsoup 1.17.1.rhlw-00007",
+  "details": "Red Hat Lightwell has released org.jsoup:jsoup 1.17.1.rhlw-00007 with backported fixes for CVE-2026-71497 and CVE-2026-75140.\n\nCVE-2026-71497: jsoup: Cleaner may expose markup with custom raw-text elements\n\nCVE-2026-75140: jsoup Uncontrolled Resource Consumption in XmlTreeBuilder\n\nThis patched artifact is a drop-in replacement for org.jsoup:jsoup 1.17.1 from Maven Central.",
+  "upstream": [
+    "CVE-2026-71497",
+    "CVE-2026-75140",
+    "GHSA-pmhh-3w7g-xqp8",
+    "GHSA-65r4-943x-97jj"
+  ],
+  "affected": [
+    {
+      "package": {
+        "ecosystem": "Red Hat Lightwell:Maven",
+        "name": "org.jsoup:jsoup",
+        "purl": "pkg:maven/org.jsoup/jsoup"
+      },
+      "versions": [
+        "1.17.1"
+      ],
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "1.17.1.rhlw-00007"
+            }
+          ]
+        }
+      ],
+      "database_specific": {
+        "lightwell": {
+          "backport_base_version": "1.17.1",
+          "remediated_version": "1.17.1.rhlw-00007",
+          "repository_url": "https://packages.redhat.com/lightwell/java/remediated/"
+        }
+      }
+    }
+  ],
+  "credits": [
+    {
+      "name": "Red Hat Lightwell",
+      "type": "REMEDIATION_DEVELOPER"
+    }
+  ]
+}
