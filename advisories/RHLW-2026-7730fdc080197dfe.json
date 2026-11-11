@@ -1,0 +1,94 @@
+{
+  "schema_version": "1.9.2",
+  "id": "RHLW-2026-7730fdc080197dfe",
+  "published": "2026-11-11T18:20:15Z",
+  "modified": "2026-11-11T18:20:15Z",
+  "severity": [
+    {
+      "type": "CVSS_V3",
+      "score": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:H/A:N"
+    },
+    {
+      "type": "CVSS_V4",
+      "score": "CVSS:4.0/AV:N/AC:L/AT:P/PR:N/UI:N/VC:N/VI:N/VA:N/SC:N/SI:L/SA:N"
+    }
+  ],
+  "references": [
+    {
+      "url": "https://logging.apache.org/log4j/2.x/manual/json-template-layout.html#event-template-resolver-message",
+      "type": "WEB"
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2",
+      "type": "WEB"
+    },
+    {
+      "url": "https://github.com/CVEProject/cvelistV5/tree/main/cves/2026/49xxx/CVE-2026-49844.json",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://logging.apache.org/cyclonedx/vdr.xml",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://logging.apache.org/security.html#CVE-2026-49844",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-49844",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/apache/logging-log4j2/pull/4163",
+      "type": "FIX"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-qv9r-c865-cp47",
+      "type": "ADVISORY"
+    }
+  ],
+  "summary": "Lightwell Security Advisory: log4j-api 2.25.4.rhlw-00001",
+  "details": "Red Hat Lightwell has released org.apache.logging.log4j:log4j-api 2.25.4.rhlw-00001 with a backported security fix.\n\nCVE-2026-49844: Apache Log4j API: Improper serialization of non-finite floating-point values in MapMessage.asJson()\n\nThis patched artifact is a drop-in replacement for org.apache.logging.log4j:log4j-api 2.25.4 from Maven Central.",
+  "upstream": [
+    "CVE-2026-49844",
+    "GHSA-qv9r-c865-cp47"
+  ],
+  "affected": [
+    {
+      "package": {
+        "ecosystem": "Red Hat Lightwell:Maven",
+        "name": "org.apache.logging.log4j:log4j-api",
+        "purl": "pkg:maven/org.apache.logging.log4j/log4j-api"
+      },
+      "versions": [
+        "2.25.4"
+      ],
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "2.25.4.rhlw-00001"
+            }
+          ]
+        }
+      ],
+      "database_specific": {
+        "lightwell": {
+          "backport_base_version": "2.25.4",
+          "remediated_version": "2.25.4.rhlw-00001",
+          "repository_url": "https://packages.redhat.com/lightwell/java/remediated/"
+        }
+      }
+    }
+  ],
+  "credits": [
+    {
+      "name": "Red Hat Lightwell",
+      "type": "REMEDIATION_DEVELOPER"
+    }
+  ]
+}
