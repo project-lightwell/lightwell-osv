@@ -1,5 +1,44 @@
 # tools
 
+| Tool | What it checks | Runs in CI |
+|---|---|---|
+| [`lightwell_osv_validate.py`](lightwell_osv_validate_README.md) | Schema, structure and Lightwell lineage (offline), plus CVE ↔ package attribution against CVE.org and osv.dev/GHSA (online) | Yes |
+| [`lightwell_osv_ranges_check.py`](lightwell_osv_ranges_check_README.md) | Full-repo scan for same-CVE range overlaps across base-version branches | Yes |
+| `check_ranges.py` (below) | Diff gate between two git refs | No, manual or PR review |
+
+All three need only Python 3.9+ and the standard library.
+
+## Continuous validation on `main`
+
+`.github/workflows/validate-advisories.yml` runs the first two tools on `main` after
+every push that touches `advisories/` (including slan-cuan's automated publish
+commits), nightly at 03:17 UTC, and on demand (Actions → Validate advisories → Run
+workflow). It never blocks publication.
+
+| Job | Command | Scope |
+|---|---|---|
+| a. offline validation | `lightwell_osv_validate.py --offline` | All advisories |
+| b. online validation | `lightwell_osv_validate.py` | Push: added or changed advisories. Nightly or manual: all |
+| c. ranges check | `lightwell_osv_ranges_check.py --input-dir advisories` | All advisories |
+
+- **A failure** (an `ERROR` finding, a `MISATTRIBUTED`/`REJECTED` CVE, or an actionable
+  range overlap) opens one issue labeled `osv-validation-failure`, or comments on the
+  open one. Assignees default to `syncrou,JAVGan,p-rog`; override them with the repo
+  variable `VALIDATION_ISSUE_ASSIGNEES`.
+- **A fully passing run** comments on the open issue and closes it.
+- **Warnings** (for example `LIGHTWELL:NO_SEVERITY`) and `NEEDS_REVIEW` results,
+  including network lookup failures, never open an issue.
+- Each job writes its output to the run's step summary and uploads a JSON report as an
+  artifact.
+
+Run the same checks locally from the repository root:
+
+```sh
+python3 tools/lightwell_osv_validate.py --input-dir advisories --offline
+python3 tools/lightwell_osv_validate.py --input-dir advisories   # online, takes a few minutes
+python3 tools/lightwell_osv_ranges_check.py --input-dir advisories
+```
+
 ## check_ranges.py — advisory range checker
 
 Validates changes to `advisories/` between two git refs. It catches range mistakes
