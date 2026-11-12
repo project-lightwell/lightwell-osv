@@ -1,0 +1,104 @@
+{
+  "schema_version": "1.9.2",
+  "id": "RHLW-2026-1fd7d9ca33a37367",
+  "published": "2026-11-12T11:23:28Z",
+  "modified": "2026-11-12T11:23:28Z",
+  "severity": [
+    {
+      "type": "CVSS_V3",
+      "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:H/A:N"
+    }
+  ],
+  "references": [
+    {
+      "url": "https://github.com/netty/netty/releases/tag/netty-4.2.15.Final",
+      "type": "WEB"
+    },
+    {
+      "url": "https://security.access.redhat.com/data/csaf/v2/vex/2026/cve-2026-44894.json",
+      "type": "WEB"
+    },
+    {
+      "url": "https://access.redhat.com/security/cve/CVE-2026-44894",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/CVEProject/cvelistV5/tree/main/cves/2026/44xxx/CVE-2026-44894.json",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/netty/netty/security/advisories/GHSA-cmm3-54f8-px4j",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-44894",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-cmm3-54f8-px4j",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/CVEProject/cvelistV5/tree/main/cves/2026/50xxx/CVE-2026-50009.json",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/netty/netty/security/advisories/GHSA-cq4q-cv5g-r8q5",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-50009",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-cq4q-cv5g-r8q5",
+      "type": "ADVISORY"
+    }
+  ],
+  "summary": "Lightwell Security Advisory: netty-codec-classes-quic 4.2.13.Final-rhlw-00014",
+  "details": "Red Hat Lightwell has released io.netty:netty-codec-classes-quic 4.2.13.Final-rhlw-00014 with backported fixes for CVE-2026-44894 and CVE-2026-50009.\n\nCVE-2026-44894: Netty's Default QUIC token handler accepts any client-supplied token\n\nCVE-2026-50009: Netty QUIC stateless reset token material exposed through header-visible connection IDs\n\nThis patched artifact is a drop-in replacement for io.netty:netty-codec-classes-quic 4.2.13.Final from Maven Central.",
+  "upstream": [
+    "CVE-2026-44894",
+    "CVE-2026-50009",
+    "GHSA-cmm3-54f8-px4j",
+    "GHSA-cq4q-cv5g-r8q5"
+  ],
+  "affected": [
+    {
+      "package": {
+        "ecosystem": "Red Hat Lightwell:Maven",
+        "name": "io.netty:netty-codec-classes-quic",
+        "purl": "pkg:maven/io.netty/netty-codec-classes-quic"
+      },
+      "versions": [
+        "4.2.13.Final"
+      ],
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "4.2.13.Final-rhlw-00014"
+            }
+          ]
+        }
+      ],
+      "database_specific": {
+        "lightwell": {
+          "backport_base_version": "4.2.13.Final",
+          "remediated_version": "4.2.13.Final-rhlw-00014",
+          "repository_url": "https://packages.redhat.com/lightwell/java/remediated/"
+        }
+      }
+    }
+  ],
+  "credits": [
+    {
+      "name": "Red Hat Lightwell",
+      "type": "REMEDIATION_DEVELOPER"
+    }
+  ]
+}
