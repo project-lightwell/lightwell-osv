@@ -1,0 +1,100 @@
+{
+  "schema_version": "1.9.2",
+  "id": "RHLW-2026-5d9055c93ed2ae4d",
+  "published": "2026-11-12T22:45:46Z",
+  "modified": "2026-11-12T22:45:46Z",
+  "severity": [
+    {
+      "type": "CVSS_V3",
+      "score": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:N/A:N"
+    }
+  ],
+  "references": [
+    {
+      "url": "https://repo.maven.apache.org/maven2",
+      "type": "WEB"
+    },
+    {
+      "url": "https://github.com/CVEProject/cvelistV5/tree/main/cves/2026/107xxx/CVE-2026-107314.json",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/pgjdbc/pgjdbc/security/advisories/GHSA-rhp9-mr79-r74h",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-107314",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/pgjdbc/pgjdbc",
+      "type": "PACKAGE"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-rhp9-mr79-r74h",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/CVEProject/cvelistV5/tree/main/cves/2026/107xxx/CVE-2026-107315.json",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/pgjdbc/pgjdbc/security/advisories/GHSA-f64h-wr5q-3qf3",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-107315",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-f64h-wr5q-3qf3",
+      "type": "ADVISORY"
+    }
+  ],
+  "summary": "Lightwell Security Advisory: postgresql 42.7.12.rhlw-00003",
+  "details": "Red Hat Lightwell has released org.postgresql:postgresql 42.7.12.rhlw-00003 with backported fixes for CVE-2026-107314 and CVE-2026-107315.\n\nCVE-2026-107314: pgjdbc does not enforce requireAuth when the value excludes every authentication method\n\nCVE-2026-107315: pgjdbc pads a value shorter than its declared length with bytes of earlier statements (rather than zeros)\n\nThis patched artifact is a drop-in replacement for org.postgresql:postgresql 42.7.12 from Maven Central.",
+  "upstream": [
+    "CVE-2026-107314",
+    "CVE-2026-107315",
+    "GHSA-rhp9-mr79-r74h",
+    "GHSA-f64h-wr5q-3qf3"
+  ],
+  "affected": [
+    {
+      "package": {
+        "ecosystem": "Red Hat Lightwell:Maven",
+        "name": "org.postgresql:postgresql",
+        "purl": "pkg:maven/org.postgresql/postgresql"
+      },
+      "versions": [
+        "42.7.12"
+      ],
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "42.7.12.rhlw-00003"
+            }
+          ]
+        }
+      ],
+      "database_specific": {
+        "lightwell": {
+          "backport_base_version": "42.7.12",
+          "remediated_version": "42.7.12.rhlw-00003",
+          "repository_url": "https://packages.redhat.com/lightwell/java/remediated/"
+        }
+      }
+    }
+  ],
+  "credits": [
+    {
+      "name": "Red Hat Lightwell",
+      "type": "REMEDIATION_DEVELOPER"
+    }
+  ]
+}
