@@ -1,0 +1,92 @@
+{
+  "schema_version": "1.9.2",
+  "id": "RHLW-2026-48331bcb39d8ac49",
+  "published": "2026-11-13T11:21:18Z",
+  "modified": "2026-11-13T11:21:18Z",
+  "severity": [
+    {
+      "type": "CVSS_V3",
+      "score": "CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:N/I:N/A:H"
+    }
+  ],
+  "references": [
+    {
+      "url": "https://github.com/Contrast-Security-OSS/yamlbeans/blob/main/SECURITY.md",
+      "type": "WEB"
+    },
+    {
+      "url": "https://github.com/EsotericSoftware",
+      "type": "WEB"
+    },
+    {
+      "url": "https://github.com/CVEProject/cvelistV5/tree/main/cves/2023/24xxx/CVE-2023-24620.json",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2023-24620",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-vj49-j7rc-h54f",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/CVEProject/cvelistV5/tree/main/cves/2023/24xxx/CVE-2023-24621.json",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2023-24621",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-jm7r-4pg6-gf26",
+      "type": "ADVISORY"
+    }
+  ],
+  "summary": "Lightwell Security Advisory: yamlbeans 1.13.0.rhlw-00005",
+  "details": "Red Hat Lightwell has released com.esotericsoftware.yamlbeans:yamlbeans 1.13.0.rhlw-00005 with backported fixes for CVE-2023-24620 and CVE-2023-24621.\n\nCVE-2023-24620: An issue was discovered in Esoteric YamlBeans through 1.15. A crafted YAML document is able perform am XML Entity Expansion attack against YamlBeans YamlReader. By exploiting the Anchor feature in YAML, it is possible to generate a small YAML document that, when read, is expanded to a large size, causing CPU and memory consumption, such as a Java Out-of-Memory exception.\n\nCVE-2023-24621: An issue was discovered in Esoteric YamlBeans through 1.15. It allows untrusted deserialisation to Java classes by default, where the data and class are controlled by the author of the YAML document being processed.\n\nThis patched artifact is a drop-in replacement for com.esotericsoftware.yamlbeans:yamlbeans 1.13.0 from Maven Central.",
+  "upstream": [
+    "CVE-2023-24620",
+    "CVE-2023-24621",
+    "GHSA-vj49-j7rc-h54f",
+    "GHSA-jm7r-4pg6-gf26"
+  ],
+  "affected": [
+    {
+      "package": {
+        "ecosystem": "Red Hat Lightwell:Maven",
+        "name": "com.esotericsoftware.yamlbeans:yamlbeans",
+        "purl": "pkg:maven/com.esotericsoftware.yamlbeans/yamlbeans"
+      },
+      "versions": [
+        "1.13.0"
+      ],
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "1.13.0.rhlw-00005"
+            }
+          ]
+        }
+      ],
+      "database_specific": {
+        "lightwell": {
+          "backport_base_version": "1.13.0",
+          "remediated_version": "1.13.0.rhlw-00005",
+          "repository_url": "https://packages.redhat.com/lightwell/java/remediated/"
+        }
+      }
+    }
+  ],
+  "credits": [
+    {
+      "name": "Red Hat Lightwell",
+      "type": "REMEDIATION_DEVELOPER"
+    }
+  ]
+}
