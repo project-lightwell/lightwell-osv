@@ -1,0 +1,163 @@
+# Validate every advisory on main after it lands, without blocking publication.
+#
+# Runs after every push to main that touches advisories/ (including slan-cuan's
+# automated publish commits), nightly, and on demand. A failure opens one tracking
+# issue labeled osv-validation-failure (or comments on the open one); a fully
+# passing run closes it. Warnings never open an issue.
+#
+# Design: tools/README.md and the validation approach by Przemyslaw Roguski.
+name: Validate advisories
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "advisories/**"
+      - "tools/lightwell_osv_validate.py"
+      - "tools/lightwell_osv_ranges_check.py"
+      - ".github/workflows/validate-advisories.yml"
+  schedule:
+    - cron: "17 3 * * *" # nightly full run (UTC)
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: validate-advisories
+  cancel-in-progress: false
+
+jobs:
+  offline-validation:
+    name: "a. offline validation (all advisories)"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Validate schema, structure and lineage (offline)
+        run: |
+          set -o pipefail
+          python3 -I tools/lightwell_osv_validate.py --input-dir advisories --offline \
+            --cache-dir "$RUNNER_TEMP/cache" --json-report offline-report.json \
+            | tee -a "$GITHUB_STEP_SUMMARY"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: offline-report
+          path: offline-report.json
+          if-no-files-found: ignore
+
+  online-validation:
+    name: "b. online validation (CVE <-> package attribution)"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Select advisories (changed on push, all otherwise)
+        env:
+          EVENT: ${{ github.event_name }}
+          BEFORE: ${{ github.event.before }}
+          SHA: ${{ github.sha }}
+        run: |
+          mkdir -p "$RUNNER_TEMP/sel"
+          if [ "$EVENT" = "push" ] && git cat-file -e "$BEFORE^{commit}" 2>/dev/null; then
+            git diff --name-only --diff-filter=AM "$BEFORE" "$SHA" -- 'advisories/*.json' \
+              | xargs -r cp -t "$RUNNER_TEMP/sel"
+          else
+            cp advisories/*.json "$RUNNER_TEMP/sel"
+          fi
+          echo "count=$(ls "$RUNNER_TEMP/sel" | wc -l)" >> "$GITHUB_ENV"
+      - uses: actions/cache@v4
+        with:
+          path: ${{ runner.temp }}/cache
+          key: osv-http-${{ github.run_id }}
+          restore-keys: osv-http-
+      - name: Validate CVE attribution (online)
+        if: env.count != '0'
+        run: |
+          set -o pipefail
+          python3 -I tools/lightwell_osv_validate.py --input-dir "$RUNNER_TEMP/sel" \
+            --cache-dir "$RUNNER_TEMP/cache" --json-report online-report.json \
+            | tee -a "$GITHUB_STEP_SUMMARY"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: online-report
+          path: online-report.json
+          if-no-files-found: ignore
+
+  ranges-check:
+    name: "c. ranges check (same-CVE overlaps across branches)"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Check cross-branch range overlaps
+        run: |
+          set -o pipefail
+          python3 -I tools/lightwell_osv_ranges_check.py --input-dir advisories \
+            --json-report ranges-report.json | tee -a "$GITHUB_STEP_SUMMARY"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ranges-report
+          path: ranges-report.json
+          if-no-files-found: ignore
+
+  report:
+    name: Open, update or close the tracking issue
+    needs: [offline-validation, online-validation, ranges-check]
+    if: always()
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+    steps:
+      - uses: actions/github-script@v7
+        env:
+          RESULTS: ${{ toJSON(needs) }}
+          ASSIGNEES: ${{ vars.VALIDATION_ISSUE_ASSIGNEES || 'syncrou,JAVGan,p-rog' }}
+        with:
+          script: |
+            const results = JSON.parse(process.env.RESULTS);
+            const failed = Object.entries(results)
+              .filter(([, r]) => r.result === 'failure')
+              .map(([job]) => job);
+            const label = 'osv-validation-failure';
+            const run = `${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`;
+            const trigger = context.eventName === 'push' ? `push ${context.sha.slice(0, 7)}` : context.eventName;
+            const { data: open } = await github.rest.issues.listForRepo({
+              ...context.repo, state: 'open', labels: label,
+            });
+            if (failed.length) {
+              const body = [
+                `Advisory validation failed (${trigger}).`,
+                '',
+                `Failed jobs: ${failed.join(', ')}`,
+                '',
+                `Run, step summaries and JSON reports: ${run}`,
+              ].join('\n');
+              if (open.length) {
+                await github.rest.issues.createComment({ ...context.repo, issue_number: open[0].number, body });
+              } else {
+                await github.rest.issues.create({
+                  ...context.repo,
+                  title: 'OSV advisory validation failed',
+                  labels: [label],
+                  assignees: process.env.ASSIGNEES.split(',').map((s) => s.trim()).filter(Boolean),
+                  body,
+                });
+              }
+            } else if (open.length) {
+              await github.rest.issues.createComment({
+                ...context.repo, issue_number: open[0].number, body: `All checks pass again: ${run}`,
+              });
+              await github.rest.issues.update({ ...context.repo, issue_number: open[0].number, state: 'closed' });
+            }
