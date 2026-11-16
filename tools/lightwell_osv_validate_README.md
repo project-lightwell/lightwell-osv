@@ -2,12 +2,19 @@
 
 Validates Lightwell OSV advisory records on two axes:
 
-1. **Schema / structure** (offline) — the *agreed* Lightwell shape: schema 1.9.0,
+1. **Schema / structure** (offline) — the *agreed* Lightwell shape: schema_version
+   >= 1.9.1 (the first OSV schema with the `Red Hat Lightwell` ecosystem; 1.9.0 is a WARNING —
+   osv.dev re-stamps served records with its own `SCHEMA_VERSION`, currently 1.9.2, so the API
+   hides the declared value),
    a single `Red Hat Lightwell:Maven` affected entry carrying a **versionless**
    `pkg:maven/...` purl and a full `database_specific.lightwell` lineage block
    (`backport_base_version` / `remediated_version` / `repository_url`), RFC3339
    timestamps, well-formed `upstream[]` ids, valid severity/reference/credit types,
    `fixed` range event matching `remediated_version`, and `filename == id`.
+   **Lineage consistency** (added 2026-11-05 after RHLW-2026-e0e5640c50ceea84 passed review):
+   `backport_base_version` has no rhlw suffix and differs from `remediated_version`;
+   `remediated_version` = base + rhlw suffix; `versions[]` never lists a Lightwell build (ERROR, since
+   osv.dev would then flag the remediated build) and contains the base; `introduced` is `0` or the base.
 2. **CVE ↔ package correctness** (online, cached) — for **every** CVE in
    `upstream[]`, confirms the reported Maven artifact is actually one the CVE
    affects, using CVE.org (CNA + REJECTED state), OSV.dev / GHSA structured Maven
@@ -66,6 +73,12 @@ Per-file status:
 
 Per-CVE verdicts shown for non-clean files: `CONFIRMED`, `CONFIRMED_TEXTUAL`,
 `MISATTRIBUTED`, `REJECTED`, `NEEDS_REVIEW`, `LOOKUP_FAILED`.
+
+**Multi-implementation CVEs.** Some CVEs affect many independent implementations (e.g.
+CVE-2023-48795 "Terrapin" in SSH libraries), but their GHSA lists only some of them. When the
+structured data lists other packages, but the authoritative CVE.org description names the reported
+artifact as a whole word, the verdict is `CONFIRMED_TEXTUAL`, not `MISATTRIBUTED`. Generic artifact
+names (`json`, `core`, `api`, …) and names shorter than 4 characters never count as named.
 
 **Exit code:** `0` if all files are OK / warnings / needs-review; `1` if any file
 is `ERROR` or `MISATTRIBUTED` (suitable as a CI gate).

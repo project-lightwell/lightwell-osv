@@ -210,8 +210,23 @@ def check_schema(record, path, F):
     sv = record.get("schema_version")
     if sv is None:
         F.append(Finding("WARNING", "SCHEMA:NO_VERSION", "no schema_version (OSV assumes 1.0.0)"))
-    elif sv != "1.9.0":
-        F.append(Finding("INFO", "SCHEMA:VERSION", f"schema_version is {sv!r}; feed convention is 1.9.0"))
+    else:
+        # The "Red Hat Lightwell" ecosystem first appears in OSV schema v1.9.1 (ossf/osv-schema#571).
+        # Records declaring an older version fail strict validation against their declared schema
+        # (e.g. anchore/vunnel). osv.dev hides this: it re-stamps every served record with its own
+        # models.SCHEMA_VERSION, so the API shows the latest version whatever the source declares.
+        uses_lw = any(str(a.get("package", {}).get("ecosystem", "")).startswith("Red Hat Lightwell")
+                      for a in record.get("affected") or [])
+        try:
+            sv_t = tuple(int(x) for x in str(sv).split("."))
+        except ValueError:
+            sv_t = None
+        if sv_t is None:
+            F.append(Finding("ERROR", "SCHEMA:BAD_VERSION", f"schema_version {sv!r} is not N.N.N"))
+        elif uses_lw and sv_t < (1, 9, 1):
+            F.append(Finding("WARNING", "SCHEMA:VERSION_TOO_OLD",
+                             f"schema_version {sv!r} predates the 'Red Hat Lightwell' ecosystem (needs >= 1.9.1); "
+                             "osv.dev re-stamps it on output, but strict consumers validate against the declared version"))
 
     rid = record.get("id", "")
     if rid:
@@ -332,6 +347,7 @@ def check_affected(record, F):
                             F.append(Finding("WARNING", "LIGHTWELL:MISSING_LINEAGE_FIELD",
                                              f"{pre}.database_specific.lightwell missing {k!r}"))
                     _check_fixed_matches(entry, lw, pre, F)
+                    _check_lineage(entry, lw, pre, F)
 
         ranges = entry.get("ranges", [])
         if not ranges and not entry.get("versions"):
@@ -353,6 +369,49 @@ def check_affected(record, F):
     if lightwell_entries == 0:
         F.append(Finding("ERROR", "LIGHTWELL:NO_LIGHTWELL_ENTRY",
                          "no 'Red Hat Lightwell:<ecosystem>' affected[] entry (the agreed feed shape)"))
+
+
+RHLW_SUFFIX_RE = re.compile(r"[.+-]rhlw[.-]\d+$", re.I)
+
+
+def _check_lineage(entry, lw, pre, F):
+    """Lineage consistency: base -> remediated build -> ranges/versions.
+
+    Catches records where the upstream base was replaced by a Lightwell build (e.g.
+    RHLW-2026-e0e5640c50ceea84: base == remediated == the versions[] entry), which makes
+    osv.dev report the remediated build as affected by its own advisory.
+    """
+    base = lw.get("backport_base_version")
+    remediated = lw.get("remediated_version")
+    if not base or not remediated:
+        return
+    if RHLW_SUFFIX_RE.search(base):
+        F.append(Finding("ERROR", "LIGHTWELL:BASE_IS_LIGHTWELL_BUILD",
+                         f"{pre}: backport_base_version {base!r} carries an rhlw suffix; it must be the upstream version"))
+    if base == remediated:
+        F.append(Finding("ERROR", "LIGHTWELL:BASE_EQUALS_REMEDIATED",
+                         f"{pre}: backport_base_version == remediated_version ({base!r})"))
+    m = RHLW_SUFFIX_RE.search(remediated)
+    if not m:
+        F.append(Finding("ERROR", "LIGHTWELL:REMEDIATED_NO_SUFFIX",
+                         f"{pre}: remediated_version {remediated!r} has no rhlw suffix"))
+    elif remediated[:m.start()] != base:
+        F.append(Finding("ERROR", "LIGHTWELL:REMEDIATED_BASE_MISMATCH",
+                         f"{pre}: remediated_version {remediated!r} is not backport_base_version {base!r} + rhlw suffix"))
+    versions = entry.get("versions") or []
+    lw_in_versions = [v for v in versions if RHLW_SUFFIX_RE.search(v)]
+    if lw_in_versions:
+        F.append(Finding("ERROR", "LIGHTWELL:VERSIONS_LIST_LIGHTWELL_BUILD",
+                         f"{pre}: versions[] lists Lightwell build(s) {lw_in_versions} as affected"))
+    if versions and base not in versions:
+        F.append(Finding("WARNING", "LIGHTWELL:VERSIONS_MISSING_BASE",
+                         f"{pre}: versions[] does not contain backport_base_version {base!r}"))
+    for j, rng in enumerate(entry.get("ranges", [])):
+        intro = [e["introduced"] for e in rng.get("events", []) if "introduced" in e]
+        for v in intro:
+            if v not in ("0", base):
+                F.append(Finding("WARNING", "LIGHTWELL:INTRODUCED_NOT_0_OR_BASE",
+                                 f"{pre}.ranges[{j}]: introduced {v!r} is neither '0' nor backport_base_version {base!r}"))
 
 
 def _check_fixed_matches(entry, lw, pre, F):
@@ -422,6 +481,13 @@ def osv_truth(vuln_id, cache):
     return coords, aliases, texts
 
 
+# Artifact names too generic to count as "named in the CVE description".
+GENERIC_ARTIFACT_NAMES = frozenset({
+    "json", "core", "common", "commons", "client", "server", "api", "util", "utils",
+    "parent", "base", "test", "tests", "web", "http", "xml", "yaml", "plugin",
+})
+
+
 def verify_cve(cve, reported_pkg, cache):
     reported = norm_coord(reported_pkg)
     art = artifact_of(reported_pkg)
@@ -455,6 +521,14 @@ def verify_cve(cve, reported_pkg, cache):
             return CveVerdict(cve, reported_pkg, "CONFIRMED",
                               f"artifact {art!r} matches affected coordinate {t!r}", sources)
     if truth:
+        # Multi-implementation CVEs (e.g. CVE-2023-48795 / Terrapin): the GHSA lists only some
+        # implementations, but the authoritative CVE.org description names the reported artifact.
+        cve_text = " \n ".join(cve_texts).lower()
+        if (art and len(art) >= 4 and art.lower() not in GENERIC_ARTIFACT_NAMES
+                and re.search(rf"(?<![\w.-]){re.escape(art.lower())}(?![\w-])", cve_text)):
+            return CveVerdict(cve, reported_pkg, "CONFIRMED_TEXTUAL",
+                              f"structured data lists {sorted(truth)}, but the CVE.org description names "
+                              f"{art!r} (multi-implementation CVE)", sources)
         return CveVerdict(cve, reported_pkg, "MISATTRIBUTED",
                           f"ground truth says this CVE affects {sorted(truth)}, NOT {reported_pkg!r}", sources)
     if art and art in texts:
