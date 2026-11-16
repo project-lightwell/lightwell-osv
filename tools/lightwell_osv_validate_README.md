@@ -72,32 +72,33 @@ Per-file status:
 | `ERROR` | load failure or a schema ERROR |
 
 Per-CVE verdicts shown for non-clean files: `CONFIRMED`, `CONFIRMED_TEXTUAL`,
-`MISATTRIBUTED`, `REJECTED`, `NEEDS_REVIEW`, `LOOKUP_FAILED`.
+`ACCEPTED_EXCEPTION`, `MISATTRIBUTED`, `REJECTED`, `NEEDS_REVIEW`, `LOOKUP_FAILED`.
 
-**Multi-implementation CVEs.** Some CVEs affect many independent implementations (e.g.
-CVE-2023-48795 "Terrapin" in SSH libraries), but their GHSA lists only some of them. When the
-structured data lists other packages, but the authoritative CVE.org description names the reported
-artifact as a whole word, the verdict is `CONFIRMED_TEXTUAL`, not `MISATTRIBUTED`. Generic artifact
-names (`json`, `core`, `api`, …) and names shorter than 4 characters never count as named.
+**Package reference.** The affected package is checked against **osv.dev, including the CVE's GHSA
+advisories**, within the advisory's ecosystem (a Maven advisory is compared with Maven packages only).
+CVE.org is checked only for the `REJECTED` state; its package data is used only as a backup when osv.dev has
+no GHSA alias and no package data for the CVE, because CVE.org metadata is often imprecise (especially in
+older records). A GHSA that lists packages only in other ecosystems makes a Maven advisory `MISATTRIBUTED`.
+
 
 **Exit code:** `0` if all files are OK / warnings / needs-review; `1` if any file
 is `ERROR` or `MISATTRIBUTED` (suitable as a CI gate).
 
 ## Reviewed exceptions
 
-Some `MISATTRIBUTED` verdicts are wrong: the advisory is correct, but upstream data does not list the
-artifact (e.g. a repackaged copy such as `avro-android`, or the same engine shipped under another artifact
-name). After a review, accept such a verdict in `lightwell_osv_validate_exceptions.json` next to the
+Use an exception only when the osv.dev/GHSA data itself is demonstrably wrong and a correction has been
+requested upstream. A Lightwell advisory whose package differs from osv.dev/GHSA is otherwise incorrect,
+including repackaged or renamed copies of the vulnerable code. After a review, accept such a verdict in `lightwell_osv_validate_exceptions.json` next to the
 script (loaded automatically; `--exceptions PATH` to use another file, `--exceptions none` to disable):
 
 ```json
 {
   "exceptions": [
     {
-      "advisory": "RHLW-2026-4051ab209e8865e6",
-      "cve": "CVE-2023-39410",
-      "package": "org.apache.avro:avro-android",
-      "reason": "avro-android shares 363 of 364 classes with avro, incl. io/BinaryDecoder; GHSA lists only avro.",
+      "advisory": "RHLW-2026-0000000000000000",
+      "cve": "CVE-2026-00000",
+      "package": "org.example:example",
+      "reason": "GHSA-xxxx-xxxx-xxxx omits this package; upstream fix <link>; GHSA update requested <link>.",
       "reviewed_by": "Przemyslaw Roguski",
       "date": "2026-11-16"
     }

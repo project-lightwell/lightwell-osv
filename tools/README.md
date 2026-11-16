@@ -2,7 +2,7 @@
 
 | Tool | What it checks | Runs in CI |
 |---|---|---|
-| [`lightwell_osv_validate.py`](lightwell_osv_validate_README.md) | Schema, structure and Lightwell lineage (offline), plus CVE ↔ package attribution against CVE.org and osv.dev/GHSA (online) | Yes |
+| [`lightwell_osv_validate.py`](lightwell_osv_validate_README.md) | Schema, structure and Lightwell lineage (offline), plus CVE ↔ package attribution against osv.dev/GHSA, with CVE.org for the REJECTED state (online). Reviewed exceptions: [`lightwell_osv_validate_exceptions.json`](lightwell_osv_validate_exceptions.json) | Yes |
 | [`lightwell_osv_ranges_check.py`](lightwell_osv_ranges_check_README.md) | Full-repo scan for same-CVE range overlaps across base-version branches | Yes |
 | `check_ranges.py` (below) | Diff gate between two git refs | No, manual or PR review |
 

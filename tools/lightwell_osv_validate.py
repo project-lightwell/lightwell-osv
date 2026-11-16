@@ -454,7 +454,7 @@ def cveorg_truth(cve, cache):
 
 
 def osv_truth(vuln_id, cache):
-    """Return (maven_coords:set, aliases:list, texts:list) from OSV.dev.
+    """Return ({(ecosystem, name)}, aliases:list, texts:list) from OSV.dev.
 
     OSV indexes some advisories (notably Spring / VMware CVEs) only under their
     GHSA id, so GET /v1/vulns/<CVE> 404s. In that case OSV still names the GHSA
@@ -472,8 +472,9 @@ def osv_truth(vuln_id, cache):
         return coords, aliases, texts
     for a in d.get("affected", []):
         p = a.get("package", {})
-        if p.get("ecosystem") in ("Maven", "PyPI") and p.get("name"):
-            coords.add(norm_coord(p["name"]))
+        if p.get("ecosystem") and p.get("name"):
+            # (ecosystem, normalized name): a Maven advisory is compared with Maven packages only
+            coords.add((p["ecosystem"], norm_coord(p["name"])))
     for t in ("summary", "details"):
         if d.get(t):
             texts.append(d[t])
@@ -481,14 +482,15 @@ def osv_truth(vuln_id, cache):
     return coords, aliases, texts
 
 
-# Artifact names too generic to count as "named in the CVE description".
-GENERIC_ARTIFACT_NAMES = frozenset({
-    "json", "core", "common", "commons", "client", "server", "api", "util", "utils",
-    "parent", "base", "test", "tests", "web", "http", "xml", "yaml", "plugin",
-})
+def verify_cve(cve, reported_pkg, cache, ecosystem="Maven"):
+    """Check that the advisory's package is the package upstream lists for this CVE.
 
-
-def verify_cve(cve, reported_pkg, cache):
+    Reference: osv.dev, including the CVE's GHSA advisories, compared within the
+    advisory's ecosystem (Maven or PyPI). CVE.org is checked for the REJECTED state,
+    and used for the package name only as a backup when osv.dev has no GHSA alias
+    and no package data for the CVE (CVE.org product data is often imprecise,
+    especially in older records).
+    """
     reported = norm_coord(reported_pkg)
     art = artifact_of(reported_pkg)
     sources = []
@@ -499,46 +501,50 @@ def verify_cve(cve, reported_pkg, cache):
         return CveVerdict(cve, reported_pkg, "REJECTED",
                           "CVE is in the REJECTED state at CVE.org — should not be in the feed", sources)
 
-    osv_coords, aliases, osv_texts = osv_truth(cve, cache)
+    osv_pkgs, aliases, osv_texts = osv_truth(cve, cache)
     sources.append("osv.dev")
+    ghsas = [al for al in aliases if al.startswith("GHSA-")]
     # Resolve this CVE's own GHSA aliases (incl. the alias OSV names when it only
     # indexes the CVE under a GHSA) for precise attribution — not sibling CVEs' GHSAs.
-    for al in aliases:
-        if al.startswith("GHSA-"):
-            g_coords, _, g_texts = osv_truth(al, cache)
-            osv_coords |= g_coords
-            osv_texts += g_texts
-            sources.append(al)
+    for al in ghsas:
+        g_pkgs, _, g_texts = osv_truth(al, cache)
+        osv_pkgs |= g_pkgs
+        osv_texts += g_texts
+        sources.append(al)
 
-    truth = cve_coords | osv_coords
-    texts = " \n ".join(cve_texts + osv_texts).lower()
+    truth = {name for eco, name in osv_pkgs if eco == ecosystem}
+    other = sorted(f"{eco}:{name}" for eco, name in osv_pkgs if eco != ecosystem)
+    reference = "osv.dev/GHSA" + (f" ({', '.join(ghsas)})" if ghsas else "")
+    if not ghsas and not osv_pkgs and ecosystem == "Maven":
+        truth = set(cve_coords)                     # backup only: no GHSA and no osv.dev package data
+        reference = "CVE.org (backup: no GHSA alias on osv.dev)"
 
     if reported in truth:
         return CveVerdict(cve, reported_pkg, "CONFIRMED",
-                          f"reported package {reported_pkg!r} is listed as affected by ground truth", sources)
+                          f"{reference} lists {reported_pkg!r} as affected", sources)
     for t in truth:
         if artifact_of(t) == art:
             return CveVerdict(cve, reported_pkg, "CONFIRMED",
-                              f"artifact {art!r} matches affected coordinate {t!r}", sources)
+                              f"artifact {art!r} matches the affected package {t!r} ({reference})", sources)
     if truth:
-        # Multi-implementation CVEs (e.g. CVE-2023-48795 / Terrapin): the GHSA lists only some
-        # implementations, but the authoritative CVE.org description names the reported artifact.
-        cve_text = " \n ".join(cve_texts).lower()
-        if (art and len(art) >= 4 and art.lower() not in GENERIC_ARTIFACT_NAMES
-                and re.search(rf"(?<![\w.-]){re.escape(art.lower())}(?![\w-])", cve_text)):
-            return CveVerdict(cve, reported_pkg, "CONFIRMED_TEXTUAL",
-                              f"structured data lists {sorted(truth)}, but the CVE.org description names "
-                              f"{art!r} (multi-implementation CVE)", sources)
         return CveVerdict(cve, reported_pkg, "MISATTRIBUTED",
-                          f"ground truth says this CVE affects {sorted(truth)}, NOT {reported_pkg!r}", sources)
+                          f"{reference} lists {sorted(truth)} as the affected {ecosystem} package(s), "
+                          f"NOT {reported_pkg!r}", sources)
+    if ghsas and other:
+        return CveVerdict(cve, reported_pkg, "MISATTRIBUTED",
+                          f"{reference} lists no {ecosystem} package for this CVE (only {other}), "
+                          f"NOT {reported_pkg!r}", sources)
+    # No structured package anywhere: the description text is the last resort.
+    texts = " \n ".join(cve_texts + osv_texts).lower()
     if art and art in texts:
         return CveVerdict(cve, reported_pkg, "CONFIRMED_TEXTUAL",
-                          f"no structured package coord, but description text names {art!r}", sources)
-    if not texts and not truth:
+                          f"no structured package data upstream, but the description names {art!r}", sources)
+    if not texts:
         return CveVerdict(cve, reported_pkg, "LOOKUP_FAILED",
-                          "no ground-truth data retrieved (network issue or no public record) — verify manually", sources)
+                          "no upstream data retrieved (network issue or no public record) — verify manually", sources)
     return CveVerdict(cve, reported_pkg, "NEEDS_REVIEW",
-                      "only product-family data public, no artifact-level coordinate to confirm/refute — verify manually", sources)
+                      "only product-family data public, no package-level data to confirm or refute — verify manually",
+                      sources)
 
 
 def check_cve_package(record, cache, F):
@@ -556,22 +562,25 @@ def check_cve_package(record, cache, F):
         suffix = eco.split(":", 1)[1] if ":" in eco else ""
         is_pkg = base in ("Maven", "PyPI") or (base == "Red Hat Lightwell" and suffix in LIGHTWELL_ECOSYSTEMS)
         if is_pkg and p.get("name"):
-            pkgs.append(p["name"])
+            # the native ecosystem: "Maven" for Maven and "Red Hat Lightwell:Maven"
+            pkgs.append((p["name"], suffix if base == "Red Hat Lightwell" else base))
     pkgs = list(dict.fromkeys(pkgs))
 
     verdicts = []
     for cve in cves:
-        for pkg in pkgs:
-            verdicts.append(verify_cve(cve, pkg, cache))
+        for pkg, eco in pkgs:
+            verdicts.append(verify_cve(cve, pkg, cache, eco))
 
     # secondary net: each upstream GHSA should map to (one of) the reported package(s)
-    reported_norm = {norm_coord(p) for p in pkgs}
-    reported_arts = {artifact_of(p) for p in pkgs}
+    reported_norm = {norm_coord(p) for p, _ in pkgs}
+    reported_arts = {artifact_of(p) for p, _ in pkgs}
     for g in ghsas:
-        g_coords, _, _ = osv_truth(g, cache)
+        g_pkgs, _, _ = osv_truth(g, cache)
+        g_coords = {name for _, name in g_pkgs}
         if g_coords and not (g_coords & reported_norm) and not ({artifact_of(c) for c in g_coords} & reported_arts):
             F.append(Finding("WARNING", "LIGHTWELL:GHSA_OTHER_PACKAGE",
-                             f"upstream GHSA {g} affects {sorted(g_coords)}, not the reported package(s) {pkgs} "
+                             f"upstream GHSA {g} affects {sorted(g_coords)}, not the reported package(s) "
+                             f"{[p for p, _ in pkgs]} "
                              "— likely a CVE bundled under the wrong artifact"))
     return verdicts
 

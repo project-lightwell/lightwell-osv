@@ -1,35 +1,19 @@
 {
-  "_comment": "Reviewed MISATTRIBUTED verdicts accepted as correct. One entry per (advisory, CVE, package); every field is required. Remove an entry when the validator reports it as stale.",
+  "_comment": "Reviewed MISATTRIBUTED verdicts accepted as correct. One entry per (advisory, CVE, package); every field is required. Use only when osv.dev/GHSA data is demonstrably wrong; remove an entry when the validator reports it as stale.",
   "exceptions": [
     {
-      "advisory": "RHLW-2026-c45d2a64e2c0626e",
-      "cve": "CVE-2025-7962",
-      "package": "com.sun.mail:android-mail",
-      "reason": "android-mail ships all jakarta.mail classes, incl. the com/sun/mail/smtp transport (the vulnerable SMTP code); GHSA lists only jakarta.mail and angus smtp.",
+      "advisory": "RHLW-2026-79ec677d4c215602",
+      "cve": "CVE-2023-48795",
+      "package": "com.github.mwiede:jsch",
+      "reason": "Upstream affected-package data is incomplete: GHSA-45x7-px36-x8w8 lists no Maven package, but osv.dev's own records (PYSEC-2026-1758, aliasing CVE-2023-48795) reference the jsch fix: mwiede/jsch#457, PR https://github.com/mwiede/jsch/pull/461, fixed in jsch 0.2.15. GHSA update adding Maven com.github.mwiede:jsch (< 0.2.15) to be requested; remove this entry once it lands.",
       "reviewed_by": "Przemyslaw Roguski",
       "date": "2026-11-16"
     },
     {
-      "advisory": "RHLW-2026-4051ab209e8865e6",
-      "cve": "CVE-2023-39410",
-      "package": "org.apache.avro:avro-android",
-      "reason": "avro-android shares 363 of 364 classes with avro, incl. io/BinaryDecoder (the vulnerable code); GHSA lists only avro.",
-      "reviewed_by": "Przemyslaw Roguski",
-      "date": "2026-11-16"
-    },
-    {
-      "advisory": "RHLW-2026-4051ab209e8865e6",
-      "cve": "CVE-2024-47561",
-      "package": "org.apache.avro:avro-android",
-      "reason": "avro-android shares 363 of 364 classes with avro, incl. Schema and specific/SpecificData (the vulnerable code); GHSA lists only avro.",
-      "reviewed_by": "Przemyslaw Roguski",
-      "date": "2026-11-16"
-    },
-    {
-      "advisory": "RHLW-2026-cd97e66695607070",
-      "cve": "CVE-2022-34169",
-      "package": "xalan:xalan-bcel-6.6.1",
-      "reason": "xalan-bcel-6.6.1 is the Xalan engine (XSLTC compiler + bundled BCEL) shipped under this artifact name; xalan:xalan is not shipped. GHSA lists only xalan:xalan.",
+      "advisory": "RHLW-2026-d0749bc5ef98b166",
+      "cve": "CVE-2023-48795",
+      "package": "com.github.mwiede:jsch",
+      "reason": "Upstream affected-package data is incomplete: GHSA-45x7-px36-x8w8 lists no Maven package, but osv.dev's own records (PYSEC-2026-1758, aliasing CVE-2023-48795) reference the jsch fix: mwiede/jsch#457, PR https://github.com/mwiede/jsch/pull/461, fixed in jsch 0.2.15. GHSA update adding Maven com.github.mwiede:jsch (< 0.2.15) to be requested; remove this entry once it lands.",
       "reviewed_by": "Przemyslaw Roguski",
       "date": "2026-11-16"
     }
