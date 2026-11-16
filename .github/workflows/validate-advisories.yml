@@ -32,8 +32,8 @@ jobs:
     name: "a. offline validation (all advisories)"
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5.6.0
         with:
           python-version: "3.12"
       - name: Validate schema, structure and lineage (offline)
@@ -44,7 +44,7 @@ jobs:
           python3 -I tools/lightwell_osv_validate.py --input-dir advisories --offline \
             --cache-dir "$RUNNER_TEMP/cache" --json-report offline-report.json \
             | tee -a "$GITHUB_STEP_SUMMARY"
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         if: always()
         with:
           name: offline-report
@@ -55,10 +55,10 @@ jobs:
     name: "b. online validation (CVE <-> package attribution)"
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
         with:
           fetch-depth: 0
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5.6.0
         with:
           python-version: "3.12"
       - name: Select advisories (changed on push, all otherwise)
@@ -75,7 +75,7 @@ jobs:
             cp advisories/*.json "$RUNNER_TEMP/sel"
           fi
           echo "count=$(find "$RUNNER_TEMP/sel" -type f -name '*.json' | wc -l)" >> "$GITHUB_ENV"
-      - uses: actions/cache@v4
+      - uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830 # v4.3.0
         with:
           path: ${{ runner.temp }}/cache
           key: osv-http-${{ github.run_id }}
@@ -89,7 +89,7 @@ jobs:
           python3 -I tools/lightwell_osv_validate.py --input-dir "$RUNNER_TEMP/sel" \
             --cache-dir "$RUNNER_TEMP/cache" --json-report online-report.json \
             | tee -a "$GITHUB_STEP_SUMMARY"
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         if: always()
         with:
           name: online-report
@@ -100,8 +100,8 @@ jobs:
     name: "c. ranges check (same-CVE overlaps across branches)"
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5.6.0
         with:
           python-version: "3.12"
       - name: Install packaging (PEP 440 ordering for PyPI versions)
@@ -113,7 +113,7 @@ jobs:
           trap 'echo "\`\`\`" >> "$GITHUB_STEP_SUMMARY"' EXIT
           python3 -I tools/lightwell_osv_ranges_check.py --input-dir advisories \
             --json-report ranges-report.json | tee -a "$GITHUB_STEP_SUMMARY"
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         if: always()
         with:
           name: ranges-report
@@ -128,7 +128,7 @@ jobs:
     permissions:
       issues: write
     steps:
-      - uses: actions/github-script@v7
+      - uses: actions/github-script@f28e40c7f34bde8b3046d885e986cb6290c5673b # v7.1.0
         env:
           RESULTS: ${{ toJSON(needs) }}
           ASSIGNEES: ${{ vars.VALIDATION_ISSUE_ASSIGNEES || 'syncrou,JAVGan,p-rog' }}
