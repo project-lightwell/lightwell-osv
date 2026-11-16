@@ -104,7 +104,7 @@ class Finding:
 class CveVerdict:
     cve_id: str
     package_name: str
-    verdict: str   # CONFIRMED | CONFIRMED_TEXTUAL | MISATTRIBUTED | REJECTED | NEEDS_REVIEW | LOOKUP_FAILED
+    verdict: str   # CONFIRMED | CONFIRMED_TEXTUAL | ACCEPTED_EXCEPTION | MISATTRIBUTED | REJECTED | NEEDS_REVIEW | LOOKUP_FAILED
     evidence: str
     sources: list = field(default_factory=list)
 
@@ -595,6 +595,55 @@ def process_file(path: Path, cache, offline):
     return r
 
 
+# --------------------------------------------------------------------------- #
+# reviewed exceptions
+# --------------------------------------------------------------------------- #
+DEFAULT_EXCEPTIONS = Path(__file__).resolve().with_name("lightwell_osv_validate_exceptions.json")
+EXCEPTION_FIELDS = ("advisory", "cve", "package", "reason", "reviewed_by", "date")
+
+
+def load_exceptions(path: Path):
+    """Load reviewed MISATTRIBUTED exceptions, keyed by (advisory, CVE, package).
+
+    File format: {"exceptions": [{"advisory": "RHLW-...", "cve": "CVE-...",
+    "package": "group:artifact", "reason": "...", "reviewed_by": "...",
+    "date": "YYYY-MM-DD"}]}. Every field is required.
+    """
+    data = json.loads(path.read_text("utf-8"))
+    out = {}
+    for i, e in enumerate(data.get("exceptions", [])):
+        missing = [k for k in EXCEPTION_FIELDS if not str(e.get(k, "")).strip()]
+        if missing:
+            raise ValueError(f"exception #{i + 1} in {path} lacks {', '.join(missing)}")
+        out[(e["advisory"], e["cve"], norm_coord(e["package"]))] = e
+    return out
+
+
+def apply_exceptions(results, exceptions):
+    """Turn reviewed MISATTRIBUTED verdicts into ACCEPTED_EXCEPTION (a warning).
+
+    A REJECTED CVE is never excepted. Returns stale entries: exceptions for an
+    advisory in this run whose (CVE, package) no longer comes out MISATTRIBUTED.
+    """
+    used = set()
+    for r in results:
+        for v in r.verdicts:
+            key = (r.record_id, v.cve_id, norm_coord(v.package_name))
+            e = exceptions.get(key)
+            if e is None:
+                continue
+            if v.verdict == "MISATTRIBUTED":
+                v.verdict = "ACCEPTED_EXCEPTION"
+                v.evidence = (f"reviewed exception ({e['reviewed_by']}, {e['date']}): {e['reason']} "
+                              f"[validator: {v.evidence}]")
+                r.schema.append(Finding("WARNING", "LIGHTWELL:ACCEPTED_EXCEPTION",
+                                        f"{v.cve_id} vs {v.package_name}: MISATTRIBUTED accepted by reviewed exception "
+                                        f"({e['reviewed_by']}, {e['date']})"))
+                used.add(key)
+    checked = {r.record_id for r in results if r.verdicts}
+    return [e for k, e in exceptions.items() if k[0] in checked and k not in used]
+
+
 def download_pr(pr, repo, dest: Path):
     """Use gh to fetch a PR's changed advisories/*.json into dest."""
     files = subprocess.check_output(
@@ -658,7 +707,18 @@ def main(argv=None):
     ap.add_argument("--offline", action="store_true", help="schema checks only; no network")
     ap.add_argument("--json-report", help="write machine-readable JSON here")
     ap.add_argument("--cache-dir", help=f"HTTP cache dir (default: <input>/{CACHE_SUBDIR})")
+    ap.add_argument("--exceptions", default=str(DEFAULT_EXCEPTIONS),
+                    help="reviewed MISATTRIBUTED exceptions JSON (default: lightwell_osv_validate_exceptions.json "
+                         "next to this script, if present; 'none' disables)")
     args = ap.parse_args(argv)
+
+    exceptions = {}
+    if args.exceptions and args.exceptions != "none" and Path(args.exceptions).is_file():
+        try:
+            exceptions = load_exceptions(Path(args.exceptions))
+        except (ValueError, json.JSONDecodeError, OSError) as e:
+            print(f"error: invalid exceptions file: {e}", file=sys.stderr)
+            return 2
 
     tmp = None
     if args.pr:
@@ -692,7 +752,11 @@ def main(argv=None):
         results.append(process_file(p, cache, args.offline))
     print(file=sys.stderr)
 
+    stale = apply_exceptions(results, exceptions) if exceptions else []
     print_summary(results)
+    for e in stale:
+        print(f"WARNING: stale exception (no longer MISATTRIBUTED, remove it): "
+              f"{e['advisory']} {e['cve']} {e['package']}")
     if args.json_report:
         write_json(results, args.json_report)
         print(f"JSON report written to {args.json_report}")

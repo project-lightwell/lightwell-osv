@@ -83,6 +83,34 @@ names (`json`, `core`, `api`, …) and names shorter than 4 characters never cou
 **Exit code:** `0` if all files are OK / warnings / needs-review; `1` if any file
 is `ERROR` or `MISATTRIBUTED` (suitable as a CI gate).
 
+## Reviewed exceptions
+
+Some `MISATTRIBUTED` verdicts are wrong: the advisory is correct, but upstream data does not list the
+artifact (e.g. a repackaged copy such as `avro-android`, or the same engine shipped under another artifact
+name). After a review, accept such a verdict in `lightwell_osv_validate_exceptions.json` next to the
+script (loaded automatically; `--exceptions PATH` to use another file, `--exceptions none` to disable):
+
+```json
+{
+  "exceptions": [
+    {
+      "advisory": "RHLW-2026-4051ab209e8865e6",
+      "cve": "CVE-2023-39410",
+      "package": "org.apache.avro:avro-android",
+      "reason": "avro-android shares 363 of 364 classes with avro, incl. io/BinaryDecoder; GHSA lists only avro.",
+      "reviewed_by": "Przemyslaw Roguski",
+      "date": "2026-11-16"
+    }
+  ]
+}
+```
+
+- One entry per (advisory, CVE, package); every field is required (an incomplete file exits with `2`).
+- The verdict becomes `ACCEPTED_EXCEPTION` and the record `OK_WITH_WARNINGS`, so it stays visible.
+- A `REJECTED` CVE is never excepted, and another CVE or package on the same advisory still fails.
+- An entry whose advisory no longer comes out `MISATTRIBUTED` is reported as stale; remove it.
+- Add the evidence to `reason` (what you checked, e.g. jar contents or the CVE description).
+
 ## Networking & caching
 
 Queries `cveawg.mitre.org`, `api.osv.dev`, `services.nvd.nist.gov`. Every response
