@@ -1,0 +1,233 @@
+{
+  "schema_version": "1.9.2",
+  "id": "RHLW-2026-1e5a12126876a6e2",
+  "published": "2026-11-18T14:43:25Z",
+  "modified": "2026-11-18T14:43:25Z",
+  "severity": [
+    {
+      "type": "CVSS_V3",
+      "score": "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:L"
+    }
+  ],
+  "references": [
+    {
+      "url": "https://cwiki.apache.org/confluence/display/WW/S2-063",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/CVEProject/cvelistV5/tree/main/cves/2023/34xxx/CVE-2023-34149.json",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2023-34149",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-8f6x-v685-g2xc",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://cwiki.apache.org/confluence/display/WW/S2-064",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/CVEProject/cvelistV5/tree/main/cves/2023/34xxx/CVE-2023-34396.json",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2023-34396",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-4g42-gqrg-4633",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://repo.maven.apache.org/maven2",
+      "type": "WEB"
+    },
+    {
+      "url": "https://github.com/CVEProject/cvelistV5/tree/main/cves/2023/50xxx/CVE-2023-50164.json",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://lists.apache.org/thread/yh09b3fkf6vz5d6jdgrlvmg60lfwtqhj",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2023-50164",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-2j39-qcjm-428w",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://cwiki.apache.org/confluence/display/WW/S2-067",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/CVEProject/cvelistV5/tree/main/cves/2024/53xxx/CVE-2024-53677.json",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-53677",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-43mq-6xmg-29vm",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://cwiki.apache.org/confluence/display/WW/S2-068",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/CVEProject/cvelistV5/tree/main/cves/2025/64xxx/CVE-2025-64775.json",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-64775",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-xx7v-hqxh-cjr9",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://cve.org/CVERecord?id=CVE-2025-64775",
+      "type": "WEB"
+    },
+    {
+      "url": "https://github.com/CVEProject/cvelistV5/tree/main/cves/2025/66xxx/CVE-2025-66675.json",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-66675",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-rg58-xhh7-mqjw",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://cwiki.apache.org/confluence/display/WW/S2-075",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/CVEProject/cvelistV5/tree/main/cves/2026/104xxx/CVE-2026-104711.json",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-104711",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://cwiki.apache.org/confluence/display/WW/S2-076",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/CVEProject/cvelistV5/tree/main/cves/2026/104xxx/CVE-2026-104712.json",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-104712",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://cwiki.apache.org/confluence/display/WW/S2-078",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/CVEProject/cvelistV5/tree/main/cves/2026/104xxx/CVE-2026-104714.json",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-104714",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://cwiki.apache.org/confluence/display/WW/S2-073",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/CVEProject/cvelistV5/tree/main/cves/2026/73xxx/CVE-2026-73634.json",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73634",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://cwiki.apache.org/confluence/display/WW/S2-074",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/CVEProject/cvelistV5/tree/main/cves/2026/73xxx/CVE-2026-73635.json",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-73635",
+      "type": "ADVISORY"
+    }
+  ],
+  "summary": "Lightwell Security Advisory: struts2-core 6.1.1.rhlw-00021",
+  "details": "Red Hat Lightwell has released org.apache.struts:struts2-core 6.1.1.rhlw-00021 with backported fixes for CVE-2023-34149, CVE-2023-34396, CVE-2023-50164, CVE-2024-53677, CVE-2025-64775, CVE-2025-66675, CVE-2026-104711, CVE-2026-104712, CVE-2026-104714, CVE-2026-73634, and CVE-2026-73635.\n\nCVE-2023-34149: Apache Struts: DoS via OOM owing to not properly checking of list bounds\n\nCVE-2023-34396: Apache Struts: DoS via OOM owing to no sanity limit on normal form fields in multipart forms\n\nCVE-2023-50164: Apache Struts: File upload component had a directory traversal vulnerability\n\nCVE-2024-53677: Apache Struts: Mixing setters for uploaded files and normal fields can allow bypass file upload checks\n\nCVE-2025-64775: Apache Struts: File leak in multipart request processing causes disk exhaustion (DoS)\n\nCVE-2025-66675: Apache Struts: File leak in multipart request processing causes disk exhaustion (DoS) - version ranges fixed\n\nCVE-2026-104711: Apache Struts: OGNL injection in the legacy RESTful action mapper\n\nCVE-2026-104712: Apache Struts: Disproportionate response size when rendering BigDecimal request parameters\n\nCVE-2026-104714: Apache Struts: Shared message formatter exposes date and time values across concurrent requests\n\nCVE-2026-73634: Apache Struts: Unbounded read of a Content Security Policy violation report\n\nCVE-2026-73635: Apache Struts: Unbounded growth of localized-text caches driven by the request locale\n\nThis patched artifact is a drop-in replacement for org.apache.struts:struts2-core 6.1.1 from Maven Central.",
+  "upstream": [
+    "CVE-2023-34149",
+    "CVE-2023-34396",
+    "CVE-2023-50164",
+    "CVE-2024-53677",
+    "CVE-2025-64775",
+    "CVE-2025-66675",
+    "CVE-2026-104711",
+    "CVE-2026-104712",
+    "CVE-2026-104714",
+    "CVE-2026-73634",
+    "CVE-2026-73635",
+    "GHSA-8f6x-v685-g2xc",
+    "GHSA-4g42-gqrg-4633",
+    "GHSA-2j39-qcjm-428w",
+    "GHSA-43mq-6xmg-29vm",
+    "GHSA-xx7v-hqxh-cjr9",
+    "GHSA-rg58-xhh7-mqjw"
+  ],
+  "affected": [
+    {
+      "package": {
+        "ecosystem": "Red Hat Lightwell:Maven",
+        "name": "org.apache.struts:struts2-core",
+        "purl": "pkg:maven/org.apache.struts/struts2-core"
+      },
+      "versions": [
+        "6.1.1"
+      ],
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "6.1.1.rhlw-00021"
+            }
+          ]
+        }
+      ],
+      "database_specific": {
+        "lightwell": {
+          "backport_base_version": "6.1.1",
+          "remediated_version": "6.1.1.rhlw-00021",
+          "repository_url": "https://packages.redhat.com/lightwell/java/remediated/"
+        }
+      }
+    }
+  ],
+  "credits": [
+    {
+      "name": "Red Hat Lightwell",
+      "type": "REMEDIATION_DEVELOPER"
+    }
+  ]
+}
