@@ -1,0 +1,98 @@
+{
+  "schema_version": "1.9.2",
+  "id": "RHLW-2026-18cc190ee66fb1ed",
+  "published": "2026-11-15T16:28:54Z",
+  "modified": "2026-11-15T16:28:54Z",
+  "severity": [
+    {
+      "type": "CVSS_V3",
+      "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+    }
+  ],
+  "references": [
+    {
+      "url": "https://repo.maven.apache.org/maven2",
+      "type": "WEB"
+    },
+    {
+      "url": "https://github.com/CVEProject/cvelistV5/tree/main/cves/2026/68xxx/CVE-2026-68498.json",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/FasterXML/jackson-core/blob/2.x/release-notes/VERSION-2.x",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/FasterXML/jackson-core/blob/3.x/release-notes/VERSION",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/FasterXML/jackson-core/security/advisories/GHSA-649p-m576-vr99",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-68498",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/FasterXML/jackson-core/commit/2cd206de1163e3fcff7bdaca425274f00668b075",
+      "type": "FIX"
+    },
+    {
+      "url": "https://github.com/FasterXML/jackson-core/pull/1643",
+      "type": "FIX"
+    },
+    {
+      "url": "https://github.com/FasterXML/jackson-core",
+      "type": "PACKAGE"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-649p-m576-vr99",
+      "type": "ADVISORY"
+    }
+  ],
+  "summary": "Lightwell Security Advisory: jackson-core 2.17.3.rhlw-00006",
+  "details": "Red Hat Lightwell has released com.fasterxml.jackson.core:jackson-core 2.17.3.rhlw-00006 with a backported security fix.\n\nCVE-2026-68498: jackson-core: Delayed maxNameLength enforcement for char-backed input (ReaderBasedJsonParser) allows memory-exhaustion denial of service\n\nThis patched artifact is a drop-in replacement for com.fasterxml.jackson.core:jackson-core 2.17.3 from Maven Central.",
+  "upstream": [
+    "CVE-2026-68498",
+    "GHSA-649p-m576-vr99"
+  ],
+  "affected": [
+    {
+      "package": {
+        "ecosystem": "Red Hat Lightwell:Maven",
+        "name": "com.fasterxml.jackson.core:jackson-core",
+        "purl": "pkg:maven/com.fasterxml.jackson.core/jackson-core"
+      },
+      "versions": [
+        "2.17.3"
+      ],
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "2.17.3.rhlw-00006"
+            }
+          ]
+        }
+      ],
+      "database_specific": {
+        "lightwell": {
+          "backport_base_version": "2.17.3",
+          "remediated_version": "2.17.3.rhlw-00006",
+          "repository_url": "https://packages.redhat.com/lightwell/java/remediated/"
+        }
+      }
+    }
+  ],
+  "credits": [
+    {
+      "name": "Red Hat Lightwell",
+      "type": "REMEDIATION_DEVELOPER"
+    }
+  ]
+}
