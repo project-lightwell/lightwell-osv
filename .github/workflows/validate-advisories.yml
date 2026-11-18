@@ -156,6 +156,9 @@ jobs:
                 `Run, step summaries and JSON reports: ${run}`,
               ].join('\n');
               if (open.length) {
+                // Jobs a and c scan the whole repo on every push, so a push run would repeat the open
+                // issue's failures on each publish commit. The nightly and manual runs still comment.
+                if (context.eventName === 'push') return;
                 await github.rest.issues.createComment({ ...context.repo, issue_number: open[0].number, body });
               } else {
                 await github.rest.issues.create({
@@ -166,7 +169,9 @@ jobs:
                   body,
                 });
               }
-            } else if (allPassed && open.length) {
+            } else if (allPassed && open.length && context.eventName !== 'push') {
+              // Push runs check only the changed advisories in job b, so they can't show the repo is
+              // clean. Only a full (nightly or manual) run closes the issue.
               await github.rest.issues.createComment({
                 ...context.repo, issue_number: open[0].number, body: `All checks pass again: ${run}`,
               });
