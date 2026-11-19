@@ -157,8 +157,9 @@ jobs:
               ].join('\n');
               if (open.length) {
                 // Jobs a and c scan the whole repo on every push, so a push run would repeat the open
-                // issue's failures on each publish commit. The nightly and manual runs still comment.
-                if (context.eventName === 'push') return;
+                // issue's failures on each publish commit. Job b checks only the advisories in the push,
+                // so its failure is always new and is still reported. The nightly and manual runs still comment.
+                if (context.eventName === 'push' && !failed.includes('online-validation')) return;
                 await github.rest.issues.createComment({ ...context.repo, issue_number: open[0].number, body });
               } else {
                 await github.rest.issues.create({
