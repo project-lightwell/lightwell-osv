@@ -1,0 +1,21 @@
+{
+  "_comment": "Reviewed MISATTRIBUTED verdicts accepted as correct. One entry per (advisory, CVE, package); every field is required. Use only when osv.dev/GHSA data is demonstrably wrong; remove an entry when the validator reports it as stale.",
+  "exceptions": [
+    {
+      "advisory": "RHLW-2026-79ec677d4c215602",
+      "cve": "CVE-2023-48795",
+      "package": "com.github.mwiede:jsch",
+      "reason": "Upstream affected-package data is incomplete: GHSA-45x7-px36-x8w8 lists no Maven package, but osv.dev's own records (PYSEC-2026-1758, aliasing CVE-2023-48795) reference the jsch fix: mwiede/jsch#457, PR https://github.com/mwiede/jsch/pull/461, fixed in jsch 0.2.15. GHSA update adding Maven com.github.mwiede:jsch (< 0.2.15) to be requested; remove this entry once it lands.",
+      "reviewed_by": "Przemyslaw Roguski",
+      "date": "2026-11-16"
+    },
+    {
+      "advisory": "RHLW-2026-d0749bc5ef98b166",
+      "cve": "CVE-2023-48795",
+      "package": "com.github.mwiede:jsch",
+      "reason": "Upstream affected-package data is incomplete: GHSA-45x7-px36-x8w8 lists no Maven package, but osv.dev's own records (PYSEC-2026-1758, aliasing CVE-2023-48795) reference the jsch fix: mwiede/jsch#457, PR https://github.com/mwiede/jsch/pull/461, fixed in jsch 0.2.15. GHSA update adding Maven com.github.mwiede:jsch (< 0.2.15) to be requested; remove this entry once it lands.",
+      "reviewed_by": "Przemyslaw Roguski",
+      "date": "2026-11-16"
+    }
+  ]
+}
