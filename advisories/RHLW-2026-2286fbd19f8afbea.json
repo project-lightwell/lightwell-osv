@@ -1,0 +1,78 @@
+{
+  "schema_version": "1.9.2",
+  "id": "RHLW-2026-2286fbd19f8afbea",
+  "published": "2026-11-20T15:23:55Z",
+  "modified": "2026-11-20T15:23:55Z",
+  "severity": [
+    {
+      "type": "CVSS_V3",
+      "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+    }
+  ],
+  "references": [
+    {
+      "url": "https://repo.maven.apache.org/maven2/",
+      "type": "WEB"
+    },
+    {
+      "url": "https://github.com/CVEProject/cvelistV5/tree/main/cves/2026/54xxx/CVE-2026-54399.json",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://lists.apache.org/thread/zmxh1pl2zohov5ntdh4lt85gfrlchgpy",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-54399",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-hf6x-8p5f-cgmf",
+      "type": "ADVISORY"
+    }
+  ],
+  "summary": "Lightwell Security Advisory: httpcore5 5.2.5.rhlw-00002",
+  "details": "Red Hat Lightwell has released org.apache.httpcomponents.core5:httpcore5 5.2.5.rhlw-00002 with a backported security fix.\n\nCVE-2026-54399: Apache HttpComponents Core: Unbounded HTTP Header/Line Length in Default Configuration\n\nThis patched artifact is a drop-in replacement for org.apache.httpcomponents.core5:httpcore5 5.2.5 from Maven Central.",
+  "upstream": [
+    "CVE-2026-54399",
+    "GHSA-hf6x-8p5f-cgmf"
+  ],
+  "affected": [
+    {
+      "package": {
+        "ecosystem": "Red Hat Lightwell:Maven",
+        "name": "org.apache.httpcomponents.core5:httpcore5",
+        "purl": "pkg:maven/org.apache.httpcomponents.core5/httpcore5"
+      },
+      "versions": [
+        "5.2.5"
+      ],
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "5.2.5.rhlw-00002"
+            }
+          ]
+        }
+      ],
+      "database_specific": {
+        "lightwell": {
+          "backport_base_version": "5.2.5",
+          "remediated_version": "5.2.5.rhlw-00002",
+          "repository_url": "https://packages.redhat.com/lightwell/java/remediated/"
+        }
+      }
+    }
+  ],
+  "credits": [
+    {
+      "name": "Red Hat Lightwell",
+      "type": "REMEDIATION_DEVELOPER"
+    }
+  ]
+}
