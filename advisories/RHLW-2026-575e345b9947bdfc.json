@@ -1,0 +1,100 @@
+{
+  "schema_version": "1.9.2",
+  "id": "RHLW-2026-575e345b9947bdfc",
+  "published": "2026-11-22T03:13:19Z",
+  "modified": "2026-11-22T03:13:19Z",
+  "severity": [
+    {
+      "type": "CVSS_V3",
+      "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N"
+    }
+  ],
+  "references": [
+    {
+      "url": "https://github.com/Pylons/webob/tree/1.8.11",
+      "type": "WEB"
+    },
+    {
+      "url": "https://github.com/CVEProject/cvelistV5/tree/main/cves/2026/54xxx/CVE-2026-54770.json",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/Pylons/webob/security/advisories/GHSA-6hx8-3wjj-gr8g",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-54770",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/Pylons/webob/commit/ff89560643fb252751b4db8806a283b5377f1f07",
+      "type": "FIX"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-6hx8-3wjj-gr8g",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/CVEProject/cvelistV5/tree/main/cves/2026/44xxx/CVE-2026-44889.json",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/Pylons/webob/security/advisories/GHSA-fh3h-vg37-cc95",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-44889",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-fh3h-vg37-cc95",
+      "type": "ADVISORY"
+    }
+  ],
+  "summary": "Lightwell Security Advisory: webob 1.8.8+rhlw.1",
+  "details": "Red Hat Lightwell has released webob 1.8.8+rhlw.1 with backported fixes for CVE-2026-54770 and CVE-2026-44889.\n\nCVE-2026-54770: WebOb: Open redirect in Location header normalization via leading C0 control / space characters\n\nCVE-2026-44889: WebOb: Location header normalization during redirect leads to open redirect\n\nThis patched artifact is a drop-in replacement for webob 1.8.8 from PyPI.",
+  "upstream": [
+    "CVE-2026-54770",
+    "CVE-2026-44889",
+    "GHSA-6hx8-3wjj-gr8g",
+    "GHSA-fh3h-vg37-cc95"
+  ],
+  "affected": [
+    {
+      "package": {
+        "ecosystem": "Red Hat Lightwell:PyPI",
+        "name": "webob",
+        "purl": "pkg:pypi/webob"
+      },
+      "versions": [
+        "1.8.8"
+      ],
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "1.8.8+rhlw.1"
+            }
+          ]
+        }
+      ],
+      "database_specific": {
+        "lightwell": {
+          "backport_base_version": "1.8.8",
+          "remediated_version": "1.8.8+rhlw.1",
+          "repository_url": "https://packages.redhat.com/lightwell/python/remediated/"
+        }
+      }
+    }
+  ],
+  "credits": [
+    {
+      "name": "Red Hat Lightwell",
+      "type": "REMEDIATION_DEVELOPER"
+    }
+  ]
+}
