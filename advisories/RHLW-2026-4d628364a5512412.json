@@ -2,7 +2,7 @@
   "schema_version": "1.9.0",
   "id": "RHLW-2026-4d628364a5512412",
   "published": "2026-10-23T17:53:24Z",
-  "modified": "2026-10-23T17:53:24Z",
+  "modified": "2026-11-25T18:00:58Z",
   "severity": [
     {
       "type": "CVSS_V3",
@@ -44,7 +44,7 @@
     }
   ],
   "summary": "Lightwell Security Advisory: nimbus-jose-jwt 9.7.0.rhlw-00004",
-  "details": "Red Hat Lightwell has released com.nimbusds:nimbus-jose-jwt 9.7.0.rhlw-00004 with a backported security fix.\n\nCVE-2025-53864: Connect2id Nimbus JOSE + JWT 10.0.x before 10.0.2 and 9.37.x before 9.37.4 allows a remote attacker to cause a denial of service via a deeply nested JSON object supplied in a JWT claim set, because of uncontrolled recursion. NOTE: this is independent of the Gson 2.11.0 issue because the Connect2id product could have checked the JSON object nesting depth, regardless of what limits (if any) were imposed by Gson.\n\nThis patched artifact is a drop-in replacement for com.nimbusds:nimbus-jose-jwt 9.7.0 from Maven Central.",
+  "details": "Red Hat Lightwell has released com.nimbusds:nimbus-jose-jwt 9.7.0.rhlw-00004 with a backported security fix.\n\nCVE-2025-53864: Connect2id Nimbus JOSE + JWT 10.0.x before 10.0.2 and 9.37.x before 9.37.4 allows a remote attacker to cause a denial of service via a deeply nested JSON object supplied in a JWT claim set, because of uncontrolled recursion. NOTE: this is independent of the Gson 2.11.0 issue because the Connect2id product could have checked the JSON object nesting depth, regardless of what limits (if any) were imposed by Gson.\n\nThis patched artifact is a drop-in replacement for com.nimbusds:nimbus-jose-jwt 9.7 from Maven Central.",
   "upstream": [
     "CVE-2025-53864",
     "GHSA-xwmg-2g98-w7v9"
@@ -57,7 +57,7 @@
         "purl": "pkg:maven/com.nimbusds/nimbus-jose-jwt"
       },
       "versions": [
-        "9.7.0"
+        "9.7"
       ],
       "ranges": [
         {
@@ -74,7 +74,7 @@
       ],
       "database_specific": {
         "lightwell": {
-          "backport_base_version": "9.7.0",
+          "backport_base_version": "9.7",
           "remediated_version": "9.7.0.rhlw-00004",
           "repository_url": "https://packages.redhat.com/lightwell/java/remediated/"
         }

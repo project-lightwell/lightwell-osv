@@ -2,7 +2,7 @@
   "schema_version": "1.9.0",
   "id": "RHLW-2026-685154d7989c42e9",
   "published": "2026-10-13T21:10:15Z",
-  "modified": "2026-10-13T21:10:15Z",
+  "modified": "2026-11-25T18:00:58Z",
   "severity": [
     {
       "type": "CVSS_V3",
@@ -256,7 +256,7 @@
     }
   ],
   "summary": "Lightwell Security Advisory: commons-compress 1.9.0.rhlw-00005",
-  "details": "Red Hat Lightwell has released org.apache.commons:commons-compress 1.9.0.rhlw-00005 with backported fixes for CVE-2018-11771, CVE-2021-35515, CVE-2021-35517, CVE-2021-36090, and CVE-2024-25710.\n\nCVE-2018-11771: When reading a specially crafted ZIP archive, the read method of Apache Commons Compress 1.7 to 1.17's ZipArchiveInputStream can fail to return the correct EOF indication after the end of the stream has been reached. When combined with a java.io.InputStreamReader this can lead to an infinite stream, which can be used to mount a denial of service attack against services that use Compress' zip package.\n\nCVE-2021-35515: When reading a specially crafted 7Z archive, the construction of the list of codecs that decompress an entry can result in an infinite loop. This could be used to mount a denial of service attack against services that use Compress' sevenz package.\n\nCVE-2021-35517: When reading a specially crafted TAR archive, Compress can be made to allocate large amounts of memory that finally leads to an out of memory error even for very small inputs. This could be used to mount a denial of service attack against services that use Compress' tar package.\n\nCVE-2021-36090: When reading a specially crafted ZIP archive, Compress can be made to allocate large amounts of memory that finally leads to an out of memory error even for very small inputs. This could be used to mount a denial of service attack against services that use Compress' zip package.\n\nCVE-2024-25710: Apache Commons Compress: Denial of service caused by an infinite loop for a corrupted DUMP file\n\nThis patched artifact is a drop-in replacement for org.apache.commons:commons-compress 1.9.0 from Maven Central.",
+  "details": "Red Hat Lightwell has released org.apache.commons:commons-compress 1.9.0.rhlw-00005 with backported fixes for CVE-2018-11771, CVE-2021-35515, CVE-2021-35517, CVE-2021-36090, and CVE-2024-25710.\n\nCVE-2018-11771: When reading a specially crafted ZIP archive, the read method of Apache Commons Compress 1.7 to 1.17's ZipArchiveInputStream can fail to return the correct EOF indication after the end of the stream has been reached. When combined with a java.io.InputStreamReader this can lead to an infinite stream, which can be used to mount a denial of service attack against services that use Compress' zip package.\n\nCVE-2021-35515: When reading a specially crafted 7Z archive, the construction of the list of codecs that decompress an entry can result in an infinite loop. This could be used to mount a denial of service attack against services that use Compress' sevenz package.\n\nCVE-2021-35517: When reading a specially crafted TAR archive, Compress can be made to allocate large amounts of memory that finally leads to an out of memory error even for very small inputs. This could be used to mount a denial of service attack against services that use Compress' tar package.\n\nCVE-2021-36090: When reading a specially crafted ZIP archive, Compress can be made to allocate large amounts of memory that finally leads to an out of memory error even for very small inputs. This could be used to mount a denial of service attack against services that use Compress' zip package.\n\nCVE-2024-25710: Apache Commons Compress: Denial of service caused by an infinite loop for a corrupted DUMP file\n\nThis patched artifact is a drop-in replacement for org.apache.commons:commons-compress 1.9 from Maven Central.",
   "upstream": [
     "CVE-2018-11771",
     "CVE-2021-35515",
@@ -277,7 +277,7 @@
         "purl": "pkg:maven/org.apache.commons/commons-compress"
       },
       "versions": [
-        "1.9.0"
+        "1.9"
       ],
       "ranges": [
         {
@@ -294,7 +294,7 @@
       ],
       "database_specific": {
         "lightwell": {
-          "backport_base_version": "1.9.0",
+          "backport_base_version": "1.9",
           "remediated_version": "1.9.0.rhlw-00005",
           "repository_url": "https://packages.redhat.com/lightwell/java/remediated/"
         }

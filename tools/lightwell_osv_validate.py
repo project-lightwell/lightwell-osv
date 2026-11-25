@@ -372,6 +372,23 @@ def check_affected(record, F):
 
 
 RHLW_SUFFIX_RE = re.compile(r"[.+-]rhlw[.-]\d+$", re.I)
+_OSGI_RE = re.compile(r"^(\d+)(?:[.\-_]?(\d+))?(?:[.\-_]?(\d+))?(?:[.\-_]?(.+))?$")
+
+
+def osgi_version(version):
+    """The OSGi form PME/GME publish for a Maven version (their default versionOsgi=true).
+
+    Pads to three numbers and joins the qualifier with '.', with other separators in the
+    qualifier as '-': 9.7 -> 9.7.0, 32.1.2-jre -> 32.1.2.jre, 1.0M10 -> 1.0.0.M10,
+    2.12.2_1 -> 2.12.2.1, 2.4.0-b180830.0359 -> 2.4.0.b180830-0359 (LWLP-5842). Returns
+    the version unchanged when it doesn't start with a number.
+    """
+    m = _OSGI_RE.match(version)
+    if not m:
+        return version
+    major, minor, micro, qualifier = m.groups()
+    out = f"{major}.{minor or 0}.{micro or 0}"
+    return out + "." + re.sub(r"[^A-Za-z0-9_\-]", "-", qualifier) if qualifier else out
 
 
 def _check_lineage(entry, lw, pre, F):
@@ -395,9 +412,13 @@ def _check_lineage(entry, lw, pre, F):
     if not m:
         F.append(Finding("ERROR", "LIGHTWELL:REMEDIATED_NO_SUFFIX",
                          f"{pre}: remediated_version {remediated!r} has no rhlw suffix"))
-    elif remediated[:m.start()] != base:
+    elif remediated[:m.start()] != base and not (
+            entry.get("package", {}).get("ecosystem", "").endswith("Maven")
+            and remediated[:m.start()] == osgi_version(base)):
+        # Maven builds carry the OSGi form of the base when PME/GME rewrote it (9.7 -> 9.7.0.rhlw-N).
         F.append(Finding("ERROR", "LIGHTWELL:REMEDIATED_BASE_MISMATCH",
-                         f"{pre}: remediated_version {remediated!r} is not backport_base_version {base!r} + rhlw suffix"))
+                         f"{pre}: remediated_version {remediated!r} is not backport_base_version {base!r} "
+                         f"(or its OSGi form {osgi_version(base)!r}) + rhlw suffix"))
     versions = entry.get("versions") or []
     lw_in_versions = [v for v in versions if RHLW_SUFFIX_RE.search(v)]
     if lw_in_versions:

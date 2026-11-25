@@ -2,7 +2,7 @@
   "schema_version": "1.9.0",
   "id": "RHLW-2026-2a7b95611000d6b5",
   "published": "2026-10-12T16:58:44Z",
-  "modified": "2026-10-12T16:58:44Z",
+  "modified": "2026-11-25T18:00:58Z",
   "severity": [
     {
       "type": "CVSS_V3",
@@ -104,7 +104,7 @@
     }
   ],
   "summary": "Lightwell Security Advisory: httpclient5 5.6.0.rhlw-00001",
-  "details": "Red Hat Lightwell has released org.apache.httpcomponents.client5:httpclient5 5.6.0.rhlw-00001 with backported fixes for CVE-2026-40542 and CVE-2026-64607.\n\nCVE-2026-40542: Apache HttpClient: SCRAM-SHA-256 mutual authentication bypass may cause the client to accept authentication without proper mutual authentication verification\n\nCVE-2026-64607: Apache HttpComponents Client: Connection Leak on Content-Encoding Decode Error Leads to Pool Exhaustion DoS\n\nThis patched artifact is a drop-in replacement for org.apache.httpcomponents.client5:httpclient5 5.6.0 from Maven Central.",
+  "details": "Red Hat Lightwell has released org.apache.httpcomponents.client5:httpclient5 5.6.0.rhlw-00001 with backported fixes for CVE-2026-40542 and CVE-2026-64607.\n\nCVE-2026-40542: Apache HttpClient: SCRAM-SHA-256 mutual authentication bypass may cause the client to accept authentication without proper mutual authentication verification\n\nCVE-2026-64607: Apache HttpComponents Client: Connection Leak on Content-Encoding Decode Error Leads to Pool Exhaustion DoS\n\nThis patched artifact is a drop-in replacement for org.apache.httpcomponents.client5:httpclient5 5.6 from Maven Central.",
   "upstream": [
     "CVE-2026-40542",
     "CVE-2026-64607",
@@ -119,7 +119,7 @@
         "purl": "pkg:maven/org.apache.httpcomponents.client5/httpclient5"
       },
       "versions": [
-        "5.6.0"
+        "5.6"
       ],
       "ranges": [
         {
@@ -136,7 +136,7 @@
       ],
       "database_specific": {
         "lightwell": {
-          "backport_base_version": "5.6.0",
+          "backport_base_version": "5.6",
           "remediated_version": "5.6.0.rhlw-00001",
           "repository_url": "https://packages.redhat.com/lightwell/java/remediated/"
         }

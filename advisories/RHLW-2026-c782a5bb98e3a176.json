@@ -2,7 +2,7 @@
   "schema_version": "1.9.0",
   "id": "RHLW-2026-c782a5bb98e3a176",
   "published": "2026-10-08T19:46:26Z",
-  "modified": "2026-10-08T19:46:26Z",
+  "modified": "2026-11-25T18:00:58Z",
   "severity": [
     {
       "type": "CVSS_V3",
@@ -140,7 +140,7 @@
     }
   ],
   "summary": "Lightwell Security Advisory: snakeyaml 1.29.0.rhlw-00021",
-  "details": "Red Hat Lightwell has released org.yaml:snakeyaml 1.29.0.rhlw-00021 with backported fixes for CVE-2022-1471, CVE-2022-25857, CVE-2022-38749, CVE-2022-38750, CVE-2022-38751, CVE-2022-38752, and CVE-2022-41854.\n\nCVE-2022-1471: Remote Code execution in SnakeYAML\n\nCVE-2022-25857: Denial of Service (DoS)\n\nCVE-2022-38749: DoS in SnakeYAML\n\nCVE-2022-38750: DoS in SnakeYAML\n\nCVE-2022-38751: DoS in SnakeYAML\n\nCVE-2022-38752: DoS in SnakeYAML\n\nCVE-2022-41854: Stack Overflow in Snakeyaml\n\nThis patched artifact is a drop-in replacement for org.yaml:snakeyaml 1.29.0 from Maven Central.",
+  "details": "Red Hat Lightwell has released org.yaml:snakeyaml 1.29.0.rhlw-00021 with backported fixes for CVE-2022-1471, CVE-2022-25857, CVE-2022-38749, CVE-2022-38750, CVE-2022-38751, CVE-2022-38752, and CVE-2022-41854.\n\nCVE-2022-1471: Remote Code execution in SnakeYAML\n\nCVE-2022-25857: Denial of Service (DoS)\n\nCVE-2022-38749: DoS in SnakeYAML\n\nCVE-2022-38750: DoS in SnakeYAML\n\nCVE-2022-38751: DoS in SnakeYAML\n\nCVE-2022-38752: DoS in SnakeYAML\n\nCVE-2022-41854: Stack Overflow in Snakeyaml\n\nThis patched artifact is a drop-in replacement for org.yaml:snakeyaml 1.29 from Maven Central.",
   "upstream": [
     "CVE-2022-1471",
     "CVE-2022-25857",
@@ -165,7 +165,7 @@
         "purl": "pkg:maven/org.yaml/snakeyaml"
       },
       "versions": [
-        "1.29.0"
+        "1.29"
       ],
       "ranges": [
         {
@@ -182,7 +182,7 @@
       ],
       "database_specific": {
         "lightwell": {
-          "backport_base_version": "1.29.0",
+          "backport_base_version": "1.29",
           "remediated_version": "1.29.0.rhlw-00021",
           "repository_url": "https://packages.redhat.com/lightwell/java/remediated/"
         }

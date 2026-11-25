@@ -2,7 +2,7 @@
   "schema_version": "1.9.0",
   "id": "RHLW-2026-1da18ff8e343fdf8",
   "published": "2026-10-08T19:46:23Z",
-  "modified": "2026-10-08T19:46:23Z",
+  "modified": "2026-11-25T18:00:58Z",
   "severity": [
     {
       "type": "CVSS_V3",
@@ -32,7 +32,7 @@
     }
   ],
   "summary": "Lightwell Security Advisory: json 20220320.0.0.rhlw-00003",
-  "details": "Red Hat Lightwell has released org.json:json 20220320.0.0.rhlw-00003 with a backported security fix.\n\nCVE-2022-45688: A stack overflow in the XML.toJSONObject component of hutool-json v5.8.10 allows attackers to cause a Denial of Service (DoS) via crafted JSON or XML data.\n\nThis patched artifact is a drop-in replacement for org.json:json 20220320.0.0 from Maven Central.",
+  "details": "Red Hat Lightwell has released org.json:json 20220320.0.0.rhlw-00003 with a backported security fix.\n\nCVE-2022-45688: A stack overflow in the XML.toJSONObject component of hutool-json v5.8.10 allows attackers to cause a Denial of Service (DoS) via crafted JSON or XML data.\n\nThis patched artifact is a drop-in replacement for org.json:json 20220320 from Maven Central.",
   "upstream": [
     "CVE-2022-45688",
     "GHSA-3vqj-43w4-2q58"
@@ -45,7 +45,7 @@
         "purl": "pkg:maven/org.json/json"
       },
       "versions": [
-        "20220320.0.0"
+        "20220320"
       ],
       "ranges": [
         {
@@ -62,7 +62,7 @@
       ],
       "database_specific": {
         "lightwell": {
-          "backport_base_version": "20220320.0.0",
+          "backport_base_version": "20220320",
           "remediated_version": "20220320.0.0.rhlw-00003",
           "repository_url": "https://packages.redhat.com/lightwell/java/remediated/"
         }

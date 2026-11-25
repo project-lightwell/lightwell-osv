@@ -2,7 +2,7 @@
   "schema_version": "1.9.0",
   "id": "RHLW-2026-db6cfa79167ec456",
   "published": "2026-10-08T19:46:29Z",
-  "modified": "2026-10-08T19:46:29Z",
+  "modified": "2026-11-25T18:00:58Z",
   "severity": [
     {
       "type": "CVSS_V3",
@@ -40,7 +40,7 @@
     }
   ],
   "summary": "Lightwell Security Advisory: snakeyaml 1.33.0.rhlw-00001",
-  "details": "Red Hat Lightwell has released org.yaml:snakeyaml 1.33.0.rhlw-00001 with a backported security fix.\n\nCVE-2022-1471: Remote Code execution in SnakeYAML\n\nThis patched artifact is a drop-in replacement for org.yaml:snakeyaml 1.33.0 from Maven Central.",
+  "details": "Red Hat Lightwell has released org.yaml:snakeyaml 1.33.0.rhlw-00001 with a backported security fix.\n\nCVE-2022-1471: Remote Code execution in SnakeYAML\n\nThis patched artifact is a drop-in replacement for org.yaml:snakeyaml 1.33 from Maven Central.",
   "upstream": [
     "CVE-2022-1471",
     "GHSA-mjmj-j48q-9wg2"
@@ -53,7 +53,7 @@
         "purl": "pkg:maven/org.yaml/snakeyaml"
       },
       "versions": [
-        "1.33.0"
+        "1.33"
       ],
       "ranges": [
         {
@@ -70,7 +70,7 @@
       ],
       "database_specific": {
         "lightwell": {
-          "backport_base_version": "1.33.0",
+          "backport_base_version": "1.33",
           "remediated_version": "1.33.0.rhlw-00001",
           "repository_url": "https://packages.redhat.com/lightwell/java/remediated/"
         }
