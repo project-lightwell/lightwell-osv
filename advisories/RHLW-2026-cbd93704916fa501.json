@@ -1,0 +1,100 @@
+{
+  "schema_version": "1.9.2",
+  "id": "RHLW-2026-cbd93704916fa501",
+  "published": "2026-11-23T18:06:14Z",
+  "modified": "2026-11-23T18:06:14Z",
+  "severity": [
+    {
+      "type": "CVSS_V3",
+      "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+    }
+  ],
+  "references": [
+    {
+      "url": "https://github.com/CVEProject/cvelistV5/tree/main/cves/2026/48xxx/CVE-2026-48809.json",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/miguelgrinberg/python-engineio/security/advisories/GHSA-m9gh-vj53-gvh9",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/pypa/advisory-database/tree/main/vulns/python-engineio/PYSEC-2026-3033.yaml",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48809",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-m9gh-vj53-gvh9",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/CVEProject/cvelistV5/tree/main/cves/2026/48xxx/CVE-2026-48802.json",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/miguelgrinberg/python-engineio/security/advisories/GHSA-cgwc-pv48-fhj5",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/pypa/advisory-database/tree/main/vulns/python-engineio/PYSEC-2026-3032.yaml",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48802",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-cgwc-pv48-fhj5",
+      "type": "ADVISORY"
+    }
+  ],
+  "summary": "Lightwell Security Advisory: python-engineio 4.12.2+rhlw.1",
+  "details": "Red Hat Lightwell has released python-engineio 4.12.2+rhlw.1 with backported fixes for CVE-2026-48809 and CVE-2026-48802.\n\nCVE-2026-48809: python-engineio has possible denial of service due to maximum payload size sometimes not being enforced\n\nCVE-2026-48802: python-engineio has unbound thread allocation that can cause denial of service\n\nThis patched artifact is a drop-in replacement for python-engineio 4.12.2 from PyPI.",
+  "upstream": [
+    "CVE-2026-48809",
+    "CVE-2026-48802",
+    "GHSA-m9gh-vj53-gvh9",
+    "GHSA-cgwc-pv48-fhj5"
+  ],
+  "affected": [
+    {
+      "package": {
+        "ecosystem": "Red Hat Lightwell:PyPI",
+        "name": "python-engineio",
+        "purl": "pkg:pypi/python-engineio"
+      },
+      "versions": [
+        "4.12.2"
+      ],
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "4.12.2+rhlw.1"
+            }
+          ]
+        }
+      ],
+      "database_specific": {
+        "lightwell": {
+          "backport_base_version": "4.12.2",
+          "remediated_version": "4.12.2+rhlw.1",
+          "repository_url": "https://packages.redhat.com/lightwell/python/remediated/"
+        }
+      }
+    }
+  ],
+  "credits": [
+    {
+      "name": "Red Hat Lightwell",
+      "type": "REMEDIATION_DEVELOPER"
+    }
+  ]
+}

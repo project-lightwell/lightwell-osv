@@ -1,0 +1,86 @@
+{
+  "schema_version": "1.9.2",
+  "id": "RHLW-2026-3264cbad6760e0f3",
+  "published": "2026-11-20T23:13:11Z",
+  "modified": "2026-11-20T23:13:11Z",
+  "severity": [
+    {
+      "type": "CVSS_V4",
+      "score": "CVSS:4.0/AV:N/AC:L/AT:P/PR:N/UI:N/VC:N/VI:N/VA:L/SC:N/SI:N/SA:N"
+    }
+  ],
+  "references": [
+    {
+      "url": "https://github.com/pallets/werkzeug/releases/tag/3.1.9",
+      "type": "WEB"
+    },
+    {
+      "url": "https://github.com/CVEProject/cvelistV5/tree/main/cves/2026/102xxx/CVE-2026-102598.json",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/pallets/werkzeug/security/advisories/GHSA-g6x2-hccm-hh4m",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-102598",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/pallets/werkzeug/commit/8d77320bcdf3a34941ec06dcf16b03c065cd21b6",
+      "type": "FIX"
+    },
+    {
+      "url": "https://github.com/pallets/werkzeug/pull/3309",
+      "type": "FIX"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-g6x2-hccm-hh4m",
+      "type": "ADVISORY"
+    }
+  ],
+  "summary": "Lightwell Security Advisory: werkzeug 3.1.8+rhlw.1",
+  "details": "Red Hat Lightwell has released werkzeug 3.1.8+rhlw.1 with a backported security fix.\n\nCVE-2026-102598: Werkzeug safe_join() allows Windows special device names\n\nThis patched artifact is a drop-in replacement for werkzeug 3.1.8 from PyPI.",
+  "upstream": [
+    "CVE-2026-102598",
+    "GHSA-g6x2-hccm-hh4m"
+  ],
+  "affected": [
+    {
+      "package": {
+        "ecosystem": "Red Hat Lightwell:PyPI",
+        "name": "werkzeug",
+        "purl": "pkg:pypi/werkzeug"
+      },
+      "versions": [
+        "3.1.8"
+      ],
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "3.1.8+rhlw.1"
+            }
+          ]
+        }
+      ],
+      "database_specific": {
+        "lightwell": {
+          "backport_base_version": "3.1.8",
+          "remediated_version": "3.1.8+rhlw.1",
+          "repository_url": "https://packages.redhat.com/lightwell/python/remediated/"
+        }
+      }
+    }
+  ],
+  "credits": [
+    {
+      "name": "Red Hat Lightwell",
+      "type": "REMEDIATION_DEVELOPER"
+    }
+  ]
+}

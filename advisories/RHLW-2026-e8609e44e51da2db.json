@@ -1,0 +1,74 @@
+{
+  "schema_version": "1.9.2",
+  "id": "RHLW-2026-e8609e44e51da2db",
+  "published": "2026-11-20T23:36:12Z",
+  "modified": "2026-11-20T23:36:12Z",
+  "severity": [
+    {
+      "type": "CVSS_V3",
+      "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+    }
+  ],
+  "references": [
+    {
+      "url": "https://github.com/CVEProject/cvelistV5/tree/main/cves/2026/54xxx/CVE-2026-54283.json",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/Kludex/starlette/security/advisories/GHSA-82w8-qh3p-5jfq",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-54283",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-82w8-qh3p-5jfq",
+      "type": "ADVISORY"
+    }
+  ],
+  "summary": "Lightwell Security Advisory: starlette 1.3.0+rhlw.1",
+  "details": "Red Hat Lightwell has released starlette 1.3.0+rhlw.1 with a backported security fix.\n\nCVE-2026-54283: Starlette: request.form() limits silently ignored for application/x-www-form-urlencoded enable DoS\n\nThis patched artifact is a drop-in replacement for starlette 1.3.0 from PyPI.",
+  "upstream": [
+    "CVE-2026-54283",
+    "GHSA-82w8-qh3p-5jfq"
+  ],
+  "affected": [
+    {
+      "package": {
+        "ecosystem": "Red Hat Lightwell:PyPI",
+        "name": "starlette",
+        "purl": "pkg:pypi/starlette"
+      },
+      "versions": [
+        "1.3.0"
+      ],
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "1.3.0+rhlw.1"
+            }
+          ]
+        }
+      ],
+      "database_specific": {
+        "lightwell": {
+          "backport_base_version": "1.3.0",
+          "remediated_version": "1.3.0+rhlw.1",
+          "repository_url": "https://packages.redhat.com/lightwell/python/remediated/"
+        }
+      }
+    }
+  ],
+  "credits": [
+    {
+      "name": "Red Hat Lightwell",
+      "type": "REMEDIATION_DEVELOPER"
+    }
+  ]
+}
