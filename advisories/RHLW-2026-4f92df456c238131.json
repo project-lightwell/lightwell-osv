@@ -1,0 +1,104 @@
+{
+  "schema_version": "1.9.2",
+  "id": "RHLW-2026-4f92df456c238131",
+  "published": "2026-11-25T15:24:32Z",
+  "modified": "2026-11-25T15:24:32Z",
+  "severity": [
+    {
+      "type": "CVSS_V3",
+      "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+    }
+  ],
+  "references": [
+    {
+      "url": "https://github.com/CVEProject/cvelistV5/tree/main/cves/2025/52xxx/CVE-2025-52999.json",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/FasterXML/jackson-core/security/advisories/GHSA-h46c-h94j-95f3",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-52999",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/FasterXML/jackson-core/pull/943",
+      "type": "FIX"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-h46c-h94j-95f3",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/CVEProject/cvelistV5/tree/main/cves/2026/89xxx/CVE-2026-89425.json",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/FasterXML/jackson-core/security/advisories/GHSA-7hhh-6rmp-j9qf",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-89425",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://github.com/FasterXML/jackson-core/pull/1698",
+      "type": "FIX"
+    },
+    {
+      "url": "https://github.com/FasterXML/jackson-core",
+      "type": "PACKAGE"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-7hhh-6rmp-j9qf",
+      "type": "ADVISORY"
+    }
+  ],
+  "summary": "Lightwell Security Advisory: jackson-core 2.11.3.rhlw-00005",
+  "details": "Red Hat Lightwell has released com.fasterxml.jackson.core:jackson-core 2.11.3.rhlw-00005 with backported fixes for CVE-2025-52999 and CVE-2026-89425.\n\nCVE-2025-52999: jackson-core Has Potential for StackoverflowError if user parses an input file that contains very deeply nested data\n\nCVE-2026-89425: jackson-core: UTF8DataInputJsonParser._reportInvalidToken() does not honor maxErrorTokenLength, allowing unbounded StringBuilder growth\n\nThis patched artifact is a drop-in replacement for com.fasterxml.jackson.core:jackson-core 2.11.3 from Maven Central.",
+  "upstream": [
+    "CVE-2025-52999",
+    "CVE-2026-89425",
+    "GHSA-h46c-h94j-95f3",
+    "GHSA-7hhh-6rmp-j9qf"
+  ],
+  "affected": [
+    {
+      "package": {
+        "ecosystem": "Red Hat Lightwell:Maven",
+        "name": "com.fasterxml.jackson.core:jackson-core",
+        "purl": "pkg:maven/com.fasterxml.jackson.core/jackson-core"
+      },
+      "versions": [
+        "2.11.3"
+      ],
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "2.11.3.rhlw-00005"
+            }
+          ]
+        }
+      ],
+      "database_specific": {
+        "lightwell": {
+          "backport_base_version": "2.11.3",
+          "remediated_version": "2.11.3.rhlw-00005",
+          "repository_url": "https://packages.redhat.com/lightwell/java/remediated/"
+        }
+      }
+    }
+  ],
+  "credits": [
+    {
+      "name": "Red Hat Lightwell",
+      "type": "REMEDIATION_DEVELOPER"
+    }
+  ]
+}
