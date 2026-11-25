@@ -107,9 +107,13 @@ script (loaded automatically; `--exceptions PATH` to use another file, `--except
 ```
 
 - One entry per (advisory, CVE, package); every field is required (an incomplete file exits with `2`).
+- An entry applies to a `MISATTRIBUTED` or a `NEEDS_REVIEW` verdict (for example a CVE whose public records
+  name only the product family, after the module was confirmed from the CVE text or the fix).
 - The verdict becomes `ACCEPTED_EXCEPTION` and the record `OK_WITH_WARNINGS`, so it stays visible.
 - A `REJECTED` CVE is never excepted, and another CVE or package on the same advisory still fails.
-- An entry whose advisory no longer comes out `MISATTRIBUTED` is reported as stale; remove it.
+- An entry whose advisory no longer comes out `MISATTRIBUTED` or `NEEDS_REVIEW` is reported as stale; remove it.
+- A withdrawn record (OSV `withdrawn`) gets the schema checks only: osv.dev no longer serves it for
+  matching, so its CVE attribution is not checked.
 - Add the evidence to `reason` (what you checked, e.g. jar contents or the CVE description).
 
 ## Networking & caching

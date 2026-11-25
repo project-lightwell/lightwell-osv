@@ -321,6 +321,8 @@ def load_from_dir(input_dir, name, ecosystem):
             rec = json.loads(p.read_text("utf-8"))
         except (json.JSONDecodeError, OSError):
             continue
+        if rec.get("withdrawn"):
+            continue
         for a in rec.get("affected", []):
             pkg = a.get("package", {})
             if pkg.get("name") == name and pkg.get("ecosystem") == ecosystem:
@@ -789,6 +791,9 @@ def main(argv=None):
     else:
         ap.error("one of --package, --advisory, or --input-dir is required (or --self-test)")
 
+    # Withdrawn records (OSV `withdrawn`) are not served for matching: their
+    # ranges can't flag anything.
+    records = [r for r in records if not r.get("withdrawn")]
     print(f"source: {src}")
 
     # ------------------------------------------------------------------ #

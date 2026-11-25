@@ -14,6 +14,9 @@ uses `introduced: 0`. A higher branch's range `[0, 6.2.2.rhlw-00004)` then spans
 lower branch's remediated build `6.0.3.rhlw-00001`, so an OSV.dev query for that build
 returns the higher advisory — a false positive, even though the build carries the fix.
 
+Withdrawn advisories (OSV `withdrawn`) are skipped: OSV.dev no longer serves them for
+matching, so their ranges can't flag a build.
+
 ### The rule that matters: `introduced` is INCLUSIVE
 
 Per the OSV spec ([ossf/osv-schema `docs/schema.md`][spec], `IncludedInRanges`):

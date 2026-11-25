@@ -599,7 +599,9 @@ def process_file(path: Path, cache, offline):
     F = []
     check_schema(record, path, F)
     r.schema = F
-    if not offline:
+    # A withdrawn record (OSV `withdrawn`) is no longer served for matching by
+    # osv.dev, so its CVE attribution is not checked; its schema still is.
+    if not offline and not record.get("withdrawn"):
         r.verdicts = check_cve_package(record, cache, r.schema)
     return r
 
@@ -629,10 +631,11 @@ def load_exceptions(path: Path):
 
 
 def apply_exceptions(results, exceptions):
-    """Turn reviewed MISATTRIBUTED verdicts into ACCEPTED_EXCEPTION (a warning).
+    """Turn reviewed MISATTRIBUTED or NEEDS_REVIEW verdicts into ACCEPTED_EXCEPTION (a warning).
 
     A REJECTED CVE is never excepted. Returns stale entries: exceptions for an
-    advisory in this run whose (CVE, package) no longer comes out MISATTRIBUTED.
+    advisory in this run whose (CVE, package) no longer comes out MISATTRIBUTED
+    or NEEDS_REVIEW.
     """
     used = set()
     for r in results:
@@ -641,12 +644,13 @@ def apply_exceptions(results, exceptions):
             e = exceptions.get(key)
             if e is None:
                 continue
-            if v.verdict == "MISATTRIBUTED":
+            if v.verdict in ("MISATTRIBUTED", "NEEDS_REVIEW"):
+                original = v.verdict
                 v.verdict = "ACCEPTED_EXCEPTION"
                 v.evidence = (f"reviewed exception ({e['reviewed_by']}, {e['date']}): {e['reason']} "
                               f"[validator: {v.evidence}]")
                 r.schema.append(Finding("WARNING", "LIGHTWELL:ACCEPTED_EXCEPTION",
-                                        f"{v.cve_id} vs {v.package_name}: MISATTRIBUTED accepted by reviewed exception "
+                                        f"{v.cve_id} vs {v.package_name}: {original} accepted by reviewed exception "
                                         f"({e['reviewed_by']}, {e['date']})"))
                 used.add(key)
     checked = {r.record_id for r in results if r.verdicts}
