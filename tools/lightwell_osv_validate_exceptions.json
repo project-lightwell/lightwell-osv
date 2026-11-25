@@ -1,5 +1,5 @@
 {
-  "_comment": "Reviewed MISATTRIBUTED verdicts accepted as correct. One entry per (advisory, CVE, package); every field is required. Use only when osv.dev/GHSA data is demonstrably wrong; remove an entry when the validator reports it as stale.",
+  "_comment": "Reviewed MISATTRIBUTED or NEEDS_REVIEW verdicts accepted as correct. One entry per (advisory, CVE, package); every field is required. Use only when osv.dev/GHSA data is demonstrably wrong; remove an entry when the validator reports it as stale.",
   "exceptions": [
     {
       "advisory": "RHLW-2026-79ec677d4c215602",
@@ -16,6 +16,38 @@
       "reason": "Upstream affected-package data is incomplete: GHSA-45x7-px36-x8w8 lists no Maven package, but osv.dev's own records (PYSEC-2026-1758, aliasing CVE-2023-48795) reference the jsch fix: mwiede/jsch#457, PR https://github.com/mwiede/jsch/pull/461, fixed in jsch 0.2.15. GHSA update adding Maven com.github.mwiede:jsch (< 0.2.15) to be requested; remove this entry once it lands.",
       "reviewed_by": "Przemyslaw Roguski",
       "date": "2026-11-16"
+    },
+    {
+      "advisory": "RHLW-2026-81384c14bc892e51",
+      "cve": "CVE-2023-38286",
+      "package": "org.thymeleaf:thymeleaf",
+      "reason": "CVE-2023-38286 was filed against de.codecentric:spring-boot-admin-server, but the flaw is in Thymeleaf: it was fixed in Thymeleaf via https://github.com/thymeleaf/thymeleaf/issues/966 without a separate CVE. Lightwell's thymeleaf build backports that fix and uses CVE-2023-38286 as its reference.",
+      "reviewed_by": "Przemyslaw Roguski",
+      "date": "2026-11-25"
+    },
+    {
+      "advisory": "RHLW-2026-f6f1fa9b81c3bbbe",
+      "cve": "CVE-2024-3653",
+      "package": "io.quarkus.http:quarkus-http-core",
+      "reason": "Upstream, CVE-2024-3653 is filed against undertow-io/undertow (GHSA lists io.undertow:undertow-core), but Red Hat's quarkus-http-core carries the affected code; this Lightwell quarkus-http-core build contains the fix.",
+      "reviewed_by": "Przemyslaw Roguski",
+      "date": "2026-11-25"
+    },
+    {
+      "advisory": "RHLW-2026-7319d066a4020696",
+      "cve": "CVE-2024-3653",
+      "package": "io.quarkus.http:quarkus-http-core",
+      "reason": "Upstream, CVE-2024-3653 is filed against undertow-io/undertow (GHSA lists io.undertow:undertow-core), but Red Hat's quarkus-http-core carries the affected code; this Lightwell quarkus-http-core build contains the fix.",
+      "reviewed_by": "Przemyslaw Roguski",
+      "date": "2026-11-25"
+    },
+    {
+      "advisory": "RHLW-2026-ef25ba7d086b94de",
+      "cve": "CVE-2026-68496",
+      "package": "com.fasterxml.jackson.dataformat:jackson-dataformat-smile",
+      "reason": "Public records name only the product family (NEEDS_REVIEW). The CVE text and the CVE.org CVEv5 record (https://cveawg.mitre.org/api/cve/CVE-2026-68496) describe the flaw in jackson-dataformat-smile.",
+      "reviewed_by": "Przemyslaw Roguski",
+      "date": "2026-11-25"
     }
   ]
 }
