@@ -1,0 +1,82 @@
+{
+  "schema_version": "1.9.2",
+  "id": "RHLW-2026-d25c0131cd1fb124",
+  "published": "2026-11-19T16:35:38Z",
+  "modified": "2026-11-19T16:35:38Z",
+  "severity": [
+    {
+      "type": "CVSS_V3",
+      "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+    }
+  ],
+  "references": [
+    {
+      "url": "https://github.com/CVEProject/cvelistV5/tree/main/cves/2022/25xxx/CVE-2022-25857.json",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2022-25857",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://bitbucket.org/snakeyaml/snakeyaml/issues/525",
+      "type": "REPORT"
+    },
+    {
+      "url": "https://bitbucket.org/snakeyaml/snakeyaml/commits/fc300780da21f4bb92c148bc90257201220cf174",
+      "type": "FIX"
+    },
+    {
+      "url": "https://github.com/snakeyaml/snakeyaml/commit/fc300780da21f4bb92c148bc90257201220cf174",
+      "type": "FIX"
+    },
+    {
+      "url": "https://github.com/advisories/GHSA-3mc7-4q67-w48m",
+      "type": "ADVISORY"
+    }
+  ],
+  "summary": "Lightwell Security Advisory: snakeyaml 1.30.0.rhlw-00016",
+  "details": "Red Hat Lightwell has released org.yaml:snakeyaml 1.30.0.rhlw-00016 with a backported security fix.\n\nCVE-2022-25857: Denial of Service (DoS)\n\nThis patched artifact is a drop-in replacement for org.yaml:snakeyaml 1.30.0 from Maven Central.",
+  "upstream": [
+    "CVE-2022-25857",
+    "GHSA-3mc7-4q67-w48m"
+  ],
+  "affected": [
+    {
+      "package": {
+        "ecosystem": "Red Hat Lightwell:Maven",
+        "name": "org.yaml:snakeyaml",
+        "purl": "pkg:maven/org.yaml/snakeyaml"
+      },
+      "versions": [
+        "1.30.0"
+      ],
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "1.30.0"
+            },
+            {
+              "fixed": "1.30.0.rhlw-00016"
+            }
+          ]
+        }
+      ],
+      "database_specific": {
+        "lightwell": {
+          "backport_base_version": "1.30.0",
+          "remediated_version": "1.30.0.rhlw-00016",
+          "repository_url": "https://packages.redhat.com/lightwell/java/remediated/"
+        }
+      }
+    }
+  ],
+  "credits": [
+    {
+      "name": "Red Hat Lightwell",
+      "type": "REMEDIATION_DEVELOPER"
+    }
+  ]
+}
