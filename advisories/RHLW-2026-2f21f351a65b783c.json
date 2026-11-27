@@ -1,0 +1,66 @@
+{
+  "schema_version": "1.9.2",
+  "id": "RHLW-2026-2f21f351a65b783c",
+  "published": "2026-11-19T16:25:25Z",
+  "modified": "2026-11-19T16:25:25Z",
+  "severity": [
+    {
+      "type": "CVSS_V3",
+      "score": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+    }
+  ],
+  "references": [
+    {
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-87822",
+      "type": "ADVISORY"
+    },
+    {
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-87962",
+      "type": "ADVISORY"
+    }
+  ],
+  "summary": "Lightwell Security Advisory: t-digest 3.2.0.rhlw-00013",
+  "details": "Red Hat Lightwell has released com.tdunning:t-digest 3.2.0.rhlw-00013 with backported fixes for CVE-2026-87822 and CVE-2026-87962.\n\nCVE-2026-87822: t-digest versions 3.1 through 3.3 fail to validate centroid means during deserialization in MergingDigest.fromBytes, allowing attackers to inject NaN values that bypass validation checks. Attackers can craft malicious serialized digests containing NaN centroids that degrade sorting performance from O(n log n) to O(n squared), causing severe processing delays during merge operations.\n\nCVE-2026-87962: t-digest versions 3.1 through 3.3 contain a denial of service vulnerability in MergingDigest.fromBytes that fails to validate length and capacity fields from serialized data. Attackers can supply crafted serialized digests with mismatched header fields to trigger ArrayIndexOutOfBoundsException or NegativeArraySizeException, aborting the parsing thread.\n\nThis patched artifact is a drop-in replacement for com.tdunning:t-digest 3.2.0 from Maven Central.",
+  "upstream": [
+    "CVE-2026-87822",
+    "CVE-2026-87962"
+  ],
+  "affected": [
+    {
+      "package": {
+        "ecosystem": "Red Hat Lightwell:Maven",
+        "name": "com.tdunning:t-digest",
+        "purl": "pkg:maven/com.tdunning/t-digest"
+      },
+      "versions": [
+        "3.2.0"
+      ],
+      "ranges": [
+        {
+          "type": "ECOSYSTEM",
+          "events": [
+            {
+              "introduced": "0"
+            },
+            {
+              "fixed": "3.2.0.rhlw-00013"
+            }
+          ]
+        }
+      ],
+      "database_specific": {
+        "lightwell": {
+          "backport_base_version": "3.2.0",
+          "remediated_version": "3.2.0.rhlw-00013",
+          "repository_url": "https://packages.redhat.com/lightwell/java/remediated/"
+        }
+      }
+    }
+  ],
+  "credits": [
+    {
+      "name": "Red Hat Lightwell",
+      "type": "REMEDIATION_DEVELOPER"
+    }
+  ]
+}
